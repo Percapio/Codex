@@ -1,0 +1,41 @@
+{
+  entities: {
+    books: {
+      1: {
+        id: ISBN,
+        title: 'Book Title',
+        author_id: 8,
+        summary: 'summary of book',
+        review_id: [1, 2..],
+        tag_id: [1, 2..]
+      },
+      2: {
+        id: ISBN,
+        title: 'Book Title',
+        author_id: 9,
+        summary: 'summary of book',
+        review_id: [4, 5..],
+        tag_id: [4, 5..]
+      }
+    },
+    users: {
+      1: {
+        id: 1,
+        username: 'username',
+        email: 'email',
+        bookshelves: [1, 2..]
+      }
+    }
+  },
+    errors: {
+      login: ["Incorrect username/password combination"],
+      reviewForm: ["Review form must be filled out"]
+    },
+    session: {
+      id: 1,
+      username: 'username',
+      bookshelves: [1, 2..],
+      current_reading_id: 4,
+      want_to_read_id: 5
+    }
+}
