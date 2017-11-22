@@ -4,13 +4,13 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.find_by(user_params)
+    @user = User.find(user_params)
 
     if @user.save
       login(@user)
-      redirect_to new_api_session
+      redirect_to '/api/users/show'
     else
-      render 'error'
+      render json: @user.errors.full_messages, status: 404
     end
   end
 

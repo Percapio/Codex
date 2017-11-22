@@ -4,18 +4,19 @@ class Api::SessionController < ApplicationController
   end
 
   def create
+    debugger;
     @user = User.find(user_params)
 
     if @user.save
       login(@user)
-      redirect_to new_api_session
+      redirect_to '/api/session/show'
     else
-      render 'errors'
+      render json: @user.errors.full_messages, status: 404
     end
   end
 
   def destroy
-    @user = User.find_by(session[:session_token]: :session_token)
+    @user = User.find_by(session_token: session_token[:session_token])
     @user.destroy!
     @user
   end
