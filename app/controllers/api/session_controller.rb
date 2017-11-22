@@ -4,7 +4,6 @@ class Api::SessionController < ApplicationController
   end
 
   def create
-    debugger;
     @user = User.find(user_params)
 
     if @user.save
