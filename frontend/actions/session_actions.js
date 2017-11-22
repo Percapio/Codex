@@ -13,6 +13,11 @@ const receiveCurrentUser = (user) => ({
 //   error
 // });
 
+export const signup = user => dispatch => (
+	APISessionUtil.signup(user).then(
+		(user) => dispatch(receiveCurrentUser(user)) )
+);
+
 export const login = user => dispatch => (
   APISessionUtil.login(user).then(
     (currentUser) => dispatch(receiveCurrentUser(currentUser)) )

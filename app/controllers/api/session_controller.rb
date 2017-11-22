@@ -1,27 +1,34 @@
 class Api::SessionController < ApplicationController
-  def new
-    @user = User.find(params[:session_token])
-  end
 
   def create
-    @user = User.find(user_params)
+    @user = User.find_by_credentials(
+      user_params[:username],
+      user_params[:password],
+    )
 
-    if @user.save
+    if @user
       login(@user)
-      redirect_to '/api/session/show'
+      render 'api/users/show'
     else
-      render json: @user.errors.full_messages, status: 404
+      render json: ['Invalid username/password'], status: 401
     end
   end
 
   def destroy
-    @user = User.find_by(session_token: session_token[:session_token])
-    @user.destroy!
-    @user
+    @user = current_user
+
+    if @user
+      logout
+      render 'api/users/show'
+    else
+      render json: ['Not logged in.'], status: 404
+    end
   end
 
   private
+
   def user_params
-    params.require(:id).permit(:username, :session_token)
+    params.require(:user).permit(:username, :password)
   end
+
 end

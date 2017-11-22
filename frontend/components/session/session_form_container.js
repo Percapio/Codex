@@ -1,12 +1,14 @@
 import { connect } from 'react-redux';
-import { login, logout } from '../../actions/session_actions';
-import SessionForm from './session_form.jsx';
+import { signup, login, logout } from '../../actions/session_actions';
+// import { withRouter } from 'react-router-dom';
+import SessionForm from './session_form';
 
 const mapStateToProps = state => ({
 	session: state
 });
 
 const mapDispatchToProps = ( dispatch, ownProps ) => ({
+		signup: () => dispatch( signup() ),
 		logout: () => dispatch( logout() ),
 		login: () => dispatch( login() )
 });
@@ -14,4 +16,4 @@ const mapDispatchToProps = ( dispatch, ownProps ) => ({
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(SessionForm)
+)(SessionForm);

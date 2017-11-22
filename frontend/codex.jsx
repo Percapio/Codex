@@ -17,7 +17,15 @@ const windowTest = (store) => {
 
 document.addEventListener('DOMContentLoaded', () => {
   const rootEl = document.getElementById('root');
-  const store = configStore();
+  let store;
+
+  if (window.user) {
+  	const preloadedState = { session: { user: window.user } };
+  	store = configStore(preloadedState);
+  	delete window.user;
+  } else {
+  	store = configStore();
+  }
 
   windowTest(store);
 
