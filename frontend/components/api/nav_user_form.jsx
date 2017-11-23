@@ -51,7 +51,7 @@ class NavUserForm extends React.Component {
 							type= 'password'
 							onChange= { this.handleChange('password') } />
 
-						<button value= 'Submit'/>
+						<button value= 'Submit'>Submit</button>
 					</form> 
 				</div>
 			)

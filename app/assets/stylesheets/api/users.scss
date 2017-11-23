@@ -2,6 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.nav-bar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+
+		h1 {
+			font-size: 36px;
+			margin-left: 20px;
+		}
+}
+
 .user-form-container {
 	width: 400px;
 	padding-left: 5px;
@@ -14,10 +26,11 @@
 			color: rgba(0, 0, 0, 0.8);
 			padding-left: 10px;
 			border: 1px solid rgba(0, 0, 0, 0.5);
+			border-radius: 2px;
+			margin-right: 5px;
 		}
 
 		button {
-			content: 'Submit';
-			box-sizing: border-box;
+			border: 1px solid black;
 		}
 }
