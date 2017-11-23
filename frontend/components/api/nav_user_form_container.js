@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { login, logout } from '../../actions/session_actions';
 import { withRouter } from 'react-router-dom';
-import NavSessionForm from './nav_session_form';
+import NavUserForm from './nav_user_form';
 
 const mapStateToProps = state => ({
 	session: state.session
@@ -9,10 +9,10 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = ( dispatch, ownProps ) => {
 	const sessionType = ownProps.location.pathname.slice(1);
-	const processSession = (sessionType === 'login') ? login : signup;
+	const processUser = (sessionType === 'login') ? login : signup;
 
 	return {
-		processSession: user => dispatch(processSession(user)),
+		processUser: user => dispatch(processUser(user)),
 		sessionType
 	};
 };
@@ -20,4 +20,4 @@ const mapDispatchToProps = ( dispatch, ownProps ) => {
 export default withRouter(connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(NavSessionForm));
+)(NavUserForm));

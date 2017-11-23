@@ -1,6 +1,6 @@
 import React from 'react';
 
-class NavSessionForm extends React.Component {
+class NavUserForm extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -20,13 +20,13 @@ class NavSessionForm extends React.Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-		this.props.processSession(this.state)
+		this.props.processUser(this.state)
 			.then( () => this.props.history.push('/') );
 	}
 
 	handleClick(e) {
 		e.preventDefault();
-		this.props.processSession()
+		this.props.processUser()
 			.then( () => this.props.history.push('/') );
 	}
 
@@ -34,14 +34,14 @@ class NavSessionForm extends React.Component {
 
 		if (this.props.sessionType === 'login') {
 			return (
-				<div className= 'signout-form-container'>
+				<div className= 'user-form-container'>
 					<button onClick= {this.handleClick} className= 'signout-button'/>
 				</div>
 			)
 		} else {
 			return (
-				<div className= 'signin-form-container'>
-					<form onSubmit= {this.handleSubmit} className= 'signin-form'>
+				<div className= 'user-form-container'>
+					<form onSubmit= {this.handleSubmit} className= 'user-form'>
 						<input
 							type= 'text'
 							value= {this.state.username}
@@ -59,4 +59,4 @@ class NavSessionForm extends React.Component {
 	}
 }
 
-export default NavSessionForm;
+export default NavUserForm;

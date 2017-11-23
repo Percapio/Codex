@@ -1,3 +1,23 @@
 // Place all the styles related to the api/Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.user-form-container {
+	width: 400px;
+	padding-left: 5px;
+	padding-right: 5px;
+	display: flex;
+	justify-content: flex-end;
+
+		input {
+			width: 40%;
+			color: rgba(0, 0, 0, 0.8);
+			padding-left: 10px;
+			border: 1px solid rgba(0, 0, 0, 0.5);
+		}
+
+		button {
+			content: 'Submit';
+			box-sizing: border-box;
+		}
+}
