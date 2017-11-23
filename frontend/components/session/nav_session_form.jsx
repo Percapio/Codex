@@ -5,8 +5,8 @@ class NavSessionForm extends React.Component {
 		super(props);
 
 		this.state = {
-			username: '',
-			password: ''
+			username: 'Name',
+			password: 'Password'
 		};
 
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -44,12 +44,11 @@ class NavSessionForm extends React.Component {
 					<form onSubmit= {this.handleSubmit} className= 'signin-form'>
 						<input
 							type= 'text'
-							value= 'Name'
+							value= {this.state.username}
 							onChange= { this.handleChange('username') } />
 
 						<input
-							type= 'text'
-							value= 'Password'
+							type= 'password'
 							onChange= { this.handleChange('password') } />
 
 						<button value= 'Submit'/>
