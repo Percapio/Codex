@@ -7,7 +7,7 @@ class SessionForm extends React.Component {
 		this.state = {
 			username: 'Name',
 			email: 'Email Address',
-			password: 'Password'
+			password: 'password'
 		};
 
 		this.handleSubmit = this.handleSubmit.bind(this);

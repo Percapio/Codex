@@ -21,11 +21,12 @@ export const signup = user => dispatch => (
 
 export const login = user => dispatch => (
   APISessionUtil.login(user).then(
-    (currentUser) => dispatch(receiveCurrentUser(currentUser)) )
+    (user) => dispatch(receiveCurrentUser(user)) )
   	.fail( (user) => dispatch(receiveErrors(user)) )
 );
 
-export const logout = () => dispatch => (
-  APISessionUtil.logout().then(
+export const logout = (id) => dispatch => (
+  APISessionUtil.logout(id).then(
     () => dispatch(receiveCurrentUser(null)) )
+  	.fail( () => dispatch(receiveErrors()) )
 );

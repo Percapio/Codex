@@ -6,10 +6,12 @@ class NavUserForm extends React.Component {
 
 		this.state = {
 			username: 'Name',
-			password: 'Password'
+			password: 'password'
 		};
 
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleClick = this.handleClick.bind(this);
+		this.handleDemo = this.handleDemo.bind(this);
 	}
 
 	handleChange(field) {
@@ -28,6 +30,13 @@ class NavUserForm extends React.Component {
 		e.preventDefault();
 		this.props.logout()
 			.then( () => this.props.history.push('/') );
+	}
+
+	handleDemo(e) {
+		e.preventDefault();
+		const user = { username: 'Name', password: 'Password' }
+		this.props.login(user)
+			.then( () => this.props.history.push('/users/show') );
 	}
 
 	render() {
@@ -54,6 +63,9 @@ class NavUserForm extends React.Component {
 
 						<button value= 'Submit'>Submit</button>
 					</form> 
+
+					<button onClick= {this.handleDemo} className= 'demo-button'>Guest User
+					</button>
 				</div>
 			)
 		}
