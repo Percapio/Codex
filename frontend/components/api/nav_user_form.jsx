@@ -14,28 +14,29 @@ class NavUserForm extends React.Component {
 
 	handleChange(field) {
 		return(e) => this.setState({
-			[field]: e.target.value
+			[field]: e.currentTarget.value
 		});
 	}
 
 	handleSubmit(e) {
 		e.preventDefault();
-		this.props.processUser(this.state)
-			.then( () => this.props.history.push('/user') );
+		this.props.login(this.state)
+			.then( () => this.props.history.push('/users/show') );
 	}
 
 	handleClick(e) {
 		e.preventDefault();
-		this.props.processUser()
+		this.props.logout()
 			.then( () => this.props.history.push('/') );
 	}
 
 	render() {
 
-		if (this.props.sessionType === 'login') {
+		if (this.props.sessionType === '/users/show') {
 			return (
 				<div className= 'user-form-container'>
-					<button onClick= {this.handleClick} className= 'signout-button'/>
+					<button onClick= {this.handleClick} className= 'signout-button'>Log Out
+					</button>
 				</div>
 			)
 		} else {
@@ -46,9 +47,9 @@ class NavUserForm extends React.Component {
 							type= 'text'
 							value= {this.state.username}
 							onChange= { this.handleChange('username') } />
-
 						<input
 							type= 'password'
+							value= {this.state.password}
 							onChange= { this.handleChange('password') } />
 
 						<button value= 'Submit'>Submit</button>

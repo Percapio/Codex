@@ -1,1 +1,1 @@
-json partial! 'api/bookshelves/bookshelf', as bookshelf: @bookshelf
+json.partial! 'api/bookshelves/bookshelf', bookshelf: @bookshelf

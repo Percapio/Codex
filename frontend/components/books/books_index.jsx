@@ -1,7 +1,7 @@
 import React from 'react';
 import BooksIndexItem from './books_index_item';
 
-class BookIndex extends React.Component {
+class BooksIndex extends React.Component {
 	componentDidMount() {
 		this.props.getAllBooks();
 	}
@@ -30,4 +30,4 @@ class BookIndex extends React.Component {
 	}
 };
 
-export default BookIndex;
+export default BooksIndex;

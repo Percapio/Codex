@@ -17,18 +17,20 @@ class SessionForm extends React.Component {
 		e.preventDefault();
 		const user = this.state;
 		this.props.signup( user )
-			.then( () => this.props.history.push('/user') );
+			.then( () => this.props.history.push('/users/show') );
 	}
 
 	handleChange(field) {
 		return(e) => this.setState({
-			[field]: e.target.value
+			[field]: e.currentTarget.value
 		});
 	}
 
 	componentWillReceiveProps(props) {
 		if (props.loggedIn) {
-			this.props.history.push('/user');
+			this.props.history.push('/users/show');
+		} else {
+			this.props.history.push('/')
 		}
 	}
 
@@ -49,6 +51,7 @@ class SessionForm extends React.Component {
 
 						<input
 							type= 'password'
+							value= {this.state.password}
 							onChange= {this.handleChange('password')} />
 
 						<input type= 'submit' value= 'Submit'/>

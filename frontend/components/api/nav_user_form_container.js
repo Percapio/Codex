@@ -4,15 +4,15 @@ import { withRouter } from 'react-router-dom';
 import NavUserForm from './nav_user_form';
 
 const mapStateToProps = state => ({
-	session: state.session
+	user: state.sessionReducer.user
 });
 
 const mapDispatchToProps = ( dispatch, ownProps ) => {
-	const sessionType = ownProps.location.pathname.slice(1);
-	const processUser = (sessionType === 'login') ? login : signup;
+	const sessionType = ownProps.location.pathname;
 
 	return {
-		processUser: user => dispatch(processUser(user)),
+		login: user => dispatch(login(user)),
+		logout: () => dispatch(logout()),
 		sessionType
 	};
 };

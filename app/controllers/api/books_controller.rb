@@ -11,11 +11,12 @@ class BooksController < ApplicationController
 
   def index
     @book = Book.all
+    redirect_to '/api/books/index'
   end
 
   private
 
   def book_params
-    params.require(:book).permit(:title, :author, :ISBN)
+    params.require(:book).permit(:title, :author, :ISBN, :summary)
   end
 end
