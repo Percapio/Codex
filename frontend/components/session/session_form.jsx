@@ -16,8 +16,8 @@ class SessionForm extends React.Component {
 	handleSubmit(e) {
 		e.preventDefault();
 		const user = this.state;
-		this.props.signup( user );
-			// .then(data => this.props.history.push(`/users/${data.user}`));
+		this.props.signup( user )
+			.then( () => this.props.history.push('/') );
 	}
 
 	handleChange(field) {
@@ -30,24 +30,23 @@ class SessionForm extends React.Component {
 		return (
 			<div className= 'login-form-container'>
 				<form className= 'login-form' onSubmit= {this.handleSubmit}>
-					<label>Username:
+					<label>
 						<input
 							type= 'text'
-							value= {this.state.username}
+							value= 'Name'
 							onChange= {this.handleChange('username')} />
 					</label>
 
-					<label>Email:
+					<label>
 						<input
-							type= 'text'
-							value= {this.state.email}
+							type= 'email'
+							value= 'Email Address'
 							onChange= {this.handleChange('email')} />
 					</label>
 
-					<label>Password:
+					<label>
 						<input
 							type= 'password'
-							value= {this.state.password}
 							onChange= {this.handleChange('password')} />
 					</label>
 
