@@ -10,7 +10,7 @@ export default (state = {}, action) => {
 
 		case RECEIVE_BOOK:
 			const book = action.book;
-			return merge({}, state, {[action.book.id]: action.book });
+			return merge({}, state, { [action.book.id]: action.book });
 
 		default:
 			return state;

@@ -9,12 +9,12 @@ const receiveBookshelf = bookshelf => ({
 	bookshelf
 });
 
-const deleteBookshelf = bookshelf => ({
+const removeBookshelf = bookshelf => ({
 	type: DELETE_BOOKSHELF,
 	bookshelf
 });
 
-const createBookshelf = bookshelf => ({
+const makeBookshelf = bookshelf => ({
 	type: CREATE_BOOKSHELF,
 	bookshelf
 });
@@ -26,12 +26,12 @@ export const getBookshelf = (id) => dispatch => (
 
 export const createBookshelf = (bookshelf) => dispatch => (
 	APIUtil.createBookshelf(bookshelf).then(
-		(payload) => dispatch(createBookshelf(payload)) )
+		(payload) => dispatch(makeBookshelf(payload)) )
 );
 
 export const deleteBookshelf = (id) => dispatch => (
 	APIUtil.deleteBookshelf(id).then(
-		(bookshelf) => dispatch(deleteBookshelf(bookshelf)) )
+		(bookshelf) => dispatch(removeBookshelf(bookshelf)) )
 );
 
 export const editBookshelf = (bookshelf) => dispatch => (

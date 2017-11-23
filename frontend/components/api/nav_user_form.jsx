@@ -21,7 +21,7 @@ class NavUserForm extends React.Component {
 	handleSubmit(e) {
 		e.preventDefault();
 		this.props.processUser(this.state)
-			.then( () => this.props.history.push('/') );
+			.then( () => this.props.history.push('/user') );
 	}
 
 	handleClick(e) {
@@ -57,6 +57,6 @@ class NavUserForm extends React.Component {
 			)
 		}
 	}
-}
+};
 
 export default NavUserForm;

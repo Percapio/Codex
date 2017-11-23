@@ -17,13 +17,19 @@ class SessionForm extends React.Component {
 		e.preventDefault();
 		const user = this.state;
 		this.props.signup( user )
-			.then( () => this.props.history.push('/') );
+			.then( () => this.props.history.push('/user') );
 	}
 
 	handleChange(field) {
 		return(e) => this.setState({
 			[field]: e.target.value
 		});
+	}
+
+	componentWillReceiveProps(props) {
+		if (props.loggedIn) {
+			this.props.history.push('/user');
+		}
 	}
 
 	render() {

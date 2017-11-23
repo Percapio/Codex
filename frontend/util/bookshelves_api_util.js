@@ -23,7 +23,7 @@ export const deleteBookshelf = (id) => (
 export const editBookshelf = (bookshelf) => (
 	$.ajax({
 		method: 'PATCH',
-		url: `/api/bookshelves/${bookshelf.id}`
+		url: `/api/bookshelves/${bookshelf.id}`,
 		data: { bookshelf }
 	})
 );
