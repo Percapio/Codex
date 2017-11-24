@@ -1,5 +1,6 @@
 import React from 'react';
 import BooksIndexItem from './books_index_item';
+// import BookShowContainer from './book_show_container';
 
 class BooksIndex extends React.Component {
 	componentDidMount() {
@@ -18,8 +19,7 @@ class BooksIndex extends React.Component {
 
 		return (
 			<div>
-				<h2>Books Index</h2>
-
+				
 				<div>
 					<ul className= 'books-index'>
 						{ books }

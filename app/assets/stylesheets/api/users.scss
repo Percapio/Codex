@@ -25,17 +25,34 @@
 	display: flex;
 	justify-content: flex-end;
 
+		form {
+			display: flex;
+			justify-direction: row;
+			align-items: center;
+		}
+
 		input {
 			width: 40%;
 			padding-left: 10px;
 			border: $border-bot;
 			border-radius: 2px;
 			margin-right: 5px;
+			background-color: $back-grey;
+			color: $form-color;
 		}
 
 		button {
 			border: $border-bot;
-			padding: 3px;
+			height: 10px;
+			padding: 5px;
+			background-color: $button-color;
+			vertical-align: center;
+			box-shadow: 1px 1px 1px black;
+			line-height: 10px;
+		}
+
+		button:hover {
+			background-color: rgba(252, 143, 65, 0.2);
 		}
 
 		.nav-links {
@@ -46,5 +63,10 @@
 
 		.nav-links i:hover {
 			cursor: pointer;
+		}
+
+		.demo-button {
+			margin-left: 10px;
+			margin-right: 10px;
 		}
 }

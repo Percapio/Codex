@@ -69,7 +69,7 @@ class NavUserForm extends React.Component {
 						<button value= 'Submit'>Submit</button>
 					</form> 
 
-					<button onClick= {this.handleDemo} className= 'demo-button'>Guest User
+					<button onClick= {this.handleDemo} className= 'demo-button'>Guest
 					</button>
 				</div>
 			)
