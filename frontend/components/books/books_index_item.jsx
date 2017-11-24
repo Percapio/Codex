@@ -5,6 +5,7 @@ export default ({ book }) => (
 	<li className= 'book-info'>
 		<div className= 'book-splash'>
 			<div className= 'book-title'>
+				<img src= '~/app/assets/images/book_one.jpg' alt= 'some random book'/>
 				<label>Title:   
 					{ book.title }
 				</label>

@@ -11,6 +11,8 @@
 	border-bottom: $border-bot;
 	background-color: $back-color;
 	color: $font-color;
+	padding-left: 40px;
+	padding-right: 40px;
 
 		h1 {
 			font-size: 36px;
@@ -63,6 +65,7 @@
 
 		.nav-links i:hover {
 			cursor: pointer;
+			color: $form-color;
 		}
 
 		.demo-button {
