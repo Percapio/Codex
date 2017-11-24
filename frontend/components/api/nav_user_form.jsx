@@ -22,21 +22,19 @@ class NavUserForm extends React.Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-		this.props.login(this.state)
-			.then( () => this.props.history.push('/users/show') );
+		this.props.login(this.state);
 	}
 
 	handleClick(e) {
+		debugger;
 		e.preventDefault();
-		this.props.logout()
-			.then( () => this.props.history.push('/') );
+		this.props.logout();
 	}
 
 	handleDemo(e) {
 		e.preventDefault();
 		const user = { username: 'Name', password: 'Password' }
-		this.props.login(user)
-			.then( () => this.props.history.push('/users/show') );
+		this.props.login(user);
 	}
 
 	render() {

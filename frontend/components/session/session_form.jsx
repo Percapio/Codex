@@ -52,7 +52,6 @@ class SessionForm extends React.Component {
 
 					<form className= 'session-form' onSubmit= {this.handleSubmit}>
 						
-						{ this.renderErrors() }
 						<input
 							type= 'text'
 							value= {this.state.username}

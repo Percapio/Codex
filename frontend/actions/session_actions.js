@@ -25,8 +25,11 @@ export const login = user => dispatch => (
     (error) => dispatch(receiveErrors(error.responseJSON))
 );
 
-export const logout = (id) => dispatch => (
+export const logout = (id) => dispatch => {
+  debugger;
+  return (
   APISessionUtil.logout(id).then(
     () => dispatch(receiveCurrentUser(null)) ),
     (error) => dispatch(receiveErrors(error.responseJSON))
-);
+  )
+};

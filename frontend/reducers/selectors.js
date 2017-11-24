@@ -7,3 +7,7 @@ export const selectAllBooks = state => (
 export const selectSingleBook = state => (
 	values(state.entitiesReducer.booksReducer)
 );
+
+export const selectBookshelf = state => (
+	values(state.entitiesReducer.bookshelvesReducer)
+);

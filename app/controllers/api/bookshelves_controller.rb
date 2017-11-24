@@ -3,7 +3,7 @@ class BookshelvesController < ApplicationController
     @bookshelf = Bookshelf.find(params[:id])
 
     if @bookshelf
-      redirect_to '/api/bookshelves/show'
+      render json: @bookshelf
     else
       render json: @bookshelf.errors.full_messages, status: 422
     end
@@ -13,7 +13,7 @@ class BookshelvesController < ApplicationController
     @bookshelf = Bookshelf.new(bookshelf_params)
 
     if @bookshelf.save
-      redirect_to '/api/bookshelves/show'
+      render json: @bookshelf
     else
       render json: @bookshelf.errors.full_messages, status: 422
     end
@@ -29,7 +29,7 @@ class BookshelvesController < ApplicationController
     @bookshelf = Bookshelf.find(params[:id])
 
     if @bookshelf.update(bookshelf_params)
-      redirect_to '/api/bookshelves/show'
+      render json: @bookshelf
     else
       render json: @bookshelf.errors.full_messages, status: 404
     end

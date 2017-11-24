@@ -18,7 +18,7 @@ class BooksIndex extends React.Component {
 			});
 
 		return (
-			<div class= 'index-page'>
+			<div className= 'index-page'>
 				<div className= 'single-books'>
 					<BookShowContainer />
 				</div>

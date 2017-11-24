@@ -10,12 +10,12 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = ( dispatch, ownProps ) => {
 	const sessionType = ownProps.location.pathname;
-
-	return {
-		login: user => dispatch(login(user)),
-		logout: () => dispatch(logout()),
-		sessionType
-	};
+	debugger;
+	return ({
+			login: user => dispatch(login(user)),
+			logout: () => dispatch(logout()),
+			sessionType
+		});
 };
 
 export default withRouter(connect(
