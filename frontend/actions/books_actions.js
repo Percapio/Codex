@@ -13,8 +13,8 @@ const receiveBook = (book) => ({
 	book
 });
 
-export const getAllBooks = () => dispatch => (
-	APIUtil.getAllBooks().then(
+export const getAllBooks = (books) => dispatch => (
+	 APIUtil.getAllBooks(books).then(
 		(books) => dispatch(receiveBooks(books)) )
 );
 

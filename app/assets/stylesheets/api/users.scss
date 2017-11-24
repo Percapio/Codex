@@ -1,12 +1,18 @@
 // Place all the styles related to the api/Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import './main_scss';
+
 
 .nav-bar {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+	border-bottom: $border-bot;
+	background-color: $back-color;
+	color: $font-color;
+	padding-left: 40px;
+	padding-right: 40px;
 
 		h1 {
 			font-size: 36px;
@@ -16,24 +22,54 @@
 
 .user-form-container {
 	width: 400px;
-	padding-left: 5px;
-	padding-right: 5px;
+	padding-left: 15px;
+	padding-right: 15px;
 	display: flex;
 	justify-content: flex-end;
 
+		form {
+			display: flex;
+			justify-direction: row;
+			align-items: center;
+		}
+
 		input {
 			width: 40%;
-			color: rgba(0, 0, 0, 0.8);
 			padding-left: 10px;
-			border: 1px solid rgba(0, 0, 0, 0.5);
+			border: $border-bot;
 			border-radius: 2px;
 			margin-right: 5px;
+			background-color: $back-grey;
+			color: $form-color;
 		}
 
 		button {
-			border: 1px solid black;
+			border: $border-bot;
+			height: 10px;
+			padding: 5px;
+			background-color: $button-color;
+			vertical-align: center;
+			box-shadow: 1px 1px 1px black;
+			line-height: 10px;
 		}
 
-		.signout-button {
+		button:hover {
+			background-color: rgba(252, 143, 65, 0.2);
+		}
+
+		.nav-links {
+			width: 200px;
+			display: flex;
+			justify-content: space-evenly;
+		}
+
+		.nav-links i:hover {
+			cursor: pointer;
+			color: $form-color;
+		}
+
+		.demo-button {
+			margin-left: 10px;
+			margin-right: 10px;
 		}
 }

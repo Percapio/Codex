@@ -11,6 +11,7 @@ class SessionForm extends React.Component {
 		};
 
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.renderErrors = this.renderErrors.bind(this);
 	}
 
 	handleSubmit(e) {
@@ -34,11 +35,23 @@ class SessionForm extends React.Component {
 		}
 	}
 
+	renderErrors() {
+		return (
+			<ul>
+				{ this.props.errors.map( (error, idx) => (
+					<li key= {`error-${idx}`}>{ error }</li>
+				))}
+			</ul>
+		);
+	}
+
 	render() {
 		return (
 			<div className= 'landing-page'>
 				<div className= 'session-form-container'>
+
 					<form className= 'session-form' onSubmit= {this.handleSubmit}>
+						
 						<input
 							type= 'text'
 							value= {this.state.username}

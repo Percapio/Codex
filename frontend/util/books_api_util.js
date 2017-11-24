@@ -1,14 +1,17 @@
-export const getAllBooks = () => (
+export const getAllBooks = books => (
 	$.ajax({
 		method: 'GET',
-		url: 'http://isbndb.com/api/v2/json/R18RIY5F/books?q=programming'
+
+		url: 'api/books',
+		books
+
 	})
 );
 
 export const getSingleBook = id => (
 	$.ajax({
 		method: 'GET',
-		url: `/api/books/${id}`
+		url: `api/books/${id}`
 	})
 );
 

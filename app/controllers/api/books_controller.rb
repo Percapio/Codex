@@ -1,22 +1,22 @@
-class BooksController < ApplicationController
+class Api::BooksController < ApplicationController
   def show
     @book = Book.find(book_params)
 
     if @book
-      redirect_to '/api/books/show'
+      render json: @book
     else
       render json: @book.errors.full_messages, status: 422
     end
   end
 
   def index
-    @book = Book.all
-    redirect_to '/api/books/index'
+    @books = Book.all
+    render json: @books
   end
 
   private
 
   def book_params
-    params.require(:book).permit(:title, :author, :ISBN, :summary)
+    params.require(:book)
   end
 end
