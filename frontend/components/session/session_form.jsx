@@ -11,13 +11,13 @@ class SessionForm extends React.Component {
 		};
 
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.renderErrors = this.renderErrors.bind(this);
 	}
 
 	handleSubmit(e) {
 		e.preventDefault();
 		const user = this.state;
-		this.props.signup( user )
-			.then( () => this.props.history.push('/users/show') );
+		this.props.signup( user );
 	}
 
 	handleChange(field) {
@@ -34,11 +34,23 @@ class SessionForm extends React.Component {
 		}
 	}
 
+	renderErrors() {
+		return (
+			<ul>
+				{ this.props.errors.map( (error, idx) => (
+					<li key= {`error-${idx}`}>{ error }</li>
+				))}
+			</ul>
+		);
+	}
+
 	render() {
 		return (
 			<div className= 'landing-page'>
 				<div className= 'session-form-container'>
 					<form className= 'session-form' onSubmit= {this.handleSubmit}>
+						
+						{ this.renderErrors() }
 						<input
 							type= 'text'
 							value= {this.state.username}

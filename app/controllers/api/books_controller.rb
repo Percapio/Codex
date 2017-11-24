@@ -10,8 +10,6 @@ class Api::BooksController < ApplicationController
   end
 
   def index
-    Book.create(JSON.parse(File.read('db/data/books.json')))
-
     @books = Book.all
 
     render :index

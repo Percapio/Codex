@@ -13,7 +13,7 @@ class BooksIndex extends React.Component {
 					<BooksIndexItem
 						key= { book.id }
 						book= { book } />
-					);
+				);
 			});
 
 		return (

@@ -12,6 +12,7 @@ class NavUserForm extends React.Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleClick = this.handleClick.bind(this);
 		this.handleDemo = this.handleDemo.bind(this);
+		this.renderErrors = this.renderErrors.bind(this);
 	}
 
 	handleChange(field) {
@@ -22,21 +23,28 @@ class NavUserForm extends React.Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-		this.props.login(this.state)
-			.then( () => this.props.history.push('/users/show') );
+		this.props.login(this.state);
 	}
 
 	handleClick(e) {
 		e.preventDefault();
-		this.props.logout()
-			.then( () => this.props.history.push('/') );
+		this.props.logout();
 	}
 
 	handleDemo(e) {
 		e.preventDefault();
 		const user = { username: 'Name', password: 'Password' }
-		this.props.login(user)
-			.then( () => this.props.history.push('/users/show') );
+		this.props.login(user);
+	}
+
+	renderErrors() {
+		return (
+			<ul>
+				{ this.props.errorsReducer.map( (error, idx) => (
+					<li key= {`error-${idx}`}>{ error }</li>
+				))}
+			</ul>
+		)
 	}
 
 	render() {
@@ -46,6 +54,8 @@ class NavUserForm extends React.Component {
 				<div className= 'user-form-container'>
 					<button onClick= {this.handleClick} className= 'signout-button'>Log Out
 					</button>
+
+					{ this.renderErrors() }
 				</div>
 			)
 		} else {

@@ -8,25 +8,25 @@ const receiveCurrentUser = (user) => ({
   user
 });
 
-const receiveErrors = (error) => ({
+export const receiveErrors = (error) => ({
   type: RECEIVE_ERRORS,
   error
 });
 
 export const signup = user => dispatch => (
 	APISessionUtil.signup(user).then(
-		(user) => dispatch(receiveCurrentUser(user)) )
-		.fail( (user) => dispatch(receiveErrors(user)) )
+		(user) => dispatch(receiveCurrentUser(user)) ),
+		(error) => dispatch(receiveErrors(error.responseJSON))
 );
 
 export const login = user => dispatch => (
   APISessionUtil.login(user).then(
-    (user) => dispatch(receiveCurrentUser(user)) )
-  	.fail( (user) => dispatch(receiveErrors(user)) )
+    (user) => dispatch(receiveCurrentUser(user)) ),
+    (error) => dispatch(receiveErrors(error.responseJSON))
 );
 
 export const logout = (id) => dispatch => (
   APISessionUtil.logout(id).then(
-    () => dispatch(receiveCurrentUser(null)) )
-  	.fail( () => dispatch(receiveErrors()) )
+    () => dispatch(receiveCurrentUser(null)) ),
+    (error) => dispatch(receiveErrors(error.responseJSON))
 );
