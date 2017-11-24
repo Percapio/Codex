@@ -1,14 +1,15 @@
-export const getAllBooks = () => (
+export const getAllBooks = books => (
 	$.ajax({
 		method: 'GET',
-		url: '/api/books'
+		url: 'api/books',
+		books
 	})
 );
 
 export const getSingleBook = id => (
 	$.ajax({
 		method: 'GET',
-		url: `/api/books/${id}`
+		url: `api/books/${id}`
 	})
 );
 

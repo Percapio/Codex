@@ -17,7 +17,8 @@ class SessionForm extends React.Component {
 	handleSubmit(e) {
 		e.preventDefault();
 		const user = this.state;
-		this.props.signup( user );
+		this.props.signup( user )
+			.then( () => this.props.history.push('/users/show') );
 	}
 
 	handleChange(field) {

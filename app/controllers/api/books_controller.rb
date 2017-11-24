@@ -3,7 +3,7 @@ class Api::BooksController < ApplicationController
     @book = Book.find(book_params)
 
     if @book
-      render :show
+      render json: @book
     else
       render json: @book.errors.full_messages, status: 422
     end
@@ -11,8 +11,7 @@ class Api::BooksController < ApplicationController
 
   def index
     @books = Book.all
-
-    render :index
+    render json: @books
   end
 
   private

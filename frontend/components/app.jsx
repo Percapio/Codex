@@ -14,6 +14,7 @@ export default () => (
 
 		<Switch>
 			<Route path= '/users/show' component= { BookIndexContainer } />
+			<Route path= '/books/index' component= { BookIndexContainer } />
 			<AuthRoute exact path='/' component= { SessionFormContainer } />
 		</Switch>
 	</div>

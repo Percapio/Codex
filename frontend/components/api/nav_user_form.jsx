@@ -12,7 +12,6 @@ class NavUserForm extends React.Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleClick = this.handleClick.bind(this);
 		this.handleDemo = this.handleDemo.bind(this);
-		this.renderErrors = this.renderErrors.bind(this);
 	}
 
 	handleChange(field) {
@@ -23,28 +22,21 @@ class NavUserForm extends React.Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-		this.props.login(this.state);
+		this.props.login(this.state)
+			.then( () => this.props.history.push('/users/show') );
 	}
 
 	handleClick(e) {
 		e.preventDefault();
-		this.props.logout();
+		this.props.logout()
+			.then( () => this.props.history.push('/') );
 	}
 
 	handleDemo(e) {
 		e.preventDefault();
 		const user = { username: 'Name', password: 'Password' }
-		this.props.login(user);
-	}
-
-	renderErrors() {
-		return (
-			<ul>
-				{ this.props.errorsReducer.map( (error, idx) => (
-					<li key= {`error-${idx}`}>{ error }</li>
-				))}
-			</ul>
-		)
+		this.props.login(user)
+			.then( () => this.props.history.push('/users/show') );
 	}
 
 	render() {
@@ -52,10 +44,13 @@ class NavUserForm extends React.Component {
 		if (this.props.sessionType === '/users/show') {
 			return (
 				<div className= 'user-form-container'>
-					<button onClick= {this.handleClick} className= 'signout-button'>Log Out
-					</button>
-
-					{ this.renderErrors() }
+					<div className= 'nav-links'>
+						<i className= "fa fa-bell fa-lg" aria-hidden="true"></i>
+						<i className= "fa fa-weixin fa-lg" aria-hidden="true"></i>
+						<i className= "fa fa-envelope-open fa-lg" aria-hidden="true"></i>
+						<i className= "fa fa-user-plus fa-lg" aria-hidden="true"></i>
+						<i className= "fa fa-user-circle-o fa-lg" aria-hidden="true" onClick= {this.handleClick}></i>
+					</div>
 				</div>
 			)
 		} else {
