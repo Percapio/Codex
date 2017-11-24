@@ -10,8 +10,35 @@
 	width: 500px;
 	border: $border-bot;
 	margin: 0 auto;
+	background-color: $back-color;
 }
 
-.book-title {
+.book-info {
+	height: 15vh;
+	border-bottom: $border-bot;
+	display: flex;
+	flex-direction: row;
 
+		.book-splash {
+			height: 100vh;
+			border-right: $border-bot;
+			width: 30%;
+		}
+
+		.book-review {
+			border: $border-bot;
+			display: flex;
+			align-items: center;
+			justify-direction: column;
+			word-wrap: break-word;
+			overflow: auto;
+			width: 70%;
+
+				.book-summary {
+					border: $border-bot;
+					background-color: $back-grey;
+					height: 50px;
+				}
+		}
 }
+

@@ -14,9 +14,12 @@ span, article, footer, time, small {
   vertical-align: inherit;
   box-sizing: inherit;
   background: transparent;
+  display: block;
+  word-wrap: inherit;
+  box-sizing: inherit;
 }
 
-ul {
+ul, li {
   list-style: none;
 }
 
