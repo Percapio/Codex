@@ -35,11 +35,11 @@
 	flex-direction: column;
 
 		input {
-			background-color: $back-grey;
+			color: white;
 			margin-bottom: 8px;
 			border-radius: 2px;
-			color: $form-color;
 			padding-left: 10px;
+			background-color: $back-grey;
 			border: $border-bot;
 		}
 

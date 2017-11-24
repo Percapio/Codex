@@ -1,44 +1,97 @@
 // Place all the styles related to the Books controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//MAIN PAGE AFTER LOGIN
 @import './main_scss';
 
+.index-page {
+	padding: 75px;
+	display: flex;
+	justify-content: space-evenly;
+}
+
 .books-index {
+	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
-	width: 500px;
-	border: $border-bot;
-	margin: 0 auto;
-	background-color: $back-color;
-}
+	width: 600px;
 
-.book-info {
-	height: 15vh;
-	border-bottom: $border-bot;
-	display: flex;
-	flex-direction: row;
+	.book-info {
+		border: $border-bot;
+		background-color: $back-color;
+		height: 30vh;
+		padding: 10px;
+		margin-bottom: 20px;
+		display: flex;
+		flex-direction: row;
+		box-sizing: border-box;
 
 		.book-splash {
-			height: 100vh;
-			border-right: $border-bot;
+			height: 90vh;
 			width: 30%;
+			padding: 10px;
+
+			.book-title {
+				img {
+					padding: 15px;
+				}
+			}
 		}
 
 		.book-review {
-			border: $border-bot;
 			display: flex;
 			align-items: center;
-			justify-direction: column;
-			word-wrap: break-word;
 			overflow: auto;
 			width: 70%;
 
-				.book-summary {
-					border: $border-bot;
-					background-color: $back-grey;
-					height: 50px;
-				}
+			.book-label {
+				display: block;
+			}
+
+			.book-summary {
+				display: block;
+				margin-left: 5px;
+				border: $border-bot;
+				background-color: $back-grey;
+				height: 50px;
+			}
 		}
+	}
+}
+
+.single-books {
+	height: 100vh;
+	margin-right: 175px;
+
+	img {
+		box-sizing: border-box;
+		width: 40%;
+	}
+
+	.current-reading, .want-to-read {
+		padding: 45px;
+		height: 35vh;
+		border: $border-bot;
+		background-color: $back-color;
+		box-sizing: border-box;
+	}
+
+	.current-reading {
+		margin-bottom: 30px;
+	}
+}
+
+.index-bookshelf {
+	height: 50vh;
+	margin-left: 175px;
+	padding: 45px;
+	border: $border-bot;
+	background-color: $back-color;
+
+	img {
+		width: 50%;
+	}
 }
 
