@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import './main_scss';
-
+@import './button';
 
 .nav-bar {
 	display: flex;
@@ -41,20 +41,6 @@
 			margin-right: 5px;
 			background-color: $back-grey;
 			color: $form-color;
-		}
-
-		button {
-			border: $border-bot;
-			height: 10px;
-			padding: 5px;
-			background-color: $button-color;
-			vertical-align: center;
-			box-shadow: 1px 1px 1px black;
-			line-height: 10px;
-		}
-
-		button:hover {
-			background-color: rgba(252, 143, 65, 0.2);
 		}
 
 		.nav-links {

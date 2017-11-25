@@ -8,8 +8,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-	// getSingleBook: (bookId) => dispatch(getSingleBook(bookId))
-	getSingleBook: () => dispatch(getSingleBook())
+	getSingleBook: (bookId) => dispatch(getSingleBook(bookId))
 });
 
 export default connect(

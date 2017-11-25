@@ -6,7 +6,8 @@ import {
 	createBookshelf,
 	deleteBookshelf,
 	editBookshelf
-} from '../actions/bookshelves_actions';
+} from '../../actions/bookshelves_actions';
+
 import Bookshelf from './bookshelf';
 
 const mapStateToProps = state => ({
@@ -14,7 +15,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-	getBookshelf: (id) => dispatch(getBookshelf(id)),
+	getBookshelf: id => dispatch(getBookshelf(id)),
 	createBookshelf: bookshelf => dispatch(createBookshelf(bookshelf)),
 	deleteBookshelf: id => dispatch(deleteBookshelf(id)),
 	editBookshelf: bookshelf => dispatch(editBookshelf(bookshelf))

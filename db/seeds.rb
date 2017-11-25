@@ -23,3 +23,5 @@ books = JSON.parse(File.read('db/data/books.json'))
 books.each do |book|
 	Book.create(book)
 end
+
+Bookshelf.create(title: 'bookshelf1', description: 'example', owner_id: 1)

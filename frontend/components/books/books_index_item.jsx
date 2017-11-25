@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 export default ({ book }) => (
 	<li className= 'book-info'>
@@ -27,11 +26,11 @@ export default ({ book }) => (
 			</div>
 
 			<div className= 'book-stars'>
-				<i className="fa fa-star-o fa-lg" aria-hidden="true"></i>
-				<i className="fa fa-star-o fa-lg" aria-hidden="true"></i>
-				<i className="fa fa-star-o fa-lg" aria-hidden="true"></i>
-				<i className="fa fa-star-o fa-lg" aria-hidden="true"></i>
-				<i className="fa fa-star-o fa-lg" aria-hidden="true"></i>
+				<i className= "fa fa-star-o fa-lg" aria-hidden="true"></i>
+				<i className= "fa fa-star-o fa-lg" aria-hidden="true"></i>
+				<i className= "fa fa-star-o fa-lg" aria-hidden="true"></i>
+				<i className= "fa fa-star-o fa-lg" aria-hidden="true"></i>
+				<i className= "fa fa-star-o fa-lg" aria-hidden="true"></i>
 			</div>
 		</div>
 	</li>

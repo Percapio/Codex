@@ -12,13 +12,13 @@ class SessionForm extends React.Component {
 
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.renderErrors = this.renderErrors.bind(this);
+		this.handleDemo = this.handleDemo.bind(this);
 	}
 
 	handleSubmit(e) {
 		e.preventDefault();
 		const user = this.state;
-		this.props.signup( user )
-			.then( () => this.props.history.push('/users/show') );
+		this.props.signup( user );
 	}
 
 	handleChange(field) {
@@ -27,12 +27,10 @@ class SessionForm extends React.Component {
 		});
 	}
 
-	componentWillReceiveProps(props) {
-		if (props.loggedIn) {
-			this.props.history.push('/users/show');
-		} else {
-			this.props.history.push('/')
-		}
+	handleDemo(e) {
+		e.preventDefault();
+		const user = { username: 'Name', password: 'Password' }
+		this.props.login(user);
 	}
 
 	renderErrors() {
@@ -49,9 +47,12 @@ class SessionForm extends React.Component {
 		return (
 			<div className= 'landing-page'>
 				<div className= 'session-form-container'>
+					<div className= 'signup'>
+						<h2>Sign Up</h2>
+					</div>
 
 					<form className= 'session-form' onSubmit= {this.handleSubmit}>
-						
+
 						<input
 							type= 'text'
 							value= {this.state.username}
@@ -69,6 +70,9 @@ class SessionForm extends React.Component {
 
 						<input type= 'submit' value= 'Submit'/>
 					</form>
+
+					<button onClick= {this.handleDemo} className= 'demo-button'>Demo
+					</button>
 				</div>
 			</div>
 		)

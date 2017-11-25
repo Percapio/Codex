@@ -2,6 +2,7 @@ class BookshelvesController < ApplicationController
   def show
     @bookshelf = Bookshelf.find(params[:id])
 
+    debugger
     if @bookshelf
       render json: @bookshelf
     else
@@ -22,7 +23,7 @@ class BookshelvesController < ApplicationController
   def delete
     @bookshelf = Bookshelf.find(params[:id])
     @bookshelf.destroy!
-    redirect_to '/api/users/show'
+    redirect_to '/users/show'
   end
 
   def update

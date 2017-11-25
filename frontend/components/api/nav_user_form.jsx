@@ -11,7 +11,6 @@ class NavUserForm extends React.Component {
 
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleClick = this.handleClick.bind(this);
-		this.handleDemo = this.handleDemo.bind(this);
 	}
 
 	handleChange(field) {
@@ -26,15 +25,8 @@ class NavUserForm extends React.Component {
 	}
 
 	handleClick(e) {
-		debugger;
 		e.preventDefault();
 		this.props.logout();
-	}
-
-	handleDemo(e) {
-		e.preventDefault();
-		const user = { username: 'Name', password: 'Password' }
-		this.props.login(user);
 	}
 
 	render() {
@@ -66,9 +58,6 @@ class NavUserForm extends React.Component {
 
 						<button value= 'Submit'>Submit</button>
 					</form> 
-
-					<button onClick= {this.handleDemo} className= 'demo-button'>Guest
-					</button>
 				</div>
 			)
 		}

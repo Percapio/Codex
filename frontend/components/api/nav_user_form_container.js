@@ -8,15 +8,11 @@ const mapStateToProps = state => ({
 	errors: state.errorsReducer.errorsReducer
 });
 
-const mapDispatchToProps = ( dispatch, ownProps ) => {
-	const sessionType = ownProps.location.pathname;
-	debugger;
-	return ({
-			login: user => dispatch(login(user)),
-			logout: () => dispatch(logout()),
-			sessionType
-		});
-};
+const mapDispatchToProps = ( dispatch, ownProps ) => ({
+	sessionType: ownProps.location.pathname,
+	login: user => dispatch(login(user)),
+	logout: () => dispatch(logout()),
+});
 
 export default withRouter(connect(
 	mapStateToProps,
