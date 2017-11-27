@@ -17,7 +17,7 @@
 # @book4 = Book.create(id: 4, title: 'my', author: 'dick', summary: 'cool', ISBN: 456, img_url: 'app/assets/images/book_one.jpg')
 # @book5 = Book.create(id: 5, title: 'car', author: 'dane', summary: 'cool', ISBN: 567, img_url: 'app/assets/images/book_one.jpg')
 
-@user = User.create(username: 'Name', password: 'Password', email: 'aa@school.com')
+@user = User.create(username: 'Guest', password: 'Password', email: 'aa@school.com')
 
 books = JSON.parse(File.read('db/data/books.json'))
 books.each do |book|

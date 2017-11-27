@@ -6,10 +6,21 @@
 //MAIN PAGE AFTER LOGIN
 @import './main_scss';
 
-.index-page {
+.index-component {
 	padding: 75px;
 	display: flex;
-	justify-content: space-evenly;
+	flex-direction: column;
+	align-items: center;
+
+	h2 {
+		margin-right: 580px;
+		margin-bottom: 2px;
+	}
+}
+
+.index {
+	display: flex;
+	justify-content: center;
 }
 
 .books-index {
@@ -68,8 +79,9 @@
 }
 
 .single-books {
-	height: 100vh;
-	margin-right: 175px;
+	height: 400px;
+	width: 200px;
+	margin-right: 50px;
 
 	img {
 		box-sizing: border-box;
@@ -91,8 +103,9 @@
 }
 
 .index-bookshelf {
-	height: 50vh;
-	margin-left: 175px;
+	height: 400px;
+	width: 200px;
+	margin-left: 50px;
 	padding: 45px;
 	border: $border-bot;
 	background-color: $back-color;

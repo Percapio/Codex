@@ -19,11 +19,12 @@ class BooksIndex extends React.Component {
 			});
 
 		return (
-			<div>
+			<div className='index-component'>
 				<h2>Welcome, { this.props.user }!</h2>
-				<div className= 'index-page'>
+				<div className= 'index'>
+
 					<div className= 'single-books'>
-						<BooksSidebar />
+						<BooksSidebar user= {this.props.user} />
 					</div>
 
 					<div>

@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
 
-import booksReducer from './books_reducer';
-import bookshelvesReducer from './bookshelves_reducer';
+import books from './books_reducer';
+import bookshelves from './bookshelves_reducer';
+import shelves from './shelves_reducer';
 
 export default combineReducers({
-	booksReducer,
-	bookshelvesReducer
+	books,
+	bookshelves,
+	shelves
 });

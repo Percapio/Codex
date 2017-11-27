@@ -7,7 +7,7 @@ import BooksIndex from './books_index';
 
 const mapStateToProps = (state) => ({
 	books: selectAllBooks(state),
-	user: state.sessionReducer.user.username
+	user: state.session.user.username
 });
 
 const mapDispatchToProps = (dispatch) => ({

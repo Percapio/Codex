@@ -4,8 +4,8 @@ import { withRouter } from 'react-router-dom';
 import NavUserForm from './nav_user_form';
 
 const mapStateToProps = state => ({
-	user: state.sessionReducer.user,
-	errors: state.errorsReducer.errorsReducer
+	user: state.session.user,
+	errors: state.errors.errors
 });
 
 const mapDispatchToProps = ( dispatch, ownProps ) => ({
