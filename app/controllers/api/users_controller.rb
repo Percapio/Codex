@@ -2,6 +2,7 @@ class Api::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.build_default_bookshelf!
 
     if @user.save!
       login(@user)

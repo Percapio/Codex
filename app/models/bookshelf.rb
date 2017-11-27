@@ -27,4 +27,18 @@ class Bookshelf < ApplicationRecord
 		user = User.find_by(id: user_id)
 		user.bookshelves.find_by(id: bookshelf_id)
 	end
+
+	def self.default_shelves(bookshelf)
+		currently_reading = Shelf.create(
+			bookshelf_id: bookshelf.id,
+			book_id: 0,
+			status: 'Not Yet Read'
+		)
+
+		want_to_read = Shelf.create(
+			bookshelf_id: bookshelf_id,
+			book_id: 0,
+			status: 'Not Yet Read'
+		)
+	end
 end
