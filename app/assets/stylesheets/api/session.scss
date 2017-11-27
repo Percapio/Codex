@@ -16,7 +16,7 @@
 }
 
 .session-form-container {
-	background-color: $back-grey;
+	background-color: rgba(5, 5, 5, 0.3);
 	border: $border-bot;
 	display: flex;
 	justify-content: center;
@@ -27,7 +27,7 @@
 	margin-bottom: 200px;
 	width: 400px;
 	height: 400px;
-	color: white;
+	color: $font-color;
 
 	.signup, .session-form{
 		margin-bottom: 30px;
@@ -47,7 +47,7 @@
 			margin-bottom: 8px;
 			border-radius: 2px;
 			padding-left: 10px;
-			background-color: $back-grey;
+			background-color: white;
 		}
 
 		input:last-child {
@@ -57,6 +57,7 @@
 			padding-left: 0;
 			text-align: center;
 			background-color: $button-color;
+			color: white;
 			vertical-align: center;
 			box-shadow: 1px 1px 1px black;
 			line-height: 10px;

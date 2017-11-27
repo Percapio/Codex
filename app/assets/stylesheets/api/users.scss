@@ -10,7 +10,7 @@
 	align-items: center;
 	border-bottom: $border-bot;
 	background-color: $back-grey;
-	color: $font-color;
+	color: $form-hover;
 	padding-left: 40px;
 	padding-right: 40px;
 
@@ -39,23 +39,19 @@
 		border: $border-bot;
 		border-radius: 2px;
 		margin-right: 5px;
-		background-color: $back-grey;
-		color: $form-color;
+		background-color: white;
+		color: $back-grey;
 	}
 
 	.nav-links {
 		width: 200px;
 		display: flex;
 		justify-content: space-evenly;
+		color: $form-hover;
 	}
 
 	.nav-links i:hover {
 		cursor: pointer;
 		color: $form-color;
-	}
-
-	.demo-button {
-		margin-left: 10px;
-		margin-right: 10px;
 	}
 }

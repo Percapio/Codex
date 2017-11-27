@@ -24,4 +24,4 @@ books.each do |book|
 	Book.create(book)
 end
 
-Bookshelf.create(title: 'bookshelf1', description: 'example', owner_id: @user.id)
+Bookshelf.create(title: 'bookshelf1', description: 'example', owner_id: @user.id, shelf_id: 1)

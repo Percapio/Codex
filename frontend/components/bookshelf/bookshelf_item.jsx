@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 export default ({ bookshelf }) => (
 	<li>
-		<h3>{ bookshelf.title }</h3>
+		<label className="bookshelf-title">{ bookshelf.title }</label>
 
 	</li>
 );

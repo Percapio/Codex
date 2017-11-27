@@ -1,10 +1,40 @@
 // Place all the styles related to the Bookshelves controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import './main_scss';
 
 .mini-container {
 	input {
 		background-color: white;
 		border: 1px solid black;
+	}
+
+	.bookshelf-title:hover {
+		font-weight: 700;
+	}
+
+
+	input {
+		margin-bottom: 8px;
+		border-radius: 2px;
+		padding-left: 10px;
+		background-color: white;
+	}
+
+	input:last-child {
+		height: 20px;
+		margin-bottom: 0;
+		border-radius: 4px;
+		padding-left: 0;
+		text-align: center;
+		background-color: $button-color;
+		color: white;
+		vertical-align: center;
+		box-shadow: 1px 1px 1px black;
+		line-height: 10px;
+	}
+
+	input:last-child:hover {
+		background-color: $button-hover;			
 	}
 }
