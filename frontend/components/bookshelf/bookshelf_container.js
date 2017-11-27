@@ -12,7 +12,6 @@ import {
 import Bookshelf from './bookshelf';
 
 const mapStateToProps = state => ({
-	user_id: state.session.user.id,
 	bookshelves: selectBookshelves(state)
 });
 

@@ -5,18 +5,19 @@ import BookshelfItem from './bookshelf_item';
 class Bookshelf extends React.Component {
 	constructor(props) {
 		super(props)
+		debugger;
 
 		this.state = {
 			title: '',
 			description: '',
-			owner_id: this.props.user_id
+			owner_id: this.props.match.params.user_id
 		}
 
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
 	componentDidMount() {
-		this.props.getBookshelves(this.props.user_id);
+		this.props.getBookshelves(this.state.owner_id);
 	}
 
 	handleSubmit(e) {
