@@ -16,7 +16,7 @@
 }
 
 .session-form-container {
-	background-color: $back-color;
+	background-color: $back-grey;
 	border: $border-bot;
 	display: flex;
 	justify-content: center;
@@ -48,7 +48,6 @@
 			border-radius: 2px;
 			padding-left: 10px;
 			background-color: $back-grey;
-			border: $border-bot;
 		}
 
 		input:last-child {
@@ -64,7 +63,7 @@
 		}
 
 		input:last-child:hover {
-			background-color: rgba(252, 143, 65, 1);			
+			background-color: $button-hover;			
 		}
 	}
 }

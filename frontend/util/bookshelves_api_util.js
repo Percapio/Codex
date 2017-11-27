@@ -16,7 +16,9 @@ export const createBookshelf = (shelf, user_id) => (
 	$.ajax({
 		method: 'POST',
 		url: `api/users/${user_id}/bookshelves/`,
-		data: { shelf }
+		data: { 
+			bookshelf: shelf 
+		}
 	})
 );
 
@@ -31,7 +33,19 @@ export const editBookshelf = (shelf, user_id) => (
 	$.ajax({
 		method: 'PATCH',
 		url: `api/users/${user_id}/bookshelves/${ shelf.id }`,
-		data: { shelf }
+		data: { 
+			bookshelf: shelf 
+		}
 	})
 );
 
+//tester
+export const testCreate = (shelf, user_id) => (
+	$.ajax({
+		method: 'POST',
+		url: `api/bookshelves`,
+		data: { 
+			bookshelf: shelf 
+		}
+	})
+)

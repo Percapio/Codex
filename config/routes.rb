@@ -4,10 +4,11 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :session, only: [:create, :destroy, :show]
 
-    resources :users, only: [:create], defaults: { format: :json } do
+    resources :users, only: [:create] do
       resources :bookshelves, except: [:new, :edit]
     end
 
+    #testing nesting of create
     resources :books, only: [:show, :index]
 
     resources :shelves, except: [:edit, :new]

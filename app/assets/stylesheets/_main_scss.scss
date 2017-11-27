@@ -1,7 +1,8 @@
 
 //background colors
-$back-color: rgba(218, 179, 101, 0.1);
-$back-grey: rgba(216, 210, 205, 0.1);
+$back-color: rgba(218, 179, 101, 0.5);
+$back-grey: rgba(242, 230, 208, 0.8);
+$non-landing-backdrop: rgba(255, 246, 245, 1);
 
 //font colors
 $font-color: rgba(132, 118, 108, 0.7);
@@ -12,3 +13,6 @@ $border-bot: 1px solid rgba(252, 143, 65, 0.4);
 
 //button color
 $button-color: rgba(252, 143, 65, 0.8);
+
+//button hover
+$button-hover: rgba(252, 143, 65, 1);

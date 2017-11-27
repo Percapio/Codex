@@ -27,12 +27,12 @@ const makeBookshelf = bookshelf => ({
 
 export const getBookshelves = (userId) => dispatch => (
 	APIUtil.getBookshelves(userId).then(
-		(bookshelf) => dispatch(receiveBookshelves(bookshelves)) )
+		(payload) => dispatch(receiveBookshelves(payload)) )
 );
 
 export const getBookshelf = (shelf, userId) => dispatch => (
 	APIUtil.getBookshelf(shelf, userId).then(
-		(bookshelf) => dispatch(receiveBookshelf(bookshelf)) )
+		(payload) => dispatch(receiveBookshelf(payload)) )
 );
 
 export const createBookshelf = (shelf, userId) => dispatch => (
@@ -42,10 +42,20 @@ export const createBookshelf = (shelf, userId) => dispatch => (
 
 export const deleteBookshelf = (shelfId, userId) => dispatch => (
 	APIUtil.deleteBookshelf(shelfId, userId).then(
-		(bookshelf) => dispatch(removeBookshelf(bookshelf)) )
+		(payload) => dispatch(removeBookshelf(payload)) )
 );
 
 export const editBookshelf = (shelf, userId) => dispatch => (
 	APIUtil.editBookshelf(shelf, userId).then(
 		(payload) => dispatch(receiveBookshelf(payload)) )
 );
+
+
+//tester
+export const testCreate = (shelf, userId) => dispatch => {
+	
+	return(
+		APIUtil.testCreate(shelf, userId).then(
+			(payload) => dispatch(receiveBookshelf(payload)) )
+	)
+};

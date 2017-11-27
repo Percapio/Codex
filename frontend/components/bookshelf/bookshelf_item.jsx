@@ -1,7 +1,9 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 export default ({ bookshelf }) => (
-	<div>
-		<h2>BOOKSHELF HERE</h2>
-	</div>
+	<li>
+		<h3>{ bookshelf.title }</h3>
+
+	</li>
 );

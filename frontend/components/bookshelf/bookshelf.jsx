@@ -8,20 +8,21 @@ class Bookshelf extends React.Component {
 
 		this.state = {
 			title: '',
-			shelfName: '',
-			user_id: this.props.match.params.user_id
+			description: '',
+			owner_id: this.props.user_id,
+			shelf_id: 1
 		}
 
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
 	componentDidMount() {
-		this.props.getBookshelves(this.props.match.params.user_id);
+		this.props.getBookshelves(this.props.user_id);
 	}
 
 	handleSubmit(e) {
 		e.preventDefault();
-		this.props.createBookshelf(this.state, this.state.user_id);
+		this.props.createBookshelf(this.state, this.state.owner_id);
 	}
 
 	handleChange(field) {
@@ -31,11 +32,21 @@ class Bookshelf extends React.Component {
 	}
 
 	render() {
+		const bookshelves = this.props.bookshelves.map(
+								bookshelf => (
+									<BookshelfItem
+										key= { bookshelf.id }
+										bookshelf= { bookshelf } />
+									)
+								)
+
 		return (
 			<div className= 'mini-container'>
 				<div>
 					<img src= 'http://www.scholastic.com/parents/sites/default/files/field_asset_image/iStock_000043350128_XXXLarge.jpg' alt= 'some random book'/>
-					<h3>BOOKSHELF GOES HERE</h3>
+					<ul>
+						{ bookshelves }
+					</ul>
 
 					<form className= 'bookshelf-index' onSubmit= {this.handleSubmit}>
 						<input

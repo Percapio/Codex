@@ -9,7 +9,7 @@
 	justify-content: space-between;
 	align-items: center;
 	border-bottom: $border-bot;
-	background-color: $back-color;
+	background-color: $back-grey;
 	color: $font-color;
 	padding-left: 40px;
 	padding-right: 40px;
@@ -27,35 +27,35 @@
 	display: flex;
 	justify-content: flex-end;
 
-		form {
-			display: flex;
-			justify-direction: row;
-			align-items: center;
-		}
+	form {
+		display: flex;
+		justify-direction: row;
+		align-items: center;
+	}
 
-		input {
-			width: 40%;
-			padding-left: 10px;
-			border: $border-bot;
-			border-radius: 2px;
-			margin-right: 5px;
-			background-color: $back-grey;
-			color: $form-color;
-		}
+	input {
+		width: 40%;
+		padding-left: 10px;
+		border: $border-bot;
+		border-radius: 2px;
+		margin-right: 5px;
+		background-color: $back-grey;
+		color: $form-color;
+	}
 
-		.nav-links {
-			width: 200px;
-			display: flex;
-			justify-content: space-evenly;
-		}
+	.nav-links {
+		width: 200px;
+		display: flex;
+		justify-content: space-evenly;
+	}
 
-		.nav-links i:hover {
-			cursor: pointer;
-			color: $form-color;
-		}
+	.nav-links i:hover {
+		cursor: pointer;
+		color: $form-color;
+	}
 
-		.demo-button {
-			margin-left: 10px;
-			margin-right: 10px;
-		}
+	.demo-button {
+		margin-left: 10px;
+		margin-right: 10px;
+	}
 }

@@ -11,7 +11,6 @@ export default () => (
 		<NavBar />
 
 		<Switch>
-			<ProtectedRoute path= "/user/:user_id/bookshelf" component= { BookshelfContainer } />
 			<ProtectedRoute path= "/user/:user_id" component= { BookIndexContainer } />
 			<AuthRoute exact path='/' component= { SessionFormContainer } />
 		</Switch>
