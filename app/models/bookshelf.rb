@@ -36,7 +36,7 @@ class Bookshelf < ApplicationRecord
 		)
 
 		want_to_read = Shelf.create(
-			bookshelf_id: bookshelf_id,
+			bookshelf_id: bookshelf.id,
 			book_id: 0,
 			status: 'Not Yet Read'
 		)

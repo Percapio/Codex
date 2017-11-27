@@ -5,7 +5,6 @@ import BookshelfItem from './bookshelf_item';
 class Bookshelf extends React.Component {
 	constructor(props) {
 		super(props)
-		debugger;
 
 		this.state = {
 			title: '',
@@ -21,8 +20,9 @@ class Bookshelf extends React.Component {
 	}
 
 	handleSubmit(e) {
+		debugger;
 		e.preventDefault();
-		this.props.createBookshelf(this.state, this.state.owner_id);
+		this.props.createBookshelf(this.state, this.state.owner_id)
 	}
 
 	handleChange(field) {
@@ -33,9 +33,9 @@ class Bookshelf extends React.Component {
 
 	render() {
 		const bookshelves = this.props.bookshelves.map(
-								bookshelf => (
+								(bookshelf, index) => (
 									<BookshelfItem
-										key= { bookshelf.id }
+										key= { index }
 										bookshelf= { bookshelf } />
 									)
 								)

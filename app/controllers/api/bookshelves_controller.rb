@@ -17,8 +17,9 @@ class Api::BookshelvesController < ApplicationController
 
   def create
     @bookshelf = Bookshelf.new(bookshelf_params)
-    @bookshelf.default_shelves
-    
+    # Bookshelf.default_shelves(@bookshelf)
+    # debugger
+
     if @bookshelf.save
       render json: @bookshelf
     else
