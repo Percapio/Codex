@@ -1,30 +1,37 @@
-export const getBookshelf = (id) => (
+export const getBookshelves = (user_id) => (
 	$.ajax({
 		method: 'GET',
-		url: `/api/bookshelves/${id}`
+		url: `api/users/${user_id}/bookshelves/`
 	})
 );
 
-export const createBookshelf = (bookshelf) => (
+export const getBookshelf = (shelf, user_id) => (
+	$.ajax({
+		method: 'GET',
+		url: `api/users/${user_id}/bookshelves/${ shelf }`
+	})
+);
+
+export const createBookshelf = (shelf, user_id) => (
 	$.ajax({
 		method: 'POST',
-		url: '/api/bookshelves',
-		data: { bookshelf }
+		url: `api/users/${user_id}/bookshelves/`,
+		data: { shelf }
 	})
 );
 
-export const deleteBookshelf = (id) => (
+export const deleteBookshelf = (bookshelf_id, user_id) => (
 	$.ajax({
 		method: 'DELETE',
-		url: `/api/bookshelves/${id}`
+		url: `api/users/${user_id}/bookshelves/${bookshelf_id}`
 	})
 );
 
-export const editBookshelf = (bookshelf) => (
+export const editBookshelf = (shelf, user_id) => (
 	$.ajax({
 		method: 'PATCH',
-		url: `/api/bookshelves/${bookshelf.id}`,
-		data: { bookshelf }
+		url: `api/users/${user_id}/bookshelves/${ shelf.id }`,
+		data: { shelf }
 	})
 );
 

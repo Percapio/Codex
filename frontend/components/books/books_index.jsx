@@ -6,6 +6,7 @@ import MiniBookshelf from './mini_bookshelf';
 class BooksIndex extends React.Component {
 	componentDidMount() {
 		this.props.getAllBooks();
+		this.props.getBookshelves();
 	}
 
 	render() {
@@ -19,19 +20,24 @@ class BooksIndex extends React.Component {
 			});
 
 		return (
-			<div className= 'index-page'>
-				<div className= 'single-books'>
-					<BookShowContainer />
-				</div>
+			<div>
+				<h2>Welcome, { this.props.user }!</h2>
+				<div className= 'index-page'>
+					<div className= 'single-books'>
+						<BookShowContainer />
+					</div>
 
-				<div>
-					<ul className= 'books-index'>
-						{ books }
-					</ul>
-				</div>
+					<div>
+						<ul className= 'books-index'>
+							{ books }
+						</ul>
+					</div>
 
-				<div className= 'index-bookshelf'>
-					<MiniBookshelf />
+					<div className= 'index-bookshelf'>
+						<MiniBookshelf
+							user_id= { this.props.match.params.user_id }
+							bookshelves= { this.props.bookshelves } />
+					</div>
 				</div>
 			</div>
 		);

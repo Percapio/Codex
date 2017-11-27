@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { selectSingleBook } from '../../reducers/selectors';
+import { selectSingleBook } from '../../selectors/selectors';
 import { getSingleBook } from '../../actions/books_actions';
 import BookShow from './book_show';
 

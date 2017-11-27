@@ -20,9 +20,12 @@ document.addEventListener('DOMContentLoaded', () => {
   let store;
 
   if (window.user) {
-  	const preloadedState = { session: { user: window.user } };
+  	const preloadedState = { 
+      session: { user: window.user, errors: [] } };
+
   	store = configStore(preloadedState);
   	delete window.user;
+    
   } else {
   	store = configStore();
   }

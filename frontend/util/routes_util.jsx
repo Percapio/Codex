@@ -3,15 +3,16 @@ import SessionFormContainer from '../components/session/session_form_container';
 import { connect } from 'react-redux';
 import { Redirect, Route, withRouter } from 'react-router-dom';
 
-const mapStateToProps = state => ({
-	loggedIn: Boolean(state.sessionReducer.user)
+const mapStateToProps = (state) => ({
+	loggedIn: Boolean(state.sessionReducer.user),
+	user: state.sessionReducer.user
 });
 
-const Auth = ({ loggedIn, path, component: Component }) => (
+const Auth = ({ user, loggedIn, path, component: Component }) => (
 	<Route
 		path= { path }
 		render= { props => (
-			loggedIn ? <Redirect to= '/users/show' /> : <Component {...props} />
+			loggedIn ? <Redirect to= {`/user/${user.id}`} /> : <Component {...props} />
 		)}
 	/>
 );
@@ -39,7 +40,7 @@ const Protected = ({ loggedIn, path, component: Component }) => {
 };
 
 export const AuthRoute = withRouter(
-	connect(mapStateToProps)(Auth));
+	connect(mapStateToProps, null)(Auth));
 
 export const ProtectedRoute = withRouter(
-	connect(mapStateToProps)(Protected));
+	connect(mapStateToProps, null)(Protected));

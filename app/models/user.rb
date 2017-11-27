@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  username        :string           not null
+#  password_digest :string           not null
+#  session_token   :string           not null
+#  email           :string           not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
 class User < ApplicationRecord
   validates :username, :session_token, :email, presence: true, uniqueness: true
   validates :password_digest, presence: true
@@ -5,7 +18,9 @@ class User < ApplicationRecord
 
   attr_reader :password
 
-  has_many :bookshelves
+  has_many :bookshelves,
+    class_name: :Bookshelf,
+    foreign_key: :owner_id
 
   after_initialize :ensure_session_token
 

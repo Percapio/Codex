@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
-import { selectAllBooks, selectBookshelf } from '../../reducers/selectors';
+import { selectAllBooks, selectBookshelves } from '../../selectors/selectors';
 import { withRouter } from 'react-router-dom';
 import { 
+	getBookshelves,
 	getBookshelf,
 	createBookshelf,
 	deleteBookshelf,
@@ -11,14 +12,16 @@ import {
 import Bookshelf from './bookshelf';
 
 const mapStateToProps = state => ({
-	bookshelf: selectBookshelf(state)
+	user: state.session.user,
+	bookshelves: selectBookshelves(state)
 });
 
 const mapDispatchToProps = dispatch => ({
-	getBookshelf: id => dispatch(getBookshelf(id)),
-	createBookshelf: bookshelf => dispatch(createBookshelf(bookshelf)),
-	deleteBookshelf: id => dispatch(deleteBookshelf(id)),
-	editBookshelf: bookshelf => dispatch(editBookshelf(bookshelf))
+	getBookshelves: (userId) => dispatch(getBookshelves(userId)),
+	getBookshelf: (shelf, userId) => dispatch(getBookshelf(shelf, userId)),
+	createBookshelf: (shelf, userId) => dispatch(createBookshelf(shelf, userId)),
+	deleteBookshelf: (shelfId, userId) => dispatch(deleteBookshelf((shelfId, userId))),
+	editBookshelf: (shelf, userId) => dispatch(editBookshelf(shelf, userId))
 });
 
 export default withRouter(connect(

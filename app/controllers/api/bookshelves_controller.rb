@@ -1,8 +1,7 @@
 class BookshelvesController < ApplicationController
   def show
-    @bookshelf = Bookshelf.find(params[:id])
+    @bookshelf = Bookshelf.find_by_credentials(params[:id], params[:user_id])
 
-    debugger
     if @bookshelf
       render json: @bookshelf
     else
@@ -21,13 +20,13 @@ class BookshelvesController < ApplicationController
   end
 
   def delete
-    @bookshelf = Bookshelf.find(params[:id])
+    @bookshelf = Bookshelf.find_by_credentials(params[:id], params[:user_id])
     @bookshelf.destroy!
-    redirect_to '/users/show'
+    redirect_to '/'
   end
 
   def update
-    @bookshelf = Bookshelf.find(params[:id])
+    @bookshelf = Bookshelf.find_by_credentials(params[:id], params[:user_id])
 
     if @bookshelf.update(bookshelf_params)
       render json: @bookshelf
