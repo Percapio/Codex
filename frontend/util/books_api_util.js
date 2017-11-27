@@ -1,8 +1,7 @@
-export const getAllBooks = books => (
+export const getAllBooks = () => (
 	$.ajax({
 		method: 'GET',
-		url: 'api/books',
-		books
+		url: 'api/books'
 	})
 );
 

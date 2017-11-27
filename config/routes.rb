@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :session, only: [:create, :destroy, :show]
 
     resources :users, only: [:create], defaults: { format: :json } do
-      resources :bookshelves, except: [:index, :new, :edit]
+      resources :bookshelves, except: [:new, :edit]
     end
 
     resources :books, only: [:show, :index]

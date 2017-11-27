@@ -1,6 +1,13 @@
 class BookshelvesController < ApplicationController
+  def index
+    @bookshelves = User.find(params[:user_id]).bookshelves
+    debugger
+    render json: @bookshelves
+  end
+  
   def show
     @bookshelf = Bookshelf.find_by_credentials(params[:id], params[:user_id])
+    debugger
 
     if @bookshelf
       render json: @bookshelf
@@ -11,6 +18,8 @@ class BookshelvesController < ApplicationController
 
   def create
     @bookshelf = Bookshelf.new(bookshelf_params)
+    @bookshelf.user_id = current_user.id
+    @bookshelf.shelf_id = 1
 
     if @bookshelf.save
       render json: @bookshelf
@@ -38,6 +47,6 @@ class BookshelvesController < ApplicationController
   private
 
   def bookshelf_params
-    params.require(:bookshelf).permit(:title, :description, :owner_id)
+    params.require(:bookshelf).permit(:title, :description)
   end
 end

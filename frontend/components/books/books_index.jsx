@@ -1,12 +1,11 @@
 import React from 'react';
 import BooksIndexItem from './books_index_item';
-import BookShowContainer from './book_show_container';
-import MiniBookshelf from './mini_bookshelf';
+import BooksSidebar from './books_sidebar';
+import BookshelfContainer from '../bookshelf/bookshelf_container';
 
 class BooksIndex extends React.Component {
 	componentDidMount() {
 		this.props.getAllBooks();
-		this.props.getBookshelves();
 	}
 
 	render() {
@@ -24,7 +23,7 @@ class BooksIndex extends React.Component {
 				<h2>Welcome, { this.props.user }!</h2>
 				<div className= 'index-page'>
 					<div className= 'single-books'>
-						<BookShowContainer />
+						<BooksSidebar />
 					</div>
 
 					<div>
@@ -34,9 +33,7 @@ class BooksIndex extends React.Component {
 					</div>
 
 					<div className= 'index-bookshelf'>
-						<MiniBookshelf
-							user_id= { this.props.match.params.user_id }
-							bookshelves= { this.props.bookshelves } />
+						<BookshelfContainer />
 					</div>
 				</div>
 			</div>

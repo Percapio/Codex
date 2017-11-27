@@ -12,7 +12,7 @@ import {
 import Bookshelf from './bookshelf';
 
 const mapStateToProps = state => ({
-	user: state.session.user,
+	user_id: state.sessionReducer.user.id,
 	bookshelves: selectBookshelves(state)
 });
 
