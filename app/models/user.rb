@@ -28,8 +28,8 @@ class User < ApplicationRecord
     Bookshelf.create(
       title: 'Default', 
       description: 'Basic bookshelf to hold "Currently Reading" and "Want to Read"', 
-      owner_id: 1, 
-      shelf_id: 1)
+      owner_id: 1
+      )
   end
 
   def self.find_by_credentials(username, password)

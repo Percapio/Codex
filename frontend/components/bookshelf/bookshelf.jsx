@@ -9,8 +9,7 @@ class Bookshelf extends React.Component {
 		this.state = {
 			title: '',
 			description: '',
-			owner_id: this.props.user_id,
-			shelf_id: 1
+			owner_id: this.props.user_id
 		}
 
 		this.handleSubmit = this.handleSubmit.bind(this);

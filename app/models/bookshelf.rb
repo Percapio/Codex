@@ -13,7 +13,7 @@
 
 class Bookshelf < ApplicationRecord
 	validates :title, presence: true, uniqueness: { scope: :user }
-	validates :shelf_id, :owner_id, presence: true
+	validates :owner_id, presence: true
 
 	has_many :shelves,
 		class_name: :Shelf
