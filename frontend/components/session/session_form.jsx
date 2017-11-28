@@ -55,7 +55,7 @@ class SessionForm extends React.Component {
 	}
 
   usernameInput() {
-    if (this.props.navType === '/signup') {
+    if (this.props.navType != '/login') {
       return (
         <label>Username:
           <input
@@ -68,13 +68,13 @@ class SessionForm extends React.Component {
   }
 
   navSession() {
-    if (this.props.navType === '/signup') {
+    if (this.props.navType != '/login') {
       return (
     		<div className= 'session-head'><Link to="/login" className='nav-link'>Log In</Link> | <p>Join</p></div>
     	)
     } else {
     	return (
-      	<div className= 'session-head'><p>Log In</p> | <Link to="/signup" className='nav-link'>Join</Link></div>
+      	<div className= 'session-head'><p>Log In</p> | <Link to="/" className='nav-link'>Join</Link></div>
     	)
    	}
   }

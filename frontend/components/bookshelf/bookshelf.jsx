@@ -7,7 +7,7 @@ class Bookshelf extends React.Component {
 		super(props)
 
 		this.state = {
-			title: '',
+			title: 'name bookshelf',
 			description: '',
 			owner_id: this.props.match.params.user_id
 		}
@@ -42,42 +42,41 @@ class Bookshelf extends React.Component {
 
 		return (
 			<div className= 'mini-container'>
-					<div>
-						<img src= 'http://www.scholastic.com/parents/sites/default/files/field_asset_image/iStock_000043350128_XXXLarge.jpg' alt= 'some random book'/>
-						<ul>
-							{ bookshelves }
-						</ul>
-					</div>
+				<div>
+					<img src= 'http://www.scholastic.com/parents/sites/default/files/field_asset_image/iStock_000043350128_XXXLarge.jpg' alt= 'some random book'/>
+					<ul>
+						{ bookshelves }
+					</ul>
+				</div>
 
-					<form className= 'bookshelf-index' onSubmit= {this.handleSubmit}>
-						<input
-							type= 'text'
-							name= 'Name bookshelf'
-							value= {this.state.title}
-							onChange= {this.handleChange('title')} />
+				<form className= 'bookshelf-index' onSubmit= {this.handleSubmit}>
+					<input
+						type= 'text'
+						value= {this.state.title}
+						onChange= {this.handleChange('title')} />
 
-						<input type= 'submit' value= 'Add shelf' className= 'submit-button'/>
-					</form>
+					<input type= 'submit' value= 'Add shelf' className= 'submit-button'/>
+				</form>
 
-					<hr />
+				<hr />
 
-					<div className= "current-reading">
-						<img 
-							src= 'http://cdn.hbowatch.com/wp-content/uploads/2012/01/A-Game-of-Thrones-book-Cover-NOvel.jpg'
-							alt= 'some random book'
-							className= 'side-bar-books' />
-						<h3>Current Reading</h3>
-					</div>
+				<div className= "current-reading">
+					<h3>Current Reading</h3>
+					<img 
+						src= 'http://cdn.hbowatch.com/wp-content/uploads/2012/01/A-Game-of-Thrones-book-Cover-NOvel.jpg'
+						alt= 'some random book'
+						className= 'side-bar-books' />
+				</div>
 
-					<hr />
+				<hr />
 
-					<div className= "want-to-read">
-						<img 
-							src= 'http://cdn.hbowatch.com/wp-content/uploads/2012/01/A-Game-of-Thrones-book-Cover-NOvel.jpg' 
-							alt= 'some random book'
-							className= 'side-bar-books' />
-						<h3>Want to Read</h3>
-					</div>
+				<div className= "want-to-read">
+					<h3>Want to Read</h3>
+					<img 
+						src= 'http://cdn.hbowatch.com/wp-content/uploads/2012/01/A-Game-of-Thrones-book-Cover-NOvel.jpg' 
+						alt= 'some random book'
+						className= 'side-bar-books' />
+				</div>
 			</div>
 		)
 	}

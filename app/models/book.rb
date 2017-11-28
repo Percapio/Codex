@@ -22,4 +22,6 @@ class Book < ApplicationRecord
 	
 	has_many :shelves,
 		class_name: :Shelf
+
+
 end

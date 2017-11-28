@@ -7,6 +7,7 @@ class NavUserForm extends React.Component {
 		this.handleClick = this.handleClick.bind(this);
 	}
 
+	//todo add history push
 	handleClick(e) {
 		e.preventDefault();
 		this.props.logout();
@@ -14,7 +15,7 @@ class NavUserForm extends React.Component {
 
 	render() {
 
-		if ((this.props.sessionType != '/signup') && (this.props.sessionType != '/login')) {
+		if ((this.props.sessionType != '/') && (this.props.sessionType != '/login')) {
 			return (
 				<div className= 'user-form-container'>
 					<div className= 'nav-links'>

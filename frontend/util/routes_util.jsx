@@ -30,7 +30,7 @@ const Protected = ({ loggedIn, path, component: Component }) => {
 	} else {
 		return (
 			<Redirect
-				to= '/signup'
+				to= '/'
 				render= { props => (
 					<SessionFormContainer {...props} />
 				)}
@@ -38,6 +38,7 @@ const Protected = ({ loggedIn, path, component: Component }) => {
 		)
 	}
 };
+
 
 export const AuthRoute = withRouter(
 	connect(mapStateToProps, null)(Auth));

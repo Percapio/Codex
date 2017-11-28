@@ -10,7 +10,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => {
 	const navType = ownProps.location.pathname;
-	const navAction = (navType === '/signup') ? signup : login;
+	const navAction = (navType === '/') ? signup : login;
 
 	return {
 		navType,

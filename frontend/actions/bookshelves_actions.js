@@ -4,6 +4,7 @@ export const RECEIVE_BOOKSHELVES = 'RECEIVE_BOOKSHELVES';
 export const RECEIVE_BOOKSHELF = 'RECEIVE_BOOKSHELF';
 export const DELETE_BOOKSHELF = 'DELETE_BOOKSHELF';
 export const CREATE_BOOKSHELF = 'CREATE_BOOKSHELF';
+export const RECEIVE_ERRORS = 'RECEIVE_ERRORS'; 
 
 const receiveBookshelves = bookshelves => ({
 	type: RECEIVE_BOOKSHELVES,

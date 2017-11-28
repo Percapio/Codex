@@ -8,7 +8,6 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  description :text
-#  shelf_id    :integer          not null
 #
 
 require 'test_helper'

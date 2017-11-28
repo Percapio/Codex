@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
       session: { user: window.user, errors: [] } };
 
   	store = configStore(preloadedState);
-  	delete window.user;
+  	delete window.currentUser;
     
   } else {
   	store = configStore();
