@@ -62,14 +62,20 @@ class Bookshelf extends React.Component {
 					<hr />
 
 					<div className= "current-reading">
-						<img src= 'http://cdn.hbowatch.com/wp-content/uploads/2012/01/A-Game-of-Thrones-book-Cover-NOvel.jpg' alt= 'some random book'/>
+						<img 
+							src= 'http://cdn.hbowatch.com/wp-content/uploads/2012/01/A-Game-of-Thrones-book-Cover-NOvel.jpg'
+							alt= 'some random book'
+							className= 'side-bar-books' />
 						<h3>Current Reading</h3>
 					</div>
 
 					<hr />
 
 					<div className= "want-to-read">
-						<img src= 'http://cdn.hbowatch.com/wp-content/uploads/2012/01/A-Game-of-Thrones-book-Cover-NOvel.jpg' alt= 'some random book'/>
+						<img 
+							src= 'http://cdn.hbowatch.com/wp-content/uploads/2012/01/A-Game-of-Thrones-book-Cover-NOvel.jpg' 
+							alt= 'some random book'
+							className= 'side-bar-books' />
 						<h3>Want to Read</h3>
 					</div>
 			</div>
