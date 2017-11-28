@@ -1,6 +1,5 @@
 import React from 'react';
 import BooksIndexItem from './books_index_item';
-import BooksSidebar from './books_sidebar';
 import BookshelfContainer from '../bookshelf/bookshelf_container';
 
 class BooksIndex extends React.Component {
@@ -30,10 +29,6 @@ class BooksIndex extends React.Component {
 
 					<div className= 'index-bookshelf'>
 						<BookshelfContainer />
-
-						<hr />
-
-						<BooksSidebar user= {this.props.user} />
 					</div>
 				</div>
 			</div>

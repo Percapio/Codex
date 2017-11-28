@@ -28,6 +28,7 @@
 	padding-right: 15px;
 	display: flex;
 	justify-content: flex-end;
+	position: relative;
 
 	form {
 		display: flex;
@@ -35,25 +36,33 @@
 		align-items: center;
 	}
 
-	input {
-		width: 40%;
-		padding-left: 10px;
-		border-radius: 2px;
-		margin-right: 5px;
-		background-color: white;
-		border: $border-color;
-		color: $back-blue;
-	}
-
 	.nav-links {
 		width: 200px;
 		display: flex;
 		justify-content: space-evenly;
-		color: $logo-color;
+		color: $font-color;
 	}
 
 	.nav-links i:hover {
 		cursor: pointer;
-		color: $form-color;
+		color: $logo-color;
+	}
+
+	.signout-dropdown {
+		margin-top: 5px;
+		padding: 5px;
+	  display: none;
+	  position: absolute;
+	  font-size: 14px;
+	  white-space: nowrap;
+	  background: white;
+	  border: 1px solid #ccc;
+	  border-bottom-left-radius: 5px;
+	  border-bottom-right-radius: 5px;
+	  border-top-right-radius: 5px;
+	}
+
+	i:hover .signout-dropdown {
+		display: block;
 	}
 }

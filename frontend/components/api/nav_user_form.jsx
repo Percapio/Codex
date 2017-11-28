@@ -22,7 +22,11 @@ class NavUserForm extends React.Component {
 						<i className= "fa fa-weixin fa-lg" aria-hidden="true"></i>
 						<i className= "fa fa-envelope-open fa-lg" aria-hidden="true"></i>
 						<i className= "fa fa-user-plus fa-lg" aria-hidden="true"></i>
-						<i className= "fa fa-user-circle-o fa-lg" aria-hidden="true" onClick= {this.handleClick}></i>
+						<i className= "fa fa-user-circle-o fa-lg" aria-hidden="true">
+							<ul className= "signout-dropdown">
+								<li onClick= {this.handleClick}>Sign Out</li>
+							</ul>
+						</i>
 					</div>
 				</div>
 			)
