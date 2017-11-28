@@ -5,7 +5,7 @@
 
 
 .landing-page {
-	background-image: url("https://stevewindsor.com/wp-content/uploads/faith-religious-thriller-book-page-banner.jpg"); 
+	background-image: url("https://i2-prod.cambridge-news.co.uk/incoming/article12572001.ece/ALTERNATES/s1200/Getty-books.jpg"); 
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
@@ -16,8 +16,7 @@
 }
 
 .session-form-container {
-	background-color: rgba(5, 5, 5, 0.3);
-	border: $border-bot;
+	background-color: white;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -25,18 +24,21 @@
 	border-radius: 5px;
 	margin-right: 200px;
 	margin-bottom: 200px;
-	width: 400px;
-	height: 400px;
+	width: 300px;
+	height: 300px;
 	color: $font-color;
 
-	.signup, .session-form{
-		margin-bottom: 30px;
-	}
+	.session-head {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-evenly;
+		font-size: 30px;
+		margin-bottom: 20px;
 
-	.signup {
-		text-transform: uppercase;
-		font-size: 40px;
-		font-weight: 500;
+		p {
+			color: $logo-color;
+		}
 	}
 
 	.session-form {
@@ -45,26 +47,32 @@
 
 		input {
 			margin-bottom: 8px;
-			border-radius: 2px;
-			padding-left: 10px;
-			background-color: white;
-		}
-
-		input:last-child {
-			height: 20px;
-			margin-bottom: 0;
 			border-radius: 4px;
-			padding-left: 0;
-			text-align: center;
-			background-color: $button-color;
-			color: white;
-			vertical-align: center;
-			box-shadow: 1px 1px 1px black;
-			line-height: 10px;
+			border: 1px solid rgba(10, 10, 10, 0.3);
+			padding-left: 10px;
 		}
 
-		input:last-child:hover {
-			background-color: $button-hover;			
+		.submit-button {
+			padding: 0;
+			color: white;
+			background-color: $logo-color;
+			text-align: center;
 		}
+
+		.submit-button:hover {
+			background-color: $hover-color;
+		}
+	}
+
+	.demo-button {
+		color: white;
+		background-color: $logo-color;
+		padding: 2px;
+		padding-left: 12px;
+		padding-right: 12px;
+	}
+
+	.demo-button:hover {
+		background-color: $hover-color;
 	}
 }

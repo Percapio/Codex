@@ -1,14 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class SessionForm extends React.Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			username: 'Name',
-			email: 'Email Address',
-			password: 'password'
+			username: '',
+			email: '',
+			password: ''
 		};
+
 
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.renderErrors = this.renderErrors.bind(this);
@@ -18,7 +20,7 @@ class SessionForm extends React.Component {
 	handleSubmit(e) {
 		e.preventDefault();
 		const user = this.state;
-		this.props.signup( user );
+		this.props.navAction( user );
 	}
 
 	handleChange(field) {
@@ -27,10 +29,19 @@ class SessionForm extends React.Component {
 		});
 	}
 
+	demoButton() {
+		if (this.props.navType === '/login') {
+			return (
+				<button onClick= { this.handleDemo } className= 'demo-button'>Demo
+				</button>
+			)
+		}
+	}
+
 	handleDemo(e) {
 		e.preventDefault();
 		const user = { username: 'Guest', password: 'Password' }
-		this.props.login(user);
+		this.props.navAction( user );
 	}
 
 	renderErrors() {
@@ -43,36 +54,65 @@ class SessionForm extends React.Component {
 		);
 	}
 
+  usernameInput() {
+    if (this.props.navType === '/signup') {
+      return (
+        <label>Username:
+          <input
+          type="text"
+          value={this.state.username}
+          onChange={this.handleChange('username')} />
+        </label>
+      );
+    }
+  }
+
+  navSession() {
+    if (this.props.navType === '/signup') {
+      return (
+    		<div className= 'session-head'><Link to="/login" className='nav-link'>Log In</Link> | <p>Join</p></div>
+    	)
+    } else {
+    	return (
+      	<div className= 'session-head'><p>Log In</p> | <Link to="/signup" className='nav-link'>Join</Link></div>
+    	)
+   	}
+  }
+
 	render() {
 		return (
 			<div className= 'landing-page'>
 				<div className= 'session-form-container'>
-					<div className= 'signup'>
-						<h2>Sign Up</h2>
-					</div>
 
-					<form className= 'session-form' onSubmit= {this.handleSubmit}>
+	        <form onSubmit={this.handleSubmit} className= 'session-form'>
+	          { this.renderErrors() }
 
-						<input
-							type= 'text'
-							value= {this.state.username}
-							onChange= {this.handleChange('username')} />
+	          <div>
+		          { this.navSession() }
+		        </div>
 
-						<input
-							type= 'text'
-							value= {this.state.email}
-							onChange= {this.handleChange('email')} />
+	          <div className= 'session-form'>
+	          	<div>
+	          		{ this.usernameInput() }
+	          	</div>
+	            
+	            <label>Email:
+	              <input type="text"
+	                value={ this.state.email }
+	                onChange={ this.handleChange('email') }/>
+	            </label>
+	            
+	            <label>Password:
+	              <input type="password"
+	                value={ this.state.password }
+	                onChange={ this.handleChange('password') } />
+	            </label>
+	            
+	            <input type="submit" value="Submit" className= 'submit-button'/>
+	          </div>
+	        </form>
 
-						<input
-							type= 'password'
-							value= {this.state.password}
-							onChange= {this.handleChange('password')} />
-
-						<input type= 'submit' value= 'Submit'/>
-					</form>
-
-					<button onClick= {this.handleDemo} className= 'demo-button'>Demo
-					</button>
+	        { this.demoButton() }
 				</div>
 			</div>
 		)

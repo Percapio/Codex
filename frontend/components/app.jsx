@@ -16,7 +16,8 @@ export default () => (
 			<ProtectedRoute path= "/api/books/:id" component= { BookShowContainer } />
 			<ProtectedRoute path= "/user/:user_id/:bookshelf_title" component= { ShelvesContainer } />
 			<ProtectedRoute path= "/user/:user_id" component= { BookIndexContainer } />
-			<AuthRoute exact path='/' component= { SessionFormContainer } />
+			<AuthRoute exact path='/signup' component= { SessionFormContainer } />
+			<AuthRoute exact path='/login' component= { SessionFormContainer } />
 		</Switch>
 	</div>
 );

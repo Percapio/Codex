@@ -2,17 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import './main_scss';
-@import './button';
+
 
 .nav-bar {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	border-bottom: $form-hover;
-	background-color: $back-grey;
-	color: $form-hover;
 	padding-left: 40px;
 	padding-right: 40px;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	border-bottom: $border-color;
+	background-color: $back-blue;
+	color: $logo-color;
 
 		h1 {
 			font-size: 36px;
@@ -36,18 +38,18 @@
 	input {
 		width: 40%;
 		padding-left: 10px;
-		border: $border-bot;
 		border-radius: 2px;
 		margin-right: 5px;
 		background-color: white;
-		color: $back-grey;
+		border: $border-color;
+		color: $back-blue;
 	}
 
 	.nav-links {
 		width: 200px;
 		display: flex;
 		justify-content: space-evenly;
-		color: $form-hover;
+		color: $logo-color;
 	}
 
 	.nav-links i:hover {

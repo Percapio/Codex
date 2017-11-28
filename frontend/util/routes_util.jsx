@@ -30,7 +30,7 @@ const Protected = ({ loggedIn, path, component: Component }) => {
 	} else {
 		return (
 			<Redirect
-				to= '/'
+				to= '/signup'
 				render= { props => (
 					<SessionFormContainer {...props} />
 				)}

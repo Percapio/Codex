@@ -22,11 +22,6 @@ class BooksIndex extends React.Component {
 			<div className='main-component'>
 				<h2>Welcome, { this.props.user }!</h2>
 				<div className= 'index'>
-
-					<div className= 'single-books'>
-						<BooksSidebar user= {this.props.user} />
-					</div>
-
 					<div>
 						<ul className= 'books-index'>
 							{ books }
@@ -35,6 +30,10 @@ class BooksIndex extends React.Component {
 
 					<div className= 'index-bookshelf'>
 						<BookshelfContainer />
+
+						<hr />
+
+						<BooksSidebar user= {this.props.user} />
 					</div>
 				</div>
 			</div>

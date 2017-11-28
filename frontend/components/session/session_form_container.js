@@ -8,10 +8,15 @@ const mapStateToProps = state => ({
 	errors: state.errors.errors
 });
 
-const mapDispatchToProps = dispatch => ({
-	signup: (user) => dispatch( signup(user) ),
-	login: (user) => dispatch( login(user) )
-});
+const mapDispatchToProps = (dispatch, ownProps) => {
+	const navType = ownProps.location.pathname;
+	const navAction = (navType === '/signup') ? signup : login;
+
+	return {
+		navType,
+		navAction: user => dispatch(navAction(user))
+	};
+};
 
 export default withRouter(connect(
 	mapStateToProps,

@@ -53,6 +53,7 @@ class Bookshelf extends React.Component {
 					<form className= 'bookshelf-index' onSubmit= {this.handleSubmit}>
 						<input
 							type= 'text'
+							name= 'Name bookshelf'
 							value= {this.state.title}
 							onChange= {this.handleChange('title')} />
 

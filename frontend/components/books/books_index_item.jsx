@@ -27,5 +27,7 @@ export default ({ book }) => (
 				<i className= "fa fa-star-o fa-lg" aria-hidden="true"></i>
 			</div>		
 		</div>
+
+		<hr />
 	</li>
 );
