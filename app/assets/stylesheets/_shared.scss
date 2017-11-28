@@ -1,0 +1,14 @@
+@import './main_scss';
+
+.main-component {
+	padding: 75px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: $non-landing-backdrop;
+
+	h2 {
+		margin-right: 500px;
+		margin-bottom: 2px;
+	}
+}

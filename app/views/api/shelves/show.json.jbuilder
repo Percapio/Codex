@@ -1,0 +1,1 @@
+json.partial! 'api/shelves/show', shelf: @shelf

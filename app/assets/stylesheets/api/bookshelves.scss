@@ -1,0 +1,72 @@
+// Place all the styles related to the Bookshelves controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import './main_scss';
+
+.mini-container {
+	display: flex;
+	flex-direction: column;
+
+	input {
+		background-color: white;
+		border: 1px solid black;
+	}
+
+	.bookshelf-title:hover {
+		color: $logo-color;
+	}
+
+	input {
+		margin-bottom: 8px;
+		border-radius: 4px;
+		border: 1px solid rgba(10, 10, 10, 0.3);
+		padding-left: 10px;
+		color: $font-color;
+	}
+
+	.submit-button {
+		padding: 2px;
+		padding-left: 10px;
+		padding-right: 10px;
+		color: white;
+		background-color: $logo-color;
+		text-align: center;
+	}
+
+	.submit-button:hover {
+		background-color: $hover-color;
+	}
+
+	hr {
+		width: 70%;
+		border-style: inset;
+		margin-right: 60px;
+	}
+
+	.current-reading, .want-to-read, .bookshelf-index {
+		margin-top: 20px;
+	}
+
+	.bookshelf-index {
+		margin-bottom: 13px;
+	}
+	
+	.side-bar-books, img {
+		box-sizing: border-box;
+		height: 130px;
+		width: 80px;
+		margin-right: 50px;
+	}
+
+	.side-bar-books:hover {
+		box-shadow: 2px 1px 1px black;
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+	}
+
+	.mini-container {
+
+	}
+}
