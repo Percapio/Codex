@@ -11,7 +11,7 @@ export default (state = [], action) => {
 			return action.errors;
 
 		case RECEIVE_CURRENT_USER:
-			return null;
+			return [];
 
 		default:
 			return state;

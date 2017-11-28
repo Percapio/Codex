@@ -17,6 +17,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
 	getBookshelves: (userId) => dispatch(getBookshelves(userId)),
+
+	
 	getBookshelf: (shelf, userId) => dispatch(getBookshelf(shelf, userId)),
 	createBookshelf: (shelf, userId) => dispatch(createBookshelf(shelf, userId)),
 	deleteBookshelf: (shelfId, userId) => dispatch(deleteBookshelf((shelfId, userId))),
