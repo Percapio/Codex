@@ -20,7 +20,6 @@ class Bookshelf extends React.Component {
 	}
 
 	handleSubmit(e) {
-		debugger;
 		e.preventDefault();
 		this.props.createBookshelf(this.state, this.state.owner_id)
 	}
@@ -36,7 +35,8 @@ class Bookshelf extends React.Component {
 								(bookshelf, index) => (
 									<BookshelfItem
 										key= { index }
-										bookshelf= { bookshelf } />
+										bookshelf= { bookshelf }
+										owner_id= { this.state.owner_id } />
 									)
 								)
 
@@ -47,6 +47,8 @@ class Bookshelf extends React.Component {
 					<ul>
 						{ bookshelves }
 					</ul>
+
+					{}
 
 					<form className= 'bookshelf-index' onSubmit= {this.handleSubmit}>
 						<input

@@ -19,7 +19,7 @@ class BooksIndex extends React.Component {
 			});
 
 		return (
-			<div className='index-component'>
+			<div className='main-component'>
 				<h2>Welcome, { this.props.user }!</h2>
 				<div className= 'index'>
 

@@ -5,12 +5,16 @@ import NavBar from './api/navbar';
 import SessionFormContainer from './session/session_form_container';
 import BookIndexContainer from './books/books_index_container';
 import BookshelfContainer from './bookshelf/bookshelf_container';
+import ShelvesContainer from './shelves/shelves_container';
+import BookShowContainer from './show_books/book_show_container';
 
 export default () => (
 	<div>
 		<NavBar />
 
 		<Switch>
+			<ProtectedRoute path= "/api/books/:id" component= { BookShowContainer } />
+			<ProtectedRoute path= "/user/:user_id/:bookshelf_title" component= { ShelvesContainer } />
 			<ProtectedRoute path= "/user/:user_id" component= { BookIndexContainer } />
 			<AuthRoute exact path='/' component= { SessionFormContainer } />
 		</Switch>
