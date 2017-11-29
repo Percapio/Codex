@@ -21,7 +21,7 @@ class SessionForm extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-    this.setState({errors: [nextProps.errors] });
+    this.setState({ errors: [nextProps.errors] });
   }
 
 	handleSubmit(e) {
@@ -79,11 +79,16 @@ class SessionForm extends React.Component {
   navSession() {
     if (this.props.navType != '/login') {
       return (
-    		<div className= 'session-head'><Link to="/login" className='nav-link'>Log In</Link> | <p>Join</p></div>
+	  			<div className= 'session-head'>
+	  				<Link to="/login" className='nav-link'>Log In</Link> | <p>Join</p>
+		  			{ this.state.errors = [] }
+	  			</div>
     	)
     } else {
     	return (
-      	<div className= 'session-head'><p>Log In</p> | <Link to="/" className='nav-link'>Join</Link></div>
+      	<div className= 'session-head'>
+      		<p>Log In</p> | <Link to="/" className='nav-link'>Join</Link>
+      	</div>
     	)
    	}
   }

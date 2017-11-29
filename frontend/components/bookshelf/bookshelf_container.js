@@ -15,15 +15,15 @@ const mapStateToProps = state => ({
 	bookshelves: selectBookshelves(state)
 });
 
-const mapDispatchToProps = dispatch => ({
-	getBookshelves: (userId) => dispatch(getBookshelves(userId)),
-
-	
-	getBookshelf: (shelf, userId) => dispatch(getBookshelf(shelf, userId)),
-	createBookshelf: (shelf, userId) => dispatch(createBookshelf(shelf, userId)),
-	deleteBookshelf: (shelfId, userId) => dispatch(deleteBookshelf((shelfId, userId))),
-	editBookshelf: (shelf, userId) => dispatch(editBookshelf(shelf, userId))
-});
+const mapDispatchToProps = dispatch => {
+	return({
+		getBookshelves: (userId) => dispatch(getBookshelves(userId)),
+		getBookshelf: (shelf, userId) => dispatch(getBookshelf(shelf, userId)),
+		createBookshelf: (shelf, userId) => dispatch(createBookshelf(shelf, userId)),
+		deleteBookshelf: (shelfId, userId) => dispatch(deleteBookshelf(shelfId, userId)),
+		editBookshelf: (shelf, userId) => dispatch(editBookshelf(shelf, userId))
+	});
+};
 
 export default withRouter(connect(
 	mapStateToProps,

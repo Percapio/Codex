@@ -50,13 +50,3 @@ export const editBookshelf = (shelf, userId) => dispatch => (
 	APIUtil.editBookshelf(shelf, userId).then(
 		(payload) => dispatch(receiveBookshelf(payload)) )
 );
-
-
-//tester
-export const testCreate = (shelf, userId) => dispatch => {
-	
-	return(
-		APIUtil.testCreate(shelf, userId).then(
-			(payload) => dispatch(receiveBookshelf(payload)) )
-	)
-};

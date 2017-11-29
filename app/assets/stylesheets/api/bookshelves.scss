@@ -9,6 +9,8 @@
 	width: 82px;
 
 	.mini-shelves {
+		display: flex;
+		justify-content: space-between;
 		margin-bottom: 15px;
 
 		img {
@@ -19,6 +21,10 @@
 			margin: 0 auto;
 			font-size: 9px;
 			padding-top: 4px;
+		}
+
+		.delete-shelf {
+			height: 20px;
 		}
 	}
 

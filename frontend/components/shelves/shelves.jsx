@@ -7,14 +7,9 @@ class Shelves extends React.Component {
 		super(props);
 
 		this.state = {
-			bookshelf_id: this.props.match.bookshelfId,
-			shelf: this.props.match.shelf
+			// bookshelf_id: this.props.match.bookshelfId,
+			// shelf: this.props.match.shelf
 		};
-	}
-
-	handleClick(e) {
-		e.preventDefault();
-		this.props.history.push(`/user/${this.props.userId}`);
 	}
 
 	// componentDidMount() {
@@ -30,9 +25,6 @@ class Shelves extends React.Component {
 		return (
 			<div className= 'main-component'>
 				<h2>Bookshelf: { this.props.match.params.bookshelf_title }</h2>
-
-				<button className= 'back-button' onClick= { this.handleClick }>Go Back!
-				</button>
 
 				<div className= 'index'>
 					<div className= 'books-index'>

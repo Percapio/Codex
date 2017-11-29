@@ -31,7 +31,9 @@ export default ({ book }) => (
 				</div>
 
 				<div>
-
+					<NavLink to= { `/api/books/${book.id}` }>
+						Review
+					</NavLink>
 				</div>
 			</div>
 					

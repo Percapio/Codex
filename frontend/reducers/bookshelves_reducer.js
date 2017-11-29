@@ -18,7 +18,7 @@ export default (state = {}, action) => {
 			return merge({}, state, { [action.bookshelf.id]: action.bookshelf });
 
 		case CREATE_BOOKSHELF:
-			return merge({}, action.bookshelf);
+			return merge({}, state, { [action.bookshelf.id]: action.bookshelf });
 
 		case DELETE_BOOKSHELF:
 			let newState = merge({}, oldState);

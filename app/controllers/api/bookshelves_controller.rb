@@ -17,20 +17,19 @@ class Api::BookshelvesController < ApplicationController
 
   def create
     @bookshelf = Bookshelf.new(bookshelf_params)
-    # Bookshelf.default_shelves(@bookshelf)
-    # debugger
+    @bookshelf.owner_id = current_user.id
 
     if @bookshelf.save
+      debugger
       render json: @bookshelf
     else
       render json: @bookshelf.errors.full_messages, status: 422
     end
   end
 
-  def delete
+  def destroy
     @bookshelf = Bookshelf.find_by_credentials(params[:id], params[:user_id])
     @bookshelf.destroy!
-    redirect_to '/'
   end
 
   def update
@@ -46,6 +45,6 @@ class Api::BookshelvesController < ApplicationController
   private
 
   def bookshelf_params
-    params.require(:bookshelf).permit(:title, :description, :owner_id)
+    params.require(:bookshelf).permit(:title)
   end
 end

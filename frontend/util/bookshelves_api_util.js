@@ -1,38 +1,38 @@
-export const getBookshelves = (user_id) => (
+export const getBookshelves = (userId) => (
 	$.ajax({
 		method: 'GET',
-		url: `api/users/${user_id}/bookshelves/`
+		url: `api/users/${userId}/bookshelves/`
 	})
 );
 
-export const getBookshelf = (shelf, user_id) => (
+export const getBookshelf = (shelf, userId) => (
 	$.ajax({
 		method: 'GET',
-		url: `api/users/${user_id}/bookshelves/${ shelf }`
+		url: `api/users/${userId}/bookshelves/${ shelf }`
 	})
 );
 
-export const createBookshelf = (shelf, user_id) => (
+export const createBookshelf = (shelf, userId) => (
 	$.ajax({
 		method: 'POST',
-		url: `api/users/${user_id}/bookshelves/`,
+		url: `api/users/${userId}/bookshelves/`,
 		data: { 
 			bookshelf: shelf 
 		}
 	})
 );
 
-export const deleteBookshelf = (bookshelf_id, user_id) => (
+export const deleteBookshelf = (shelfId, userId) => (
 	$.ajax({
 		method: 'DELETE',
-		url: `api/users/${user_id}/bookshelves/${bookshelf_id}`
+		url: `api/users/${userId}/bookshelves/${ shelfId }`
 	})
 );
 
-export const editBookshelf = (shelf, user_id) => (
+export const editBookshelf = (shelf, userId) => (
 	$.ajax({
 		method: 'PATCH',
-		url: `api/users/${user_id}/bookshelves/${ shelf.id }`,
+		url: `api/users/${userId}/bookshelves/${ shelf.id }`,
 		data: { 
 			bookshelf: shelf 
 		}
@@ -40,7 +40,7 @@ export const editBookshelf = (shelf, user_id) => (
 );
 
 //tester
-export const testCreate = (shelf, user_id) => (
+export const testCreate = (shelf, userId) => (
 	$.ajax({
 		method: 'POST',
 		url: `api/bookshelves`,
