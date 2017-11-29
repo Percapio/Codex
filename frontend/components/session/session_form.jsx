@@ -11,11 +11,18 @@ class SessionForm extends React.Component {
 			password: ''
 		};
 
-
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.renderErrors = this.renderErrors.bind(this);
 		this.handleDemo = this.handleDemo.bind(this);
 	}
+
+	componentDidMount() {
+		this.props.clearErrors();
+	}
+
+	componentWillReceiveProps(nextProps) {
+    this.setState({errors: [nextProps.errors] });
+  }
 
 	handleSubmit(e) {
 		e.preventDefault();
@@ -45,24 +52,26 @@ class SessionForm extends React.Component {
 	}
 
 	renderErrors() {
-		return (
-			<ul>
-				{ this.props.errors.map( (error, idx) => (
-					<li key= {`error-${idx}`}>{ error }</li>
-				))}
-			</ul>
-		);
+    return (
+    	<ul>
+	      { this.props.errors.map( (error, i) => (
+	        <li key={`${i}`}>
+	          { error }
+	        </li>
+	      )) }
+	    </ul>
+	  )
 	}
 
-  usernameInput() {
+  emailInput() {
     if (this.props.navType != '/login') {
       return (
-        <label>Username:
-          <input
-          type="text"
-          value={this.state.username}
-          onChange={this.handleChange('username')} />
-        </label>
+      		<label>Email:
+	          <input type="email"
+	            value={ this.state.email }
+	            onChange={ this.handleChange('email') }
+	            />
+	        </label>
       );
     }
   }
@@ -85,27 +94,34 @@ class SessionForm extends React.Component {
 				<div className= 'session-form-container'>
 
 	        <form onSubmit={this.handleSubmit} className= 'session-form'>
-	          { this.renderErrors() }
 
 	          <div>
 		          { this.navSession() }
 		        </div>
 
+		        <div className= 'error-handling'>
+		          { this.renderErrors() }
+		        </div>
+
 	          <div className= 'session-form'>
-	          	<div>
-	          		{ this.usernameInput() }
-	          	</div>
 	            
-	            <label>Email:
-	              <input type="text"
-	                value={ this.state.email }
-	                onChange={ this.handleChange('email') }/>
-	            </label>
+	            <label>Username:
+			          <input
+			          type="text"
+			          value={this.state.username}
+			          onChange={this.handleChange('username')}
+			          />
+			        </label>
+
+	          	<div>
+	          		{ this.emailInput() }
+	          	</div>
 	            
 	            <label>Password:
 	              <input type="password"
 	                value={ this.state.password }
-	                onChange={ this.handleChange('password') } />
+	                onChange={ this.handleChange('password') }
+	                />
 	            </label>
 	            
 	            <input type="submit" value="Submit" className= 'submit-button'/>

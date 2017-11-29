@@ -24,13 +24,6 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
-  def self.build_default_bookshelf!
-    Bookshelf.create(
-      title: 'Default', 
-      description: 'Basic bookshelf to hold "Currently Reading" and "Want to Read"', 
-      owner_id: 1
-      )
-  end
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

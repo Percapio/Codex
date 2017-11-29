@@ -18,7 +18,7 @@ class NavUserForm extends React.Component {
 		if ((this.props.sessionType != '/') && (this.props.sessionType != '/login')) {
 			return (
 				<div className= 'nav-bar'>
-					<NavLink to= { `/user/${this.props.user.id}` }>Codex</NavLink>
+					<NavLink to= { `/login` }>Codex</NavLink>
 
 					<div className= 'user-form-container'>
 						<div className= 'nav-links'>

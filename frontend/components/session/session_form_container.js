@@ -1,6 +1,10 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { signup, login } from '../../actions/session_actions';
+import { 
+	signup,
+	login,
+	clearErrors } from '../../actions/session_actions';
+
 import SessionForm from './session_form';
 
 const mapStateToProps = state => ({
@@ -14,7 +18,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
 	return {
 		navType,
-		navAction: user => dispatch(navAction(user))
+		navAction: user => dispatch(navAction(user)),
+		clearErrors: () => dispatch(clearErrors())
 	};
 };
 

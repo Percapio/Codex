@@ -54,7 +54,7 @@ class Bookshelf extends React.Component {
 						type= 'text'
 						value= {this.state.title}
 						onChange= {this.handleChange('title')}
-						placeHolder= 'shelf name' />
+						placeholder= 'shelf name' />
 
 					<input type= 'submit' value= 'Add' className= 'submit-button'/>
 				</form>
@@ -68,8 +68,8 @@ class Bookshelf extends React.Component {
 						alt= 'some random book'
 						className= 'side-bar-books' />
 					<div className= 'mini-edits'>
-						<i class="fa fa-minus-circle" aria-hidden="true"></i>
-						<i class="fa fa-plus-circle" aria-hidden="true"></i>
+						<i className="fa fa-minus-circle" aria-hidden="true"></i>
+						<i className="fa fa-plus-circle" aria-hidden="true"></i>
 					</div>
 				</div>
 
@@ -82,8 +82,8 @@ class Bookshelf extends React.Component {
 						alt= 'some random book'
 						className= 'side-bar-books' />
 					<div className= 'mini-edits'>
-						<i class="fa fa-minus-circle" aria-hidden="true"></i>
-						<i class="fa fa-plus-circle" aria-hidden="true"></i>
+						<i className="fa fa-minus-circle" aria-hidden="true"></i>
+						<i className="fa fa-plus-circle" aria-hidden="true"></i>
 					</div>
 				</div>
 

@@ -29,12 +29,7 @@ const Protected = ({ loggedIn, path, component: Component }) => {
 		)
 	} else {
 		return (
-			<Redirect
-				to= '/'
-				render= { props => (
-					<SessionFormContainer {...props} />
-				)}
-			/>
+			<Redirect to= '/' />
 		)
 	}
 };
