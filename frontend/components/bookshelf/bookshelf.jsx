@@ -43,8 +43,12 @@ class Bookshelf extends React.Component {
 		return (
 			<div className= 'mini-container'>
 				<div className= 'mini-shelves'>
-					<img src= 'http://www.scholastic.com/parents/sites/default/files/field_asset_image/iStock_000043350128_XXXLarge.jpg' alt= 'some random book'/>
+					<h2>BOOKSHELF</h2>
+
+					<hr />
+
 					<ul>
+						<p>select one</p>
 						{ bookshelves }
 					</ul>
 				</div>

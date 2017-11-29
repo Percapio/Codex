@@ -10,21 +10,29 @@ export default ({ book }) => (
 		</NavLink>
 
 		<div className= 'book-review'>
-			<div className= 'book-label'>
-				<h4>{ book.title }</h4>
-				<p>by { book.author }</p>
-			</div>
+			<NavLink to= { `/api/books/${book.id}` } className= 'book-nav'>
+				<div className= 'book-label'>
+					<h4>{ book.title }</h4>
+					<p>by { book.author }</p>
+				</div>
+			</NavLink>
 
-			<div className= 'book-summary'>
-				{ book.summary }
+			<div>
+				<div className= 'book-summary'>{ book.summary }</div>
 			</div>
 
 			<div className= 'book-stars'>
-				<i className= "fa fa-star-o fa-lg" aria-hidden="true"></i>
-				<i className= "fa fa-star-o fa-lg" aria-hidden="true"></i>
-				<i className= "fa fa-star-o fa-lg" aria-hidden="true"></i>
-				<i className= "fa fa-star-o fa-lg" aria-hidden="true"></i>
-				<i className= "fa fa-star-o fa-lg" aria-hidden="true"></i>
+				<div className= 'stars'>
+					<i className= "fa fa-star-o fa-lg" aria-hidden="true"></i>
+					<i className= "fa fa-star-o fa-lg" aria-hidden="true"></i>
+					<i className= "fa fa-star-o fa-lg" aria-hidden="true"></i>
+					<i className= "fa fa-star-o fa-lg" aria-hidden="true"></i>
+					<i className= "fa fa-star-o fa-lg" aria-hidden="true"></i>
+				</div>
+
+				<div>
+
+				</div>
 			</div>
 					
 			<hr />

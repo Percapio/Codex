@@ -7,6 +7,7 @@
 @import './main_scss';
 
 .index {
+	margin: 0;
 	display: flex;
 	justify-content: center;
 }
@@ -22,9 +23,8 @@
 		border-radius: 3px;
 		height: 30vh;
 		padding: 10px;
-		margin-bottom: 20px;
 		display: flex;
-		flex-direction: row;
+		align-items: center;
 		box-sizing: border-box;
 
 		.book-splash {
@@ -52,17 +52,56 @@
 			overflow: auto;
 			margin-left: 8px;
 			margin-right: 20px;
-			width: 70%;
+			width: 400px;
 
-			.book-label {
-				display: block;
+			.book-nav {
+
+				.book-label {
+					display: flex;
+					flex-direction: column;
+					margin: 0 auto;
+
+					h4 {
+						margin: 0;
+						font-size: 20px;
+						box-sizing: content-box;
+					}
+
+					p {
+						font-size: 12px;
+						margin: 0;
+						margin-bottom: 20px;
+						align-self: flex-end;
+					}
+
+					h4:hover {
+						margin-left: 2px;
+					}
+
+					p:hover {
+						margin-right: 2px;
+					}
+				}
 			}
 
 			.book-summary {
 				display: block;
-				height: 50px;
+				box-sizing: border-box;
+				width: 400px;
+				height: 120px;
 				background-color: white;
 				border-radius: 3px;
+				padding: 2px;
+				cursor: default;
+			}
+
+			.book-stars {
+				margin-top: 20px;
+				margin-bottom: 20px;
+
+				.stars i {
+					margin-right: 4px;
+				}
 			}
 		}
 	}
