@@ -16,7 +16,7 @@
 	background-color: $back-blue;
 	color: $logo-color;
 
-		h1 {
+		a {
 			font-size: 36px;
 			margin-left: 20px;
 		}
@@ -50,7 +50,7 @@
 
 	.signout-dropdown {
 		margin-top: 5px;
-		padding: 5px;
+		padding: 15px;
 	  display: none;
 	  position: absolute;
 	  font-size: 14px;

@@ -7,7 +7,7 @@ class Bookshelf extends React.Component {
 		super(props)
 
 		this.state = {
-			title: 'name bookshelf',
+			title: '',
 			description: '',
 			owner_id: this.props.match.params.user_id
 		}
@@ -42,7 +42,7 @@ class Bookshelf extends React.Component {
 
 		return (
 			<div className= 'mini-container'>
-				<div>
+				<div className= 'mini-shelves'>
 					<img src= 'http://www.scholastic.com/parents/sites/default/files/field_asset_image/iStock_000043350128_XXXLarge.jpg' alt= 'some random book'/>
 					<ul>
 						{ bookshelves }
@@ -53,9 +53,10 @@ class Bookshelf extends React.Component {
 					<input
 						type= 'text'
 						value= {this.state.title}
-						onChange= {this.handleChange('title')} />
+						onChange= {this.handleChange('title')}
+						placeHolder= 'shelf name' />
 
-					<input type= 'submit' value= 'Add shelf' className= 'submit-button'/>
+					<input type= 'submit' value= 'Add' className= 'submit-button'/>
 				</form>
 
 				<hr />
@@ -66,6 +67,10 @@ class Bookshelf extends React.Component {
 						src= 'http://cdn.hbowatch.com/wp-content/uploads/2012/01/A-Game-of-Thrones-book-Cover-NOvel.jpg'
 						alt= 'some random book'
 						className= 'side-bar-books' />
+					<div className= 'mini-edits'>
+						<i class="fa fa-minus-circle" aria-hidden="true"></i>
+						<i class="fa fa-plus-circle" aria-hidden="true"></i>
+					</div>
 				</div>
 
 				<hr />
@@ -76,7 +81,13 @@ class Bookshelf extends React.Component {
 						src= 'http://cdn.hbowatch.com/wp-content/uploads/2012/01/A-Game-of-Thrones-book-Cover-NOvel.jpg' 
 						alt= 'some random book'
 						className= 'side-bar-books' />
+					<div className= 'mini-edits'>
+						<i class="fa fa-minus-circle" aria-hidden="true"></i>
+						<i class="fa fa-plus-circle" aria-hidden="true"></i>
+					</div>
 				</div>
+
+				<hr />
 			</div>
 		)
 	}

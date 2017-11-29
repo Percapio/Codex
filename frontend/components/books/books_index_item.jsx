@@ -4,7 +4,9 @@ import { NavLink } from 'react-router-dom';
 export default ({ book }) => (
 	<li className= 'book-info' >
 		<NavLink to= { `/api/books/${book.id}` } className= 'book-splash'>
-			<img src= 'http://cdn.hbowatch.com/wp-content/uploads/2012/01/A-Game-of-Thrones-book-Cover-NOvel.jpg' alt= 'some random book'/>
+			<img 
+				src= { book.img_url }
+				alt= 'some random book'/>
 		</NavLink>
 
 		<div className= 'book-review'>

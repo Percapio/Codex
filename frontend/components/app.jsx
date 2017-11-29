@@ -6,7 +6,7 @@ import {
 	} from './../util/routes_util';
 
 import Errors from './errors/errors';
-import NavBar from './api/navbar';
+import NavUserFormContainer from './api/nav_user_form_container';
 import SessionFormContainer from './session/session_form_container';
 import BookIndexContainer from './books/books_index_container';
 import BookshelfContainer from './bookshelf/bookshelf_container';
@@ -16,7 +16,7 @@ import BookShowContainer from './show_books/book_show_container';
 export default ({ errors }) => {
 	return(
 		<div>
-			<NavBar />
+			<NavUserFormContainer />
 			<div>
 				{ errors && <Errors errors= { errors } /> }
 			</div>

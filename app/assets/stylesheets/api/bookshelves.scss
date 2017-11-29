@@ -6,6 +6,15 @@
 .mini-container {
 	display: flex;
 	flex-direction: column;
+	width: 82px;
+
+	.mini-shelves {
+		margin-bottom: 15px;
+
+		img {
+			margin-bottom: 15px;
+		}
+	}
 
 	input {
 		background-color: white;
@@ -22,12 +31,11 @@
 		border: 1px solid rgba(10, 10, 10, 0.3);
 		padding-left: 10px;
 		color: $font-color;
+		width: 82px;
 	}
 
 	.submit-button {
 		padding: 2px;
-		padding-left: 10px;
-		padding-right: 10px;
 		color: white;
 		background-color: $logo-color;
 		text-align: center;
@@ -40,11 +48,11 @@
 	hr {
 		width: 70%;
 		border-style: inset;
-		margin-right: 60px;
+
 	}
 
 	.current-reading, .want-to-read, .bookshelf-index {
-		margin-top: 20px;
+
 	}
 
 	.bookshelf-index {
@@ -66,7 +74,17 @@
     -o-transform: scale(1.1);
 	}
 
-	.mini-container {
+	.mini-edits {
+		display: flex;
+		justify-content: space-between;
+		margin-top: 10px;
 
+		i {
+			color: $font-color;
+		}
+
+		i:hover {
+			color: $logo-color;
+		}
 	}
 }

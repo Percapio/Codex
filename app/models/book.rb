@@ -23,5 +23,7 @@ class Book < ApplicationRecord
 	has_many :shelves,
 		class_name: :Shelf
 
-
+	def self.find_first_five
+		Book.all[0..4]
+	end
 end
