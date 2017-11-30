@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 export default ({ bookshelf, userId, deleteShelf }) => (
 	<li>
 		<div className= 'mini-shelf'>
+			a
 			<NavLink 
 				to= { `/user/${userId}/${bookshelf.title}` }
 				className= 'bookshelf-title'>

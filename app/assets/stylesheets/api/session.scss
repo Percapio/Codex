@@ -24,8 +24,8 @@
 	border-radius: 5px;
 	margin-right: 200px;
 	margin-bottom: 200px;
-	width: 350px;
-	height: 350px;
+	width: 375px;
+	height: 375px;
 	color: $font-color;
 
 	.session-head {
@@ -50,7 +50,7 @@
 			margin-bottom: 8px;
 			border-radius: 4px;
 			border: 1px solid rgba(10, 10, 10, 0.3);
-			padding-left: 10px;
+			padding-left: 11px;
 		}
 
 		.submit-button {
@@ -80,5 +80,6 @@
 	.error-handling {
 		margin-bottom: 15px;
 		color: $error-color;
+		font-size: 10px;
 	}
 }
