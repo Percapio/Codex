@@ -1,15 +1,19 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 export default ({ shelf }) => {
 	return(
-	<li>
-		<div className= 'shelf-img'>
-			<img src= { shelf.img_url } />
-		</div>
-
-		<div className= 'shelf-title'>
-			<h4>Title: </h4>
-			{ shelf.title }
-		</div>
-	</li>
-)};
+		<li>
+			<NavLink 
+				to= { `/api/books/${shelf.id}` }
+				className= 'shelf-splash'
+				{ ...{ shelf } }>
+				
+				<img 
+					src= { shelf.img_url }
+					alt= 'some random book'
+					/>
+			</NavLink>
+		</li>
+	)
+};

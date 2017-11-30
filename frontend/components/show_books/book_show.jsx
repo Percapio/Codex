@@ -2,10 +2,6 @@ import React from 'react';
 import BookShowItem from './book_show_item';
 
 class BookShow extends React.Component {
-	componentDidMount() {
-		this.props.getSingleBook(this.props.book.id);
-	}
-
 	render() {
 		const { book } = this.props;
 		return(
@@ -14,6 +10,7 @@ class BookShow extends React.Component {
 
 				<div className= 'book-container'>
 					<img src= { book.img_url } alt= 'some book'/>
+
 					<div className= 'book-info'>
 						<div className= 'book-title'>
 							<p>by { book.author }</p>

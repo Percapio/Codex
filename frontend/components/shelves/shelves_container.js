@@ -5,11 +5,8 @@ import {
 	selectAllBooks,
 	selectShelves,
 	selectBooksInBookshelf } from '../../selectors/selectors';
-import { 
-	getShelf,
-	deleteShelf,
-	createShelf } from '../../actions/shelves_actions';
 
+import { getShelf } from '../../actions/shelves_actions';
 import Shelves from './shelves';
 
 const mapStateToProps = (state, ownProps) => ({
@@ -20,8 +17,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = dispatch => ({
 	getShelf: (shelfId) => dispatch(getShelf(shelfId)),
-	deleteShelf: (shelfId) => dispatch(deleteShelf(shelfId))
-});
+})
 
 export default withRouter(connect(
 	mapStateToProps,

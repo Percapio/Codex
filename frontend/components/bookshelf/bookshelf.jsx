@@ -16,6 +16,7 @@ class Bookshelf extends React.Component {
 	}
 
 	componentDidMount() {
+		this.props.getAllBooks();
 		this.props.getBookshelves(this.state.userId);
 	}
 
@@ -73,7 +74,7 @@ class Bookshelf extends React.Component {
 				<div className= "current-reading">
 					<h3>Current Reading</h3>
 					
-					<NavLink to= { `/user/${ this.state.userId }/Currently Reading` } >
+					<NavLink to= { `/user/${ this.state.userId }/${ this.props.bookshelves[0] }` } >
 						<img 
 							src= 'http://andrewcmaxwell.com/wp-content/themes/acm_2014/images/book_not_found.png'
 							alt= 'some random book'
@@ -91,7 +92,7 @@ class Bookshelf extends React.Component {
 				<div className= "want-to-read">
 					<h3>Want to Read</h3>
 
-					<NavLink to= { `/user/${ this.state.userId }/Want to Read` } >
+					<NavLink to= { `/user/${ this.state.userId }/${ this.props.bookshelves[1] }` } >
 						<img 
 							src= 'http://andrewcmaxwell.com/wp-content/themes/acm_2014/images/book_not_found.png' 
 							alt= 'some random book'

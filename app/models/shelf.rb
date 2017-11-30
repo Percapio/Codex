@@ -34,9 +34,9 @@ class Shelf < ApplicationRecord
 	end
 
 	def self.select_books(shelf)
-		book_ids = shelf.select(:book_id).distinct
+		shelves = shelf.select(:book_id).distinct
 		results = []
-		book_ids.each { |book| results << Book.find_by(id: book.book_id) }
+		shelves.each { |shelf| results << Book.find_by(id: shelf.book_id) }
 		results
 	end
 end

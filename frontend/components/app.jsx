@@ -23,7 +23,7 @@ export default ({ errors }) => {
 			</div>
 			<Switch>
 				<ProtectedRoute path= "/api/books/:id" component= { BookShowContainer } />
-				<ProtectedRoute path= "/user/:user_id/:bookshelf_title/:id" component= { ShelvesContainer } />
+				<ProtectedRoute path= "/user/:user_id/:bookshelf_title" component= { ShelvesContainer } />
 				<ProtectedRoute path= "/user/:user_id" component= { BookIndexContainer } />
 				<AuthRoute exact path='/login' component= { LoginFormContainer } />
 				<AuthRoute exact path='/' component= { SessionFormContainer } />

@@ -4,7 +4,7 @@
 @import './main_scss';
 
 .add-shelf {
-		input {
+	input {
 		margin-bottom: 8px;
 		border-radius: 4px;
 		border: 1px solid rgba(10, 10, 10, 0.3);
@@ -20,5 +20,37 @@
 
 	.submit-button:hover {
 		background-color: $hover-color;
+	}
+
+	.index {
+		display: flex;
+
+		.shelves-index {
+			display: flex;
+			flex-direction: column;
+
+			.books-index li {
+				display: flex;
+				justify-content: space-evenly;
+				flex-direction: row;
+			}
+		}
+	}
+}
+
+.shelf-splash {
+	width: 30%;
+	margin: 20px;
+
+	img {
+		border-box: box-sizing;
+	}
+
+	img:hover {
+		box-shadow: 2px 1px 1px black;
+	  -webkit-transform: scale(1.1);
+	  -moz-transform: scale(1.1);
+	  -ms-transform: scale(1.1);
+	  -o-transform: scale(1.1);				
 	}
 }

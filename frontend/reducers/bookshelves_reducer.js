@@ -1,6 +1,5 @@
 import { 
 	RECEIVE_BOOKSHELVES,
-	RECEIVE_BOOKSHELF,
 	DELETE_BOOKSHELF,
 	CREATE_BOOKSHELF
 } from '../actions/bookshelves_actions';
@@ -13,9 +12,6 @@ export default (state = {}, action) => {
 	switch(action.type) {
 		case RECEIVE_BOOKSHELVES:
 			return action.bookshelves;
-
-		case RECEIVE_BOOKSHELF:
-			return merge({}, state, { [action.bookshelf.id]: action.bookshelf });
 
 		case CREATE_BOOKSHELF:
 			return merge({}, state, { [action.bookshelf.id]: action.bookshelf });

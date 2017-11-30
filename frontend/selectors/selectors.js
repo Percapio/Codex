@@ -19,3 +19,4 @@ export const selectBooksInBookshelf = (state) => (
 export const selectAllErrors = state => (
 	values(state.errors)
 );
+

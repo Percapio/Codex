@@ -14,16 +14,13 @@ class Shelves extends React.Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
-	componentDidMount() {
-		this.props.getShelf(this.state.bookshelfId);
-	}
-
 	handleSubmit(e) {
 		e.preventDefault();
 		this.props.createShelf(this.state);
 	}
 
-	handleShelf() {
+	componentWillMount() {
+		this.props.getShelf(this.state.bookshelfId);
 	}
 	
 	render() {
@@ -37,15 +34,16 @@ class Shelves extends React.Component {
 				<h2>Bookshelf: { this.props.match.params.bookshelf_title }</h2>
 
 				<div className= 'index'>
-					<div className= 'books-index'>
-						{ shelves }
-					</div>
+					<div className= 'shelves-index'>
+						<div>
+						</div>
 
-					<div>
-						<button onClick= { this.handleSubmit }>Click</button>
+						<ul className= 'books-index'>
+							{ shelves }
+						</ul>
 
 						<div>
-							<p>Container for searching books</p>
+							<button onClick= { this.handleSubmit }></button>
 						</div>
 					</div>
 

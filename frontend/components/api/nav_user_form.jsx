@@ -8,7 +8,6 @@ class NavUserForm extends React.Component {
 		this.handleClick = this.handleClick.bind(this);
 	}
 
-	//todo add history push
 	handleClick(e) {
 		e.preventDefault();
 		this.props.logout();

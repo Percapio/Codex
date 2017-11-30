@@ -3,10 +3,6 @@ import BooksIndexItem from './books_index_item';
 import BookshelfContainer from '../bookshelf/bookshelf_container';
 
 class BooksIndex extends React.Component {
-	componentDidMount() {
-		this.props.getAllBooks();
-	}
-
 	render() {
 		const books = this.props.books.map(
 			book => {
