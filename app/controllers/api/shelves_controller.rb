@@ -1,22 +1,23 @@
 class Api::ShelvesController < ApplicationController
   def index
-    @shelves = Shelf.find_by_ids(
-      shelf_params[:book_id],
-      shelf_params[:bookshelf_id])
+    @shelves = Shelf.find_by_bookshelf_id(shelf_params[:bookshelf_id])
 
-    render json: @shelves
+    render :index
   end
 
   def show
     @shelf = Shelf.find(params[:id])
-    render json: @shelf
+    render :show
   end
 
   def create
-    @shelf = Shelf.new(params[:bookshelf_id])
+    debugger
+    @shelf = Shelf.new(shelf_params)
+    @shelf.status = 'Not Yet Read'
 
     if @shelf.save
-      render json: @shelf
+      debugger
+      render :show
     else
       render json: @shelf.errors.full_messages, status: 422
     end
@@ -31,6 +32,6 @@ class Api::ShelvesController < ApplicationController
   private
 
   def shelf_params
-    params.require(:shelf).permit(:book_id, :bookshelf_id)
+    params.permit(:book_id, :bookshelf_id)
   end
 end

@@ -12,11 +12,16 @@ export const getSingleShelf = shelfId => (
 	})
 );
 
-export const createShelf = shelf => (
-	$.ajax({
-		method: 'POST',
-		url: 'api/shelves',
-		data: { shelf }
-	})
-);
+export const createShelf = ({ bookshelfId, bookId })=> {
+	return (
+			$.ajax({
+			method: 'POST',
+			url: 'api/shelves',
+			data: {
+				book_id: bookId,
+				bookshelf_id: bookshelfId
+			}
+		})
+	)
+};
 

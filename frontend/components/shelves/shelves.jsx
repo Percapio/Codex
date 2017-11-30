@@ -7,9 +7,11 @@ class Shelves extends React.Component {
 		super(props);
 
 		this.state = {
-			// bookshelf_id: this.props.match.bookshelfId,
-			// shelf: this.props.match.shelf
+			bookshelfId: this.props.bookshelfId,
+			bookId: 1
 		};
+
+		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
 	// componentDidMount() {
@@ -18,7 +20,10 @@ class Shelves extends React.Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-		this.props.createShelf(this.state.shelf);
+		this.props.createShelf(this.state);
+	}
+
+	handleShelf() {
 	}
 
 	render() {
@@ -32,17 +37,7 @@ class Shelves extends React.Component {
 					</div>
 
 					<div>
-						<form className= 'add-shelf'>
-							<h3>Add Shelf here?</h3>
-							<input
-								type= 'text'
-								name= 'add shelf' />
-
-							<input
-								type= 'submit'
-								value= 'Submit'
-								className= 'submit-button' />
-						</form>
+						<button onClick= { this.handleSubmit }>Click</button>
 
 						<div>
 							<p>Container for searching books</p>

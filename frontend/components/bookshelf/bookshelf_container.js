@@ -11,9 +11,12 @@ import {
 
 import Bookshelf from './bookshelf';
 
-const mapStateToProps = state => ({
-	bookshelves: selectBookshelves(state)
-});
+const mapStateToProps = state => {
+	// debugger;
+	return({
+			bookshelves: selectBookshelves(state)
+	});
+};
 
 const mapDispatchToProps = dispatch => {
 	return({

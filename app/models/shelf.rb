@@ -11,14 +11,17 @@
 #
 
 class Shelf < ApplicationRecord
+	validates :book_id, :bookshelf_id, presence: true
+
 	belongs_to :book,
-		class_name: :Book
+		class_name: :Book,
+		dependent: :destroy
 
 	belongs_to :bookshelf,
-		class_name: :Bookshelf
+		class_name: :Bookshelf,
+		dependent: :destroy
 
-	def self.find_by_ids(book_id, bookshelf_id)
-		bookshelf = Shelf.all.select { |s| s.bookshelf_id == bookshelf_id }
-		bookshelf.select { |b| b.book_id == book_id }
+	def self.find_by_bookshelf_id(bookshelf_id)
+		Shelf.all.select { |s| s.bookshelf_id == bookshelf_id }
 	end
 end
