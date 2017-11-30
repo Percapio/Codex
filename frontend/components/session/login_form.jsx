@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-class SessionForm extends React.Component {
+class LoginForm extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -22,7 +22,7 @@ class SessionForm extends React.Component {
 	handleSubmit(e) {
 		e.preventDefault();
 		const user = this.state;
-		this.props.signup( user );
+		this.props.login( user );
 	}
 
 	handleChange(field) {
@@ -31,19 +31,10 @@ class SessionForm extends React.Component {
 		});
 	}
 
-	demoButton() {
-		if (this.props.navType === '/login') {
-			return (
-				<button onClick= { this.handleDemo } className= 'demo-button'>Demo
-				</button>
-			)
-		}
-	}
-
 	handleDemo(e) {
 		e.preventDefault();
 		const user = { username: 'Guest', password: 'Password' }
-		this.props.signup( user );
+		this.props.login( user );
 	}
 
 	renderErrors() {
@@ -58,19 +49,6 @@ class SessionForm extends React.Component {
 	  )
 	}
 
-  emailInput() {
-    if (this.props.navType != '/login') {
-      return (
-    		<label>Email:
-          <input type="email"
-            value={ this.state.email }
-            onChange={ this.handleChange('email') }
-            />
-        </label>
-      );
-    }
-  }
-
 	render() {
 		return (
 			<div className= 'landing-page'>
@@ -80,8 +58,8 @@ class SessionForm extends React.Component {
 
 	          <div>
 			  			<div className= 'session-head'>
-			  				<NavLink to="/login" className='nav-link'>Log In</NavLink> | <p>Join</p>
-			  			</div>
+			      		<p>Log In</p> | <NavLink to="/" className='nav-link'>Join</NavLink>
+			      	</div>
 		        </div>
 
 		        <div className= 'error-handling'>
@@ -97,15 +75,6 @@ class SessionForm extends React.Component {
 			          onChange={ this.handleChange('username') }
 			          />
 			        </label>
-
-	          	<div>
-				    		<label>Email:
-				          <input type="email"
-				            value={ this.state.email }
-				            onChange={ this.handleChange('email') }
-				            />
-				        </label>
-	          	</div>
 	            
 	            <label>Password:
 	              <input type="password"
@@ -118,11 +87,13 @@ class SessionForm extends React.Component {
 	          </div>
 	        </form>
 
-	        { this.demoButton() }
+	      <button onClick= { this.handleDemo } className= 'demo-button'>Demo
+				</button>
+
 				</div>
 			</div>
 		)
 	}
 };
 
-export default SessionForm;
+export default LoginForm;

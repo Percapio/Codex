@@ -19,12 +19,7 @@ class Bookshelf extends React.Component {
 		this.props.getBookshelves(this.state.userId);
 	}
 
-	// componentWillReceiveProps(nextProps) {
-	// 	this.setState({ bookshelves: [nextProps.match.bookshelves] });
-	// }
-
 	handleSubmit(e) {
-		debugger;
 		e.preventDefault();
 		this.props.createBookshelf(this.state, this.state.userId);
 	}
@@ -41,7 +36,7 @@ class Bookshelf extends React.Component {
 									if (index > 1){
 										return (
 											<BookshelfItem
-												key= { index }
+												key= { bookshelf.id }
 												bookshelf= { bookshelf }
 												userId= { this.state.userId }
 												deleteShelf= { this.props.deleteBookshelf } />

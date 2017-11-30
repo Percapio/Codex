@@ -20,7 +20,6 @@ class Api::BookshelvesController < ApplicationController
     @bookshelf.owner_id = current_user.id
 
     if @bookshelf.save
-      debugger
       render json: @bookshelf
     else
       render json: @bookshelf.errors.full_messages, status: 422

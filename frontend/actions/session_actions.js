@@ -15,25 +15,18 @@ export const receiveErrors = (errors) => ({
 });
 
 export const clearErrors = () => ({
-  type: CLEAR_ERRORS,
-  errors: []
+  type: CLEAR_ERRORS
 });
 
 export const signup = user => dispatch => (
 	APISessionUtil.signup(user).then(
-		(user) => { 
-      dispatch(receiveCurrentUser(user));
-      dispatch(clearErrors());
-    },
+		(user) => dispatch(receiveCurrentUser(user)),
 		(error) => dispatch(receiveErrors(error.responseJSON))
 ));
 
 export const login = user => dispatch => (
   APISessionUtil.login(user).then(
-    (user) => { 
-      dispatch(receiveCurrentUser(user));
-      dispatch(clearErrors());
-    },
+    (user) => dispatch(receiveCurrentUser(user)),
     (error) => dispatch(receiveErrors(error.responseJSON))
 ));
 

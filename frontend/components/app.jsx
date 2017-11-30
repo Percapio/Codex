@@ -8,6 +8,7 @@ import {
 import Errors from './errors/errors';
 import NavUserFormContainer from './api/nav_user_form_container';
 import SessionFormContainer from './session/session_form_container';
+import LoginFormContainer from './session/login_form_container';
 import BookIndexContainer from './books/books_index_container';
 import BookshelfContainer from './bookshelf/bookshelf_container';
 import ShelvesContainer from './shelves/shelves_container';
@@ -24,7 +25,7 @@ export default ({ errors }) => {
 				<ProtectedRoute path= "/api/books/:id" component= { BookShowContainer } />
 				<ProtectedRoute path= "/user/:user_id/:bookshelf_title" component= { ShelvesContainer } />
 				<ProtectedRoute path= "/user/:user_id" component= { BookIndexContainer } />
-				<AuthRoute exact path='/login' component= { SessionFormContainer } />
+				<AuthRoute exact path='/login' component= { LoginFormContainer } />
 				<AuthRoute exact path='/' component= { SessionFormContainer } />
 			</Switch>
 		</div>

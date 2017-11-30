@@ -32,7 +32,7 @@ export default ({ book }) => (
 
 				<div>
 					<NavLink to= { `/api/books/${book.id}` }>
-						Review
+						Click to leave a review
 					</NavLink>
 				</div>
 			</div>
