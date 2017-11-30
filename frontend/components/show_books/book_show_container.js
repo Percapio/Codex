@@ -6,8 +6,7 @@ import BookShow from './book_show';
 
 const mapStateToProps = (state, ownProps) => ({
 	userId: state.session.user.id,
-	book: state.entities.books[ownProps.match.params.id],
-	bookId: ownProps.match.params.id
+	book: state.entities.books[ownProps.match.params.id]
 });
 
 const mapDispatchToProps = (dispatch) => ({
