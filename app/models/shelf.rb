@@ -24,4 +24,19 @@ class Shelf < ApplicationRecord
 	def self.find_by_bookshelf_id(bookshelf_id)
 		Shelf.all.select { |s| s.bookshelf_id == bookshelf_id }
 	end
+
+	def self.find_book_in_shelf(book_id, bookshelf_id)
+		current_user.bookshelves[bookshelf_id].find_by(id: book_id)
+	end
+
+	def self.find_by_ids(book_id, bookshelf_id)
+		Shelf.all.select { |s| s.bookshelf_id == bookshelf_id }
+	end
+
+	def self.select_books(shelf)
+		book_ids = shelf.select(:book_id).distinct
+		results = []
+		book_ids.each { |book| results << Book.find_by(id: book.book_id) }
+		results
+	end
 end

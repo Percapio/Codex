@@ -1,5 +1,5 @@
-@shelves.each do |shelf|
-	json.set! shelf.id do 
-		json.partial! 'shelves', shelf: shelf
+@books.each do |book|
+	json.set! book.id do
+		json.partial! 'api/booksbook', book: book
 	end
 end

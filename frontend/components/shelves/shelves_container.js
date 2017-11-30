@@ -1,29 +1,26 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
+import {
+	selectAllBooks,
+	selectShelves,
+	selectBooksInBookshelf } from '../../selectors/selectors';
 import { 
-	getAllShelves,
-	getSingleShelf,
+	getShelf,
+	deleteShelf,
 	createShelf } from '../../actions/shelves_actions';
-import { 
-	selectBooksInBookshelf,
-	selectShelf } from '../../selectors/selectors';
 
 import Shelves from './shelves';
 
-const mapStateToProps = (state, ownProps) => {
-	// debugger;
-	return ({
-		userId: state.session.user.id,
-		bookshelfId: ownProps.location.pathname.substr(ownProps.location.pathname.length - 2)
-	})
-	// shelf: selectShelf(state),
-};
+const mapStateToProps = (state, ownProps) => ({
+	userId: state.session.user.id,
+	bookshelfId: ownProps.location.pathname.substr(ownProps.location.pathname.length - 2),
+	shelves: selectShelves(state)
+});
 
 const mapDispatchToProps = dispatch => ({
-	// getAllShelves: () => dispatch(getAllShelves()),
-	// getSingleShelf: (shelfId) => dispatch(getSingleShelf(shelfId)),
-	createShelf: (shelf) => dispatch(createShelf(shelf))
+	getShelf: (shelfId) => dispatch(getShelf(shelfId)),
+	deleteShelf: (shelfId) => dispatch(deleteShelf(shelfId))
 });
 
 export default withRouter(connect(

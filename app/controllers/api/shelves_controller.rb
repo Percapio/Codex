@@ -1,32 +1,39 @@
 class Api::ShelvesController < ApplicationController
   def index
-    @shelves = Shelf.find_by_bookshelf_id(shelf_params[:bookshelf_id])
+    @shelves = Shelf.find_by_bookshelf_id(params[:bookshelf_id].to_i)
 
     render :index
   end
 
   def show
-    @shelf = Shelf.find(params[:id])
-    render :show
+    shelves = current_user.bookshelves.find_by(id: params[:bookshelf_id].to_i).shelves
+    @books = Shelf.select_books(shelves)
+    render json: @books
   end
 
   def create
-    debugger
-    @shelf = Shelf.new(shelf_params)
+    @shelf = Shelf.new( book_id: params[:book_id].to_i, bookshelf_id: params[:bookshelf_id].to_i )
     @shelf.status = 'Not Yet Read'
 
     if @shelf.save
-      debugger
-      render :show
+      @shelves = Shelf.find_by_bookshelf_id(params[:bookshelf_id])
+      render 'api/shelves/index'
     else
       render json: @shelf.errors.full_messages, status: 422
     end
   end
 
-  def update
+  def destroy
+    shelf = Shelf.find(params[:id])
+    shelf.destroy!
+    render json: { userId: current_user.id }, status: 200
   end
 
-  def delete
+  def update
+    shelf = Shelf.find_book_in_shelf(params[:book_id], params[:bookshelf_id])
+    shelf.update_all(status: params[:status])
+    @shelves = shelf
+    render :show
   end
 
   private

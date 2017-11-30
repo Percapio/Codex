@@ -7,16 +7,16 @@ class Shelves extends React.Component {
 		super(props);
 
 		this.state = {
-			bookshelfId: this.props.bookshelfId,
-			bookId: 1
+			bookshelfId: parseInt(this.props.bookshelfId),
+			bookId: 0
 		};
 
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
-	// componentDidMount() {
-	// 	this.props.getSingleShelf({ this.state.shelf });
-	// }
+	componentDidMount() {
+		this.props.getShelf(this.state.bookshelfId);
+	}
 
 	handleSubmit(e) {
 		e.preventDefault();
@@ -25,15 +25,20 @@ class Shelves extends React.Component {
 
 	handleShelf() {
 	}
-
+	
 	render() {
+		let shelves = [].concat.apply([], this.props.shelves);
+		shelves = shelves.map (
+			(shelf, index) => <ShelvesItem key= { index } shelf= { shelf } />
+		);
+
 		return (
 			<div className= 'main-component'>
 				<h2>Bookshelf: { this.props.match.params.bookshelf_title }</h2>
 
 				<div className= 'index'>
 					<div className= 'books-index'>
-						<h3>Bookshelf Items</h3>
+						{ shelves }
 					</div>
 
 					<div>

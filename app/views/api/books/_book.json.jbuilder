@@ -1,1 +1,1 @@
-json.extract! book, :title, :summary, :author, :ISBN, :img_url, :bookshelf_id
+json.extract! book, :title, :summary, :author, :ISBN, :img_url

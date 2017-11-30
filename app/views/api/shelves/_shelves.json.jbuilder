@@ -1,1 +1,2 @@
-json.extract! shelf, :book_id, :bookshelf_id, :status
+json.extract! shelves, :status
+json.extract! shelves.book, :title, :img_url, :id, :author

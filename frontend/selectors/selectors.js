@@ -8,12 +8,12 @@ export const selectBookshelves = state => (
 	values(state.entities.bookshelves)
 );
 
-export const selectShelf = state => (
+export const selectShelves = state => (
 	values(state.entities.shelves)
 );
 
-export const selectBooksInBookshelf = (state, bookshelfId) => (
-	values(state.entities.bookshelves)[bookshelfId]
+export const selectBooksInBookshelf = (state) => (
+	values(state.entities.books)
 );
 
 export const selectAllErrors = state => (
