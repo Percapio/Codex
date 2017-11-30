@@ -10,7 +10,8 @@
 
 	.mini-shelves {
 		display: flex;
-		justify-content: space-between;
+		flex-direction: column;
+
 		margin-bottom: 15px;
 
 		img {
@@ -18,7 +19,7 @@
 		}
 
 		ul > p {
-			margin: 0 auto;
+			text-align: center;
 			font-size: 9px;
 			padding-top: 4px;
 		}
@@ -36,17 +37,26 @@
 	.mini-shelf {
 		font-size: 14px;
 		font-color: $font-color;
+		margin: 0;
 		margin-top: 6px;
-		width: 100%;
-		height: 100px;
+		display: flex;
+		justify-content: space-between;
+
+		.bookshelf-title {
+		}
+
+		.fa:hover {
+
+		}
+
+		.bookshelf-title:hover p, .fa:hover {
+			color: black;
+	   -webkit-text-stroke-width: 1px;
+	   -webkit-text-stroke-color: $logo-color;
+		}
 	}
 	
-	.bookshelf-title p {
-	}
 
-	.bookshelf-title:hover p {
-		color: $logo-color;
-	}
 
 	input {
 		margin-bottom: 8px;

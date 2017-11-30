@@ -21,13 +21,13 @@ class BooksIndex extends React.Component {
 			<div className='main-component'>
 				<h2>Welcome, { this.props.user }!</h2>
 				<div className= 'index'>
-					<div>
+					<div className= 'index-2'>
 						<ul className= 'books-index'>
 							{ books }
 						</ul>
 					</div>
 
-					<div className= 'index-bookshelf'>
+					<div className= 'index-1'>
 						<BookshelfContainer />
 					</div>
 				</div>

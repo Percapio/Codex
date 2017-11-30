@@ -19,7 +19,7 @@ class Api::BookshelvesController < ApplicationController
     @bookshelf = Bookshelf.new(bookshelf_params)
     @bookshelf.owner_id = current_user.id
 
-    if @bookshelf.save
+    if @bookshelf.save!
       render json: @bookshelf
     else
       render json: @bookshelf.errors.full_messages, status: 422
@@ -29,6 +29,7 @@ class Api::BookshelvesController < ApplicationController
   def destroy
     @bookshelf = Bookshelf.find_by_credentials(params[:id], params[:user_id])
     @bookshelf.destroy!
+    render 'api/bookshelves/index'
   end
 
   def update

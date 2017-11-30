@@ -80,6 +80,10 @@
 	.error-handling {
 		margin-bottom: 15px;
 		color: $error-color;
-		font-size: 10px;
+
+		li {
+			font-size: 12px;
+			text-align: center;
+		}
 	}
 }

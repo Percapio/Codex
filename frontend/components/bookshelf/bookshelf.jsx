@@ -38,7 +38,7 @@ class Bookshelf extends React.Component {
 											<BookshelfItem
 												key= { bookshelf.id }
 												bookshelf= { bookshelf }
-												userId= { this.state.userId }
+												props = { this.state }
 												deleteShelf= { this.props.deleteBookshelf } />
 										)
 									}
@@ -58,7 +58,7 @@ class Bookshelf extends React.Component {
 					</ul>
 				</div>
 
-				<form className= 'bookshelf-index' onSubmit= {this.handleSubmit}>
+				<form className= 'bookshelf-index' onSubmit= { this.handleSubmit }>
 					<input
 						type= 'text'
 						value= { this.state.title }
@@ -72,7 +72,8 @@ class Bookshelf extends React.Component {
 
 				<div className= "current-reading">
 					<h3>Current Reading</h3>
-					<NavLink to= { `/user/${this.state.user_id}/Currently Reading` } >
+					
+					<NavLink to= { `/user/${ this.state.user_id }/Currently Reading` } >
 						<img 
 							src= 'http://andrewcmaxwell.com/wp-content/themes/acm_2014/images/book_not_found.png'
 							alt= 'some random book'
@@ -89,13 +90,15 @@ class Bookshelf extends React.Component {
 
 				<div className= "want-to-read">
 					<h3>Want to Read</h3>
-					<NavLink to= { `/user/${this.state.user_id}/Want to Read` } >
+
+					<NavLink to= { `/user/${ this.state.user_id }/Want to Read` } >
 						<img 
 							src= 'http://andrewcmaxwell.com/wp-content/themes/acm_2014/images/book_not_found.png' 
 							alt= 'some random book'
 							className= 'side-bar-books'
 							 />
 					</NavLink>
+
 					<div className= 'mini-edits'>
 						<i className="fa fa-minus-circle" aria-hidden="true"></i>
 						<i className="fa fa-plus-circle" aria-hidden="true"></i>
