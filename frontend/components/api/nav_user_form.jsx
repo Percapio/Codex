@@ -14,9 +14,16 @@ class NavUserForm extends React.Component {
 	}
 
 	render() {
-		let name = this.props.user.username.toUpperCase();
 
-		if ((this.props.sessionType != '/') && (this.props.sessionType != '/login')) {
+		if ((this.props.sessionType === '/') || (this.props.sessionType === '/login')) {
+			return (
+				<div className= 'nav-bar'>
+					<NavLink to= { `/` }>Codex</NavLink>
+					<div className= 'user-form-container' />
+				</div>
+			)
+		} else {
+			let name = this.props.user.username.toUpperCase();
 			return (
 				<div className= 'nav-bar'>
 					<NavLink to= { `/login` }>Codex</NavLink>
@@ -36,13 +43,6 @@ class NavUserForm extends React.Component {
 							</i>
 						</div>
 					</div>
-				</div>
-			)
-		} else {
-			return (
-				<div className= 'nav-bar'>
-					<NavLink to= { `/` }>Codex</NavLink>
-					<div className= 'user-form-container' />
 				</div>
 			)
 		}
