@@ -1,6 +1,7 @@
 import React from 'react';
 import ShelvesItem from './shelves_item';
 import BookshelfContainer from '../bookshelf/bookshelf_container';
+import SideBook from '../show_books/side_book';
 
 class Shelves extends React.Component {
 	constructor(props) {
@@ -28,16 +29,14 @@ class Shelves extends React.Component {
 			<div className= 'main-component'>
 				<h2>{ this.props.match.params.bookshelf_title }</h2>
 
-				<div className= 'index'>
+				<div className= 'index index-container'>
 					<div className= 'index-2'>
-						<div>
-						</div>
+						<div className= 'shelves-index'>
+							<SideBook />
 
-						<ul className= 'books-index'>
-							{ shelves }
-						</ul>
-
-						<div>
+							<ul className= 'books-index'>
+								{ shelves }
+							</ul>
 						</div>
 					</div>
 

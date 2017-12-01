@@ -3,6 +3,7 @@ import * as APIUtil from '../util/reviews_api_util';
 export const FETCH_REVIEW = 'FETCH_REVIEW';
 export const FETCH_REVIEWS = 'FETCH_REVIEWS';
 export const DESTROY_REVIEW = 'DESTROY_REVIEW';
+export const RECEIVE_USERS = 'RECEIVE_USERS';
 
 const fetchReview = (review) => ({
 	type: FETCH_REVIEW,
@@ -17,6 +18,11 @@ const fetchReviews = (reviews) => ({
 const deleteReview = (review) => ({
 	type: DESTROY_REVIEW,
 	review
+});
+
+const receiveUsers = (users) => ({
+  type: RECEIVE_USERS,
+  users
 });
 
 export const getReviews = reviews => dispatch => {

@@ -6,13 +6,13 @@ import Root from './components/root';
 //Testing
 import { signup, login, logout } from './util/session_api_util';
 
-const windowTest = (store) => {
-	window.store = store;
-	window.dispatch = store.dispatch;
-	window.getState = store.getState;
-  window.signup = signup;
-  window.login = login;
-};
+// const windowTest = (store) => {
+// 	window.store = store;
+// 	window.dispatch = store.dispatch;
+// 	window.getState = store.getState;
+//   window.signup = signup;
+//   window.login = login;
+// };
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
   	store = configStore();
   }
 
-  windowTest(store);
+  // windowTest(store);
 
   ReactDOM.render(<Root store= { store } />, rootEl);
 });

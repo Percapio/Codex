@@ -2,6 +2,7 @@ import React from 'react';
 import ReviewItem from './review_item';
 import BookShow from './book_show';
 import BookShelfContainer from '../bookshelf/bookshelf_container';
+import SideBook from '../show_books/side_book';
 
 class Reviews extends React.Component {
 	constructor(props) {
@@ -68,33 +69,36 @@ class Reviews extends React.Component {
 	return(
 		<div className= 'main-component'>
 			<div className= 'index'>
+
 				<div className= 'index-2'>
+					<SideBook />
 
-					{ this.handleBookShow() }
+					<div className= 'show-review'>
+						{ this.handleBookShow() }
 
-					<form className= 'review-form' onSubmit= { this.handleSubmit }>
-						<label>Title
-							<input
-								input= 'text'
-								value= { this.state.title }
-								onChange= { this.handleChange('title') }
-								/>
-						</label>
+						<form className= 'review-form' onSubmit= { this.handleSubmit }>
+							<label>Title
+								<input
+									input= 'text'
+									value= { this.state.title }
+									onChange= { this.handleChange('title') }
+									/>
+							</label>
 
-						<label>Review
-							<textarea
-								value= { this.state.description }
-								onChange= { this.handleChange('description') }> </textarea>
-						</label>
+							<label>Review
+								<textarea
+									value= { this.state.description }
+									onChange= { this.handleChange('description') }> </textarea>
+							</label>
 
-						<input type='submit' value='Submit' className= 'submit-button'/>
-					</form>
+							<input type='submit' value='Submit' className= 'submit-button'/>
+						</form>
 
-					<ul>
-						{ reviews }
-					</ul>
+						<ul>
+							{ reviews }
+						</ul>
+					</div>
 				</div>
-
 				<div className= 'index-1'>
 					<BookShelfContainer />
 				</div>

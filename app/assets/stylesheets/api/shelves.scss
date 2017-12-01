@@ -22,17 +22,22 @@
 		background-color: $hover-color;
 	}
 
-	.index {
-		display: flex;
-
+	.index-container {
+		
 		.shelves-index {
 			display: flex;
-			flex-direction: column;
+			justify-content: space-between;
+
+			.books-index {
+				display: flex;
+				flex: 1;
+			}
 
 			.books-index li {
 				display: flex;
 				justify-content: space-evenly;
 				flex-direction: row;
+				flex: 2;
 			}
 		}
 	}

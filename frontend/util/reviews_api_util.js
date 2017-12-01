@@ -39,3 +39,13 @@ export const updateReview = review => (
 		}
 	})
 );
+
+export const grabUsers = (users) => (
+  $.ajax({
+    method: 'GET',
+    url: 'api/users',
+    data: {
+    	users
+    }
+  })
+);
