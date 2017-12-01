@@ -29,7 +29,7 @@ class Shelves extends React.Component {
 				<h2>{ this.props.match.params.bookshelf_title }</h2>
 
 				<div className= 'index'>
-					<div className= 'shelves-index'>
+					<div className= 'index-2'>
 						<div>
 						</div>
 
@@ -41,7 +41,7 @@ class Shelves extends React.Component {
 						</div>
 					</div>
 
-					<div className= 'index-bookshelf'>
+					<div className= 'index-1'>
 						<BookshelfContainer />
 					</div>
 

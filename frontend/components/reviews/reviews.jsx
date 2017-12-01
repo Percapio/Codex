@@ -6,6 +6,7 @@ import BookShelfContainer from '../bookshelf/bookshelf_container';
 class Reviews extends React.Component {
 	constructor(props) {
 		super(props);
+
 		this.state = {
 			book_id: '',
 			author_id: '',
@@ -14,7 +15,6 @@ class Reviews extends React.Component {
 		};
 
 		this.handleSubmit = this.handleSubmit.bind(this);
-
 	}
 
 	componentDidMount() {
@@ -47,8 +47,6 @@ class Reviews extends React.Component {
 	handleBookShow() {
 		if (this.props.book) {
 			return <BookShow book= { this.props.book } />
-		} else if (typeof this.props.book === 'undefined') {
-			
 		}
 	}
 
@@ -57,7 +55,6 @@ class Reviews extends React.Component {
 	render() {
 		const reviews = this.props.reviews.map(
 			(review, index) => {
-				debugger;
 				return (
 					<ReviewItem
 						key= { index }

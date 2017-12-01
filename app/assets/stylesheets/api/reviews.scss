@@ -1,3 +1,57 @@
 // Place all the styles related to the Api/Reviews controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.book-container {
+	display: flex;
+	align-items: center;
+	justify-direction: column;
+	width: 700px;
+
+	.img-container {
+		width: 30%;
+
+		img {
+			object-fit: contain;
+			flex: 1;
+		}		
+	}
+
+	.show-top {
+		flex: 1;
+		display: flex;
+		align-items: center;
+	}
+
+	.show-bottom {
+		flex: 2;
+	}
+
+	.book-info {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		flex: 2;
+
+		.book-title {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.book-summary {
+		}
+	}
+
+	.book-reviews {
+		display: flex;
+		align-items: center;
+
+		.book-review {
+			padding: 10px;
+			background-color: white;
+			resize: none;
+			height: 20vh;
+			width: 500px;
+		}
+	}
+}

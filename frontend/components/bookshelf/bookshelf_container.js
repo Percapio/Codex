@@ -12,7 +12,19 @@ import { deleteShelf, createShelf } from '../../actions/shelves_actions';
 import Bookshelf from './bookshelf';
 
 const mapStateToProps = state => {
+	let currentReading, wantToRead;
+
+	for (let i=0; i < state.entities.bookshelves.length; i++) {
+		if (state.entities.bookshelves[i].title === 'Currently Reading') {
+			currentReading = state.entities.bookshelves[i];
+		} else if (state.entities.bookshelves[i].title === 'Want to Read') {
+			wantToRead = state.entities.bookshelves[i]; 
+		} 
+	}
+	
 	return({
+		currentReading: currentReading,
+		wantToRead: wantToRead,
 		user: state.session.user,
 		bookshelves: selectBookshelves(state),
 	});

@@ -32,6 +32,49 @@ class Bookshelf extends React.Component {
 		});
 	}
 
+	handleReadings() {
+		if (this.props.currentReading) {
+			return (
+				<div>
+					<div className= "current-reading">
+						<h3>Current Reading</h3>
+						
+						<NavLink to= { `/user/${ this.props.user.id }/Currently Reading/${ this.props.currentReading.id }` } >
+							<img 
+								src= 'http://andrewcmaxwell.com/wp-content/themes/acm_2014/images/book_not_found.png'
+								alt= 'some random book'
+								className= 'side-bar-books' />
+						</NavLink>
+								
+						<div className= 'mini-edits'>
+							<i className="fa fa-minus-circle" aria-hidden="true"></i>
+							<i className="fa fa-plus-circle" aria-hidden="true"></i>
+						</div>
+					</div>
+
+					<hr />
+
+					<div className= "want-to-read">
+						<h3>Want to Read</h3>
+
+						<NavLink to= { `/user/${ this.props.user.id }/Want to Read${ this.props.wantToRead.id }` } >
+							<img 
+								src= 'http://andrewcmaxwell.com/wp-content/themes/acm_2014/images/book_not_found.png' 
+								alt= 'some random book'
+								className= 'side-bar-books'
+								 />
+						</NavLink>
+
+						<div className= 'mini-edits'>
+							<i className="fa fa-minus-circle" aria-hidden="true"></i>
+							<i className="fa fa-plus-circle" aria-hidden="true"></i>
+						</div>
+					</div>
+				</div>
+			)
+		}
+	}
+
 	render() {
 		const bookshelves = this.props.bookshelves.map(
 								(bookshelf, index) => {
@@ -72,40 +115,7 @@ class Bookshelf extends React.Component {
 
 				<hr />
 
-				<div className= "current-reading">
-					<h3>Current Reading</h3>
-					
-					<NavLink to= { `/user/${ this.state.userId }/Currently Reading` } >
-						<img 
-							src= 'http://andrewcmaxwell.com/wp-content/themes/acm_2014/images/book_not_found.png'
-							alt= 'some random book'
-							className= 'side-bar-books' />
-					</NavLink>
-							
-					<div className= 'mini-edits'>
-						<i className="fa fa-minus-circle" aria-hidden="true"></i>
-						<i className="fa fa-plus-circle" aria-hidden="true"></i>
-					</div>
-				</div>
-
-				<hr />
-
-				<div className= "want-to-read">
-					<h3>Want to Read</h3>
-
-					<NavLink to= { `/user/${ this.state.userId }/Want to Read` } >
-						<img 
-							src= 'http://andrewcmaxwell.com/wp-content/themes/acm_2014/images/book_not_found.png' 
-							alt= 'some random book'
-							className= 'side-bar-books'
-							 />
-					</NavLink>
-
-					<div className= 'mini-edits'>
-						<i className="fa fa-minus-circle" aria-hidden="true"></i>
-						<i className="fa fa-plus-circle" aria-hidden="true"></i>
-					</div>
-				</div>
+				{ this.handleReadings() }
 
 				<hr />
 			</div>
