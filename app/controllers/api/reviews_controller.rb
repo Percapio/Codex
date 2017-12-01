@@ -1,19 +1,22 @@
 class Api::ReviewsController < ApplicationController
   def create
-  	@reviews = Review.new(
-  								book_id: params[:book_id], 
-  								user_id: params[:user_id],
-  								description: params[:description])
+  	@review = Review.new(review_params)
 
-  	if @reviews.save
-  		render 'api/reviews/index'
+    # debugger
+    if @review.save
+  		render :show
   	else
-  		render json: @reviews.errors.full_messages, status: 422
+  		render json: @review.errors.full_messages, status: 422
   	end 
   end
 
+  def show
+    @review = Review.find(params[:id])
+    render :show
+  end
+
   def index
-  	@reviews = Book.find_by(book_id: params[:book_id]).reviews
+    @reviews = Book.find_by(id: params[:book_id]).reviews
   	render json: @reviews
   end
 
@@ -35,6 +38,6 @@ class Api::ReviewsController < ApplicationController
   private
 
   def review_params
-  	params.require(:review).permit(:book_id, :user_id, :description, :title)
+  	params.require(:review).permit(:book_id, :author_id, :description, :title)
   end
 end

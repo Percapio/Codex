@@ -22,6 +22,10 @@ class User < ApplicationRecord
     class_name: :Bookshelf,
     foreign_key: :owner_id
 
+  has_many :reviews,
+    class_name: :Review,
+    foreign_key: :author_id
+
   after_initialize :ensure_session_token
 
 

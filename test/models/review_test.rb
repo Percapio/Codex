@@ -2,12 +2,13 @@
 #
 # Table name: reviews
 #
-#  id         :integer          not null, primary key
-#  author_id  :integer          not null
-#  book_id    :integer          not null
-#  title      :string           not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id          :integer          not null, primary key
+#  author_id   :integer          not null
+#  book_id     :integer          not null
+#  title       :string           not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  description :text             not null
 #
 
 require 'test_helper'

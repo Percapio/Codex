@@ -1,14 +1,14 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-export default ({ bookshelf, props, deleteShelf }) => {
-	const deleteBookshelf = () => deleteShelf( bookshelf.id, props.userId );
+export default ({ bookshelf, userId, deleteShelf }) => {
+	const deleteBookshelf = () => deleteShelf( bookshelf.id, userId );
 	
 	return(
 		<li>
 			<div className= 'mini-shelf'>
 				<NavLink 
-					to= { `/user/${ props.userId }/${ bookshelf.title }/${ bookshelf.id }` }
+					to= { `/user/${ userId }/${ bookshelf.title }/${ bookshelf.id }` }
 					className= 'bookshelf-title' >
 					<p>{ bookshelf.title }</p>
 				</NavLink>

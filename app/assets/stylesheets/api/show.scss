@@ -1,11 +1,26 @@
 .book-container {
 	display: flex;
 	align-items: center;
+	justify-direction: column;
 	width: 700px;
 
-	img {
-		width: 50%;
+	.img-container {
+		width: 30%;
+
+		img {
+			object-fit: contain;
+			flex: 1;
+		}		
+	}
+
+	.show-top {
 		flex: 1;
+		display: flex;
+		align-items: center;
+	}
+
+	.show-bottom {
+		flex: 2;
 	}
 
 	.book-info {

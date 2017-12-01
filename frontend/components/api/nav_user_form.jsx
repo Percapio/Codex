@@ -14,10 +14,14 @@ class NavUserForm extends React.Component {
 	}
 
 	render() {
+		let name = this.props.user.username.toUpperCase();
+
 		if ((this.props.sessionType != '/') && (this.props.sessionType != '/login')) {
 			return (
 				<div className= 'nav-bar'>
 					<NavLink to= { `/login` }>Codex</NavLink>
+
+					<h1>WELCOME, { name }!</h1>
 
 					<div className= 'user-form-container'>
 						<div className= 'nav-links'>

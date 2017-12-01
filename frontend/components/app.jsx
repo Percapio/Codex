@@ -12,7 +12,7 @@ import LoginFormContainer from './session/login_form_container';
 import BookIndexContainer from './books/books_index_container';
 import BookshelfContainer from './bookshelf/bookshelf_container';
 import ShelvesContainer from './shelves/shelves_container';
-import BookShowContainer from './show_books/book_show_container';
+import ReviewsContainer from './reviews/reviews_container';
 
 export default ({ errors }) => {
 	return(
@@ -22,7 +22,7 @@ export default ({ errors }) => {
 				{ errors && <Errors errors= { errors } /> }
 			</div>
 			<Switch>
-				<ProtectedRoute path= "/api/books/:id" component= { BookShowContainer } />
+				<ProtectedRoute path= "/api/books/:id" component= { ReviewsContainer } />
 				<ProtectedRoute path= "/user/:user_id/:bookshelf_title" component= { ShelvesContainer } />
 				<ProtectedRoute path= "/user/:user_id" component= { BookIndexContainer } />
 				<AuthRoute exact path='/login' component= { LoginFormContainer } />

@@ -26,7 +26,7 @@ class Shelves extends React.Component {
 
 		return (
 			<div className= 'main-component'>
-				<h2>Bookshelf: { this.props.match.params.bookshelf_title }</h2>
+				<h2>{ this.props.match.params.bookshelf_title }</h2>
 
 				<div className= 'index'>
 					<div className= 'shelves-index'>

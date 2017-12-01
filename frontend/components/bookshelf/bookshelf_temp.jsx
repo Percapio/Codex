@@ -9,7 +9,7 @@ class Bookshelf extends React.Component {
 		this.state = {
 			title: '',
 			description: '',
-			userId: ''
+			userId: this.props.match.params.user_id
 		}
 
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -17,12 +17,11 @@ class Bookshelf extends React.Component {
 
 	componentDidMount() {
 		this.props.getAllBooks();
-		this.props.getBookshelves(this.props.user.id);
+		this.props.getBookshelves(this.state.userId);
 	}
 
 	handleSubmit(e) {
 		e.preventDefault();
-		this.setState({ userId: this.props.user.id });
 		this.props.createBookshelf(this.state, this.state.userId);
 	}
 
@@ -40,7 +39,7 @@ class Bookshelf extends React.Component {
 											<BookshelfItem
 												key= { bookshelf.id }
 												bookshelf= { bookshelf }
-												userId = { this.props.user.id }
+												props= { this.state }
 												deleteShelf= { this.props.deleteBookshelf } />
 										)
 									}

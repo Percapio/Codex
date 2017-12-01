@@ -12,8 +12,7 @@ export default (state = {}, action) => {
 			return action.reviews;
 
 		case FETCH_REVIEW:
-			let newState = {};
-			return merge({}, {[action.review.id]: action.review});
+			return merge({}, state, {[action.review.id]: action.review});
 
 		case DESTROY_REVIEW:
 			let oldState = merge({}, state);

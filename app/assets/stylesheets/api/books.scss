@@ -13,6 +13,34 @@
 
 	.index-2 {
 		flex: 2;
+		display: flex;
+		justify-content: space-between;
+
+		.side-book-wrap {
+			width: 140px;
+			height: 175px;
+			padding: 20px;
+			margin-right: 50px;
+			margin-top: 50px;
+			background-color: white;
+
+			.side-book-container {
+				width: 100px;
+				margin: 0 auto;
+
+				.side-book {
+					object-fit: contain;
+				}
+
+				.side-book:hover {
+					box-shadow: 2px 1px 1px black;
+				  -webkit-transform: scale(1.1);
+				  -moz-transform: scale(1.1);
+				  -ms-transform: scale(1.1);
+				  -o-transform: scale(1.1);	
+				}
+			}
+		}
 	}
 
 	.index-1 {
@@ -98,6 +126,7 @@
 				border-radius: 3px;
 				padding: 2px;
 				cursor: default;
+				text-indent: 20px;
 			}
 
 			.book-stars {
@@ -117,6 +146,8 @@
 		width: 70%;
 		border-style: inset;
 		margin: 0;
+		margin-top: 5px;
+		margin-bottom: 5px;
 	}
 }
 

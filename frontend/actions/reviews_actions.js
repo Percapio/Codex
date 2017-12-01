@@ -4,30 +4,36 @@ export const FETCH_REVIEW = 'FETCH_REVIEW';
 export const FETCH_REVIEWS = 'FETCH_REVIEWS';
 export const DESTROY_REVIEW = 'DESTROY_REVIEW';
 
-const fetchReview = (review) => (
+const fetchReview = (review) => ({
 	type: FETCH_REVIEW,
 	review
-);
+});
 
-const fetchReviews = (reviews) => (
+const fetchReviews = (reviews) => ({
 	type: FETCH_REVIEWS,
 	reviews
-);
+});
 
-const deleteReview = (review) => (
+const deleteReview = (review) => ({
 	type: DESTROY_REVIEW,
 	review
-);
+});
 
-export const getReviews = reviews => dispatch => (
-	APIUtil.getReviews(reviews).then(
-		reviews => dispatch(fetchReviews(reviews)) )
-);
+export const getReviews = reviews => dispatch => {
+	return (
+		APIUtil.getReviews(reviews).then(
+			payload => {
+				dispatch(fetchReviews(payload));
+			} )
+	)
+};
 
 export const createReview = review => dispatch => (
 	APIUtil.createReview(review).then(
-		review => dispatch(fetchReview(review)) )
-);
+		review => {
+			dispatch(fetchReview(review))  
+}));
+
 
 export const destroyReview = review => dispatch => (
 	APIUtil.destroyReview(review).then(

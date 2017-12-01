@@ -6,14 +6,21 @@ import {
 	destroyReview,
 	updateReview } from '../../actions/reviews_actions';
 import { selectAllReviews } from '../../selectors/selectors';
+import { getSingleBook } from '../../actions/books_actions';
+import { getAllBooks } from '../../actions/books_actions';
 import Reviews from './reviews';
 
-const mapStateToProps = (state, ownProps) => ({
-	bookId: ownProps.match.params.id,
-	reviews: selectAllReviews(state)
-});
+const mapStateToProps = (state, ownProps) => {
+	// debugger;
+	return({
+		book: state.entities.books[ownProps.match.params.id - 1],	
+		userId: state.session.user.id,
+		reviews: selectAllReviews(state)		
+	})
+};
 
 const mapDispatchToProps = dispatch => ({
+	getAllBooks: () => dispatch(getAllBooks()),
 	getReviews: reviews => dispatch(getReviews(reviews)),
 	createReview: review => dispatch(createReview(review)),
 	destroyReview: review => dispatch(destroyReview(review)),
