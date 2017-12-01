@@ -1,0 +1,26 @@
+import { 
+	FETCH_REVIEWS,
+	FETCH_REVIEW,
+	DESTROY_REVIEW } from '../actions/reviews_actions';
+import merge from 'lodash/merge';
+
+export default (state = {}, action) => {
+	Object.freeze(state);
+
+	switch(action.type) {
+		case FETCH_REVIEWS:
+			return action.reviews;
+
+		case FETCH_REVIEW:
+			let newState = {};
+			return merge({}, {[action.review.id]: action.review});
+
+		case DESTROY_REVIEW:
+			let oldState = merge({}, state);
+			delete oldState[action.review.id];
+			return oldState;
+
+		default:
+			return state;
+	}
+} 

@@ -20,3 +20,6 @@ export const selectAllErrors = state => (
 	values(state.errors)
 );
 
+export const selectAllReviews = state => (
+	values(state.entities.reviews)
+);

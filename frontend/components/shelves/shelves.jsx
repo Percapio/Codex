@@ -5,13 +5,16 @@ import BookshelfContainer from '../bookshelf/bookshelf_container';
 class Shelves extends React.Component {
 	constructor(props) {
 		super(props);
+	}
 
+	componentDidMount() {
+		this.props.getShelf(parseInt(this.props.location.pathname.slice(-2)));
 	}
 
 	componentWillReceiveProps(nextProps) {
 		if (nextProps.match.params.bookshelf_title === this.props.match.params.bookshelf_title) {
 		} else {
-			this.props.getShelf(parseInt(nextProps.bookshelfId));
+			this.props.getShelf(parseInt(this.props.location.pathname.slice(-2)));
 		}
 	}
 	

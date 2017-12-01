@@ -13,10 +13,8 @@ import Bookshelf from './bookshelf';
 
 const mapStateToProps = state => {
 	return({
-			user: state.session.user.username,
-			bookshelves: selectBookshelves(state),
-			currentReading: state.entities.bookshelves[0],
-			wantToRead: state.entities.bookshelves[1]
+		user: state.session.user.username,
+		bookshelves: selectBookshelves(state),
 	});
 };
 
