@@ -20,7 +20,11 @@ export default (state = {}, action) => {
 
 
 		case RECEIVE_SHELF:
-			return action.shelf;
+			let newState = {};
+			for (let i = 0; i < action.shelf.length; i++) {
+				newState[action.shelf[i].id] = action.shelf[i];
+			}
+	 		return newState;
 
 		default:
 			return state;

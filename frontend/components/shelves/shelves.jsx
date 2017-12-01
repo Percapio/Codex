@@ -6,21 +6,13 @@ class Shelves extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {
-			bookshelfId: parseInt(this.props.bookshelfId),
-			bookId: 0
-		};
-
-		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
-	handleSubmit(e) {
-		e.preventDefault();
-		this.props.createShelf(this.state);
-	}
-
-	componentWillMount() {
-		this.props.getShelf(this.state.bookshelfId);
+	componentWillReceiveProps(nextProps) {
+		if (nextProps.match.params.bookshelf_title === this.props.match.params.bookshelf_title) {
+		} else {
+			this.props.getShelf(parseInt(nextProps.bookshelfId));
+		}
 	}
 	
 	render() {
@@ -43,7 +35,6 @@ class Shelves extends React.Component {
 						</ul>
 
 						<div>
-							<button onClick= { this.handleSubmit }></button>
 						</div>
 					</div>
 
