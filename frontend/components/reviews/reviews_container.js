@@ -11,7 +11,6 @@ import { getAllBooks } from '../../actions/books_actions';
 import Reviews from './reviews';
 
 const mapStateToProps = (state, ownProps) => {
-	// debugger;
 	return({
 		book: state.entities.books[ownProps.match.params.id - 1],	
 		userId: state.session.user.id,

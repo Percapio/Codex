@@ -1,5 +1,6 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Route } from 'react-router-dom';
+import SessionFormContainer from '../session/session_form_container';
 
 class NavUserForm extends React.Component {
 	constructor(props) {
@@ -14,7 +15,6 @@ class NavUserForm extends React.Component {
 	}
 
 	render() {
-
 		if ((this.props.sessionType === '/') || (this.props.sessionType === '/login')) {
 			return (
 				<div className= 'nav-bar'>
@@ -22,6 +22,12 @@ class NavUserForm extends React.Component {
 					<div className= 'user-form-container' />
 				</div>
 			)
+		} else if (!this.props.user) {
+				return (
+					<Route
+						exact path= '/'
+						render= { SessionFormContainer } />
+				)
 		} else {
 			let name = this.props.user.username.toUpperCase();
 			return (

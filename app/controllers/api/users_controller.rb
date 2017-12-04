@@ -7,20 +7,9 @@ class Api::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    User.make_shelves(@user)
 
     if @user.save
-      Bookshelf.create(
-        title: 'Currently Reading', 
-        description: 'Basic bookshelf to hold "Currently Reading" and "Want to Read"', 
-        owner_id: @user.id
-      )
-
-      Bookshelf.create(
-        title: 'Want to Read', 
-        description: 'Basic bookshelf to hold "Currently Reading" and "Want to Read"', 
-        owner_id: @user.id
-      )
-
       login(@user)
       render json: @user
     else

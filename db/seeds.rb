@@ -21,6 +21,20 @@
 
 ##INITIAL SEED DATA
 @user = User.create(username: 'Guest', password: 'Password', email: 'aa@school.com')
+	Bookshelf.create(
+	  title: 'Currently Reading', 
+	  description: 'Basic bookshelf to hold "Currently Reading"',
+	  img_url: 'http://andrewcmaxwell.com/wp-content/themes/acm_2014/images/book_not_found.png',
+	  owner_id: @user.id
+	)
+
+	Bookshelf.create(
+	  title: 'Want to Read', 
+	  description: 'Basic bookshelf to hold "Want to Read"',
+	  img_url: 'http://andrewcmaxwell.com/wp-content/themes/acm_2014/images/book_not_found.png',
+	  owner_id: @user.id
+	)
+
 
 books = JSON.parse(File.read('db/data/books.json'))
 books.each do |book|

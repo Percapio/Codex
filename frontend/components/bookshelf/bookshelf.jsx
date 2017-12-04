@@ -16,8 +16,8 @@ class Bookshelf extends React.Component {
 	}
 
 	componentDidMount() {
-		this.props.getAllBooks();
 		this.props.getBookshelves(this.props.user.id);
+		this.props.getAllBooks();
 	}
 
 	handleSubmit(e) {
@@ -41,7 +41,7 @@ class Bookshelf extends React.Component {
 						
 						<NavLink to= { `/user/${ this.props.user.id }/Currently Reading/${ this.props.currentReading.id }` } >
 							<img 
-								src= 'http://andrewcmaxwell.com/wp-content/themes/acm_2014/images/book_not_found.png'
+								src= { this.props.currentReading.img_url }
 								alt= 'some random book'
 								className= 'side-bar-books' />
 						</NavLink>
@@ -59,7 +59,7 @@ class Bookshelf extends React.Component {
 
 						<NavLink to= { `/user/${ this.props.user.id }/Want to Read${ this.props.wantToRead.id }` } >
 							<img 
-								src= 'http://andrewcmaxwell.com/wp-content/themes/acm_2014/images/book_not_found.png' 
+								src= { this.props.wantToRead.img_url }
 								alt= 'some random book'
 								className= 'side-bar-books'
 								 />

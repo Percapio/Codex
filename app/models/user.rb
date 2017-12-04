@@ -34,6 +34,22 @@ class User < ApplicationRecord
     user && user.is_password?(password) ? user : nil
   end
 
+  def self.make_shelves(user)
+    Bookshelf.create(
+      title: 'Currently Reading', 
+      description: 'Basic bookshelf to hold "Currently Reading"',
+      img_url: 'http://andrewcmaxwell.com/wp-content/themes/acm_2014/images/book_not_found.png',
+      owner_id: user.id
+    )
+
+    Bookshelf.create(
+      title: 'Want to Read', 
+      description: 'Basic bookshelf to hold "Want to Read"',
+      img_url: 'http://andrewcmaxwell.com/wp-content/themes/acm_2014/images/book_not_found.png',
+      owner_id: user.id
+    )
+  end
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)

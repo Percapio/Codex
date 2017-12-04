@@ -6,7 +6,9 @@ import NavUserForm from './nav_user_form';
 const mapStateToProps = (state, ownProps) => {
 	return({
 			user: state.session.user,
-			errors: state.errors.errors
+			errors: state.errors.errors,
+			ownProps: ownProps,
+			state: state
 		});
 };
 

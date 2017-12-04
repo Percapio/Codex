@@ -17,7 +17,7 @@ class Api::BookshelvesController < ApplicationController
 
   def create
     @bookshelf = Bookshelf.new(bookshelf_params)
-    @bookshelf.owner_id = current_user.id
+    @bookshelf.owner_id = current_user.id if logged_in? 
 
     if @bookshelf.save!
       render json: @bookshelf
