@@ -36,8 +36,8 @@ export const getBookshelf = (shelf, userId) => dispatch => (
 		(payload) => dispatch(receiveBookshelf(payload)) )
 );
 
-export const createBookshelf = (shelf, userId) => dispatch => (
-	APIUtil.createBookshelf(shelf, userId).then(
+export const createBookshelf = (shelf) => dispatch => (
+	APIUtil.createBookshelf(shelf).then(
 		(payload) => dispatch(makeBookshelf(payload)) )
 );
 

@@ -12,10 +12,10 @@ export const getBookshelf = (shelf, userId) => (
 	})
 );
 
-export const createBookshelf = (shelf, userId) => (
+export const createBookshelf = (shelf) => (
 	$.ajax({
 		method: 'POST',
-		url: `api/users/${userId}/bookshelves/`,
+		url: `api/users/${shelf.userId}/bookshelves/`,
 		data: { 
 			bookshelf: shelf 
 		}

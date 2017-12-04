@@ -9,7 +9,7 @@ class Bookshelf extends React.Component {
 		this.state = {
 			title: '',
 			description: '',
-			userId: ''
+			userId: this.props.user.id
 		}
 
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,7 +22,6 @@ class Bookshelf extends React.Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-		this.setState({ userId: this.props.user.id });
 		this.props.createBookshelf(this.state, this.state.userId);
 	}
 

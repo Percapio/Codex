@@ -1,12 +1,11 @@
 class Api::ShelvesController < ApplicationController
   def index
     @shelves = Shelf.find_by_bookshelf_id(params[:bookshelf_id].to_i)
-
     render :index
   end
 
   def show
-    shelves = current_user.bookshelves.find_by(id: params[:bookshelf_id].to_i).shelves
+    shelves = current_user.bookshelves.find_by(id: params[:bookshelf_id].to_i + 1).shelves
     @books = Shelf.select_books(shelves)
     render json: @books
   end

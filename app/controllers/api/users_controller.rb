@@ -7,9 +7,9 @@ class Api::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    User.make_shelves(@user)
 
     if @user.save
+      User.make_shelves(@user)
       login(@user)
       render json: @user
     else
