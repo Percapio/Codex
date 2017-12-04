@@ -35,6 +35,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 #Heroku Deployment
 gem 'rails_12factor'
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 
 gem 'font-awesome-sass', '4.7.0'
 

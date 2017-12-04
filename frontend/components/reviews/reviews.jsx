@@ -51,8 +51,7 @@ class Reviews extends React.Component {
 		}
 	}
 
-			// { this.handleReviewForm }
-					// 
+
 	render() {
 		const reviews = this.props.reviews.map(
 			(review, index) => {
@@ -99,6 +98,7 @@ class Reviews extends React.Component {
 						</ul>
 					</div>
 				</div>
+
 				<div className= 'index-1'>
 					<BookShelfContainer />
 				</div>
