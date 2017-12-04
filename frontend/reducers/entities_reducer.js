@@ -4,10 +4,12 @@ import books from './books_reducer';
 import bookshelves from './bookshelves_reducer';
 import shelves from './shelves_reducer';
 import reviews from './reviews_reducer';
+import users from './users_reducer';
 
 export default combineReducers({
 	books,
 	bookshelves,
 	shelves,
-	reviews
+	reviews,
+	users
 });

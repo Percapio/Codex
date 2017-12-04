@@ -20,15 +20,9 @@ class Reviews extends React.Component {
 
 	componentDidMount() {
 		this.props.getAllBooks();
-		this.props.getReviews(this.props.book.id);
+		this.props.getReviews(this.props.bookId);
+		this.props.grabUsers();
 	}
-
-	// handleReviewForm() {
-		// if (  )
-		// <form className= 'review-form'>
-
-		// </form>
-	// }
 
 	handleSubmit(e) {
 		e.preventDefault();
@@ -51,16 +45,24 @@ class Reviews extends React.Component {
 		}
 	}
 
+	chooseAuthor(review) {
+		if (this.props.users.length > 0) {
+			return this.props.users[review.author_id].username;
+		}
+	}
 
 	render() {
 		const reviews = this.props.reviews.map(
 			(review, index) => {
+				let author = this.chooseAuthor(review);
+
 				return (
 					<ReviewItem
 						key= { index }
 						review= { review }
 						destroyReview= { this.props.destroyReview }
-						updateReview= { this.props.updateReview } />
+						updateReview= { this.props.updateReview }
+						author= { author } />
 				)
 			}
 		)

@@ -34,6 +34,11 @@ export const getReviews = reviews => dispatch => {
 	)
 };
 
+export const grabUsers = () => dispatch => (
+	APIUtil.grabUsers().then(
+		payload => dispatch(receiveUsers(payload)) )
+);
+
 export const createReview = review => dispatch => (
 	APIUtil.createReview(review).then(
 		review => {

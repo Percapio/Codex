@@ -40,12 +40,9 @@ export const updateReview = review => (
 	})
 );
 
-export const grabUsers = (users) => (
+export const grabUsers = () => (
   $.ajax({
     method: 'GET',
     url: 'api/users',
-    data: {
-    	users
-    }
   })
 );
