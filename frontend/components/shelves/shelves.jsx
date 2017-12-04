@@ -9,13 +9,13 @@ class Shelves extends React.Component {
 	}
 
 	componentDidMount() {
-		this.props.getShelf(parseInt(this.props.location.pathname.slice(-2)));
+		this.props.getShelf(parseInt(this.props.location.pathname.slice(-1)));
 	}
 
 	componentWillReceiveProps(nextProps) {
 		if (nextProps.match.params.bookshelf_title === this.props.match.params.bookshelf_title) {
 		} else {
-			this.props.getShelf(parseInt(this.props.location.pathname.slice(-2)));
+			this.props.getShelf(parseInt(this.props.location.pathname.slice(-1)));
 		}
 	}
 	

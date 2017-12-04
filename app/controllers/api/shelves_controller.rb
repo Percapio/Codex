@@ -5,7 +5,7 @@ class Api::ShelvesController < ApplicationController
   end
 
   def show
-    shelves = current_user.bookshelves.find_by(id: params[:bookshelf_id].to_i + 1).shelves
+    shelves = current_user.bookshelves.find_by(id: params[:bookshelf_id].to_i).shelves
     @books = Shelf.select_books(shelves)
     render json: @books
   end

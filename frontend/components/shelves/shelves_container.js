@@ -6,12 +6,12 @@ import {
 	selectShelves,
 	selectBooksInBookshelf } from '../../selectors/selectors';
 
-import { getShelf } from '../../actions/shelves_actions';
+import { getShelf, getAllShelves } from '../../actions/shelves_actions';
 import Shelves from './shelves';
 
 const mapStateToProps = (state, ownProps) => {
 	let currentShelf;
-	
+
 	return ({
 		currentShelf: ownProps.match.params.bookshelf_title,
 		userId: state.session.user.id,
@@ -20,7 +20,8 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-	getShelf: (shelfId) => dispatch(getShelf(shelfId)),
+	// getAllShelves: (shelfId) => dispatch(getAllShelves(shelfId)),
+	getShelf: (shelfId) => dispatch(getShelf(shelfId))
 })
 
 export default withRouter(connect(

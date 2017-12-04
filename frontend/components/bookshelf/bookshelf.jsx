@@ -77,6 +77,7 @@ class Bookshelf extends React.Component {
 	render() {
 		const bookshelves = this.props.bookshelves.map(
 								(bookshelf, index) => {
+									
 									if (index > 1){
 										return (
 											<BookshelfItem

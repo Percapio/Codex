@@ -38,5 +38,105 @@
 "ISBN": 160,
 "title": "The Epic Of Gilgamesh",
 "year": -1700
+},
+{
+"author": "Unknown",
+"country": "Achaemenid Empire",
+"img_url": "http://www.audioeditions.com/audio-book-images/l/The-Book-of-Job-280497.jpg",
+"language": "Hebrew",
+"summary": "The Book of Job is a book in the Ketuvim section of the Hebrew Bible (Tanakh), and the first poetic book in the Old Testament of the Christian Bible.", 
+"ISBN": 176,
+"title": "The Book Of Job",
+"year": -600
+},
+{
+"author": "Unknown",
+"country": "India/Iran/Iraq/Egypt/Tajikistan",
+"img_url": "https://images-na.ssl-images-amazon.com/images/I/51DBwBvrkRL._SX322_BO1,204,203,200_.jpg",
+"language": "Arabic",
+"summary": "One Thousand and One Nights re-imagines 19 tales from the classic story about young Queen Shahrazad's efforts to save herself from a brutal husband. It focuses on the female characters at the heart of each tale and incorporates humor and sensuality.",
+"ISBN": 288,
+"title": "One Thousand and One Nights",
+"year": 1200
+},
+{
+"author": "Unknown",
+"country": "Iceland",
+"img_url": "https://i.pinimg.com/originals/ab/7c/83/ab7c831143e834d9f162168bcccdbc51.jpg",
+"language": "Old Norse",
+"summary": "Njáls saga is a thirteenth-century Icelandic saga that describes events between 960 and 1020. The principal characters are the friends Njáll Þorgeirsson, a lawyer and a sage, and Gunnar Hámundarson, a formidable warrior. Gunnar's wife instigates a feud that leads to the death of many characters over several decades including the killing by fire of the eponymous 'Burnt Njáll'.",
+"ISBN": 384,
+"title": "Njál's Saga",
+"year": 1350
+},
+{
+"author": "Jane Austen",
+"country": "United Kingdom",
+"img_url": "http://www.publicbookshelf.com/images/PridePrejudice423x630.jpg",
+"language": "English",
+"summary": "Pride and Prejudice is a romance novel by Jane Austen, first published in 1813. The story charts the emotional development of the protagonist, Elizabeth Bennet, who learns the error of making hasty judgments and comes to appreciate the difference between the superficial and the essential.",
+"ISBN": 226,
+"title": "Pride and Prejudice",
+"year": 1813
+},
+{
+"author": "Honoré de Balzac",
+"country": "France",
+"img_url": "https://images-na.ssl-images-amazon.com/images/I/61Xbmza6JKL.jpg",
+"language": "French",
+"summary": "'Pere Goriot' is the tragic story of a father whose obsessive love for his two daughters leads to his financial and personal ruin. Interwoven with this theme is that of the impoverished young aristocrat, Rastignac, come to Paris from the provinces to make his fortune, who befriends Goriot and becomes involved with the daughters.",
+"ISBN": 443,
+"title": "Le Père Goriot",
+"year": 1835
+},
+{
+"author": "Samuel Beckett",
+"country": "Republic of Ireland",
+"img_url": "https://images.gr-assets.com/books/1414373759l/12279.jpg",
+"language": "French, English",
+"summary": "The first novel of Samuel Beckett's mordant and exhilirating midcentury trilogy intoduces us to Molloy, who has been mysteriously incarcerated, and who subsequently escapes to go discover the whereabouts of his mother. In the latter part of this curious masterwork, a certain Jacques Moran is deputized by anonymous authorities to search for the aforementioned Molloy.",
+"ISBN": 256,
+"title": "Molloy, Malone Dies, The Unnamable, the trilogy",
+"year": 1952
+},
+{
+"author": "Giovanni Boccaccio",
+"country": "Italy",
+"img_url": "https://images-na.ssl-images-amazon.com/images/I/51gFIfzyjrL._SX331_BO1,204,203,200_.jpg",
+"language": "Italian",
+"summary": "The Decameron (c.1351) is an entertaining series of one hundred stories written in the wake of the Black Death. The stories are told in a country villa outside the city of Florence by ten young noble men and women who are seeking to escape the ravages of the plague.",
+"ISBN": 1024,
+"title": "The Decameron",
+"year": 1351
+},
+{
+"author": "Jorge Luis Borges",
+"country": "Argentina",
+"img_url": "https://images-na.ssl-images-amazon.com/images/I/51TwqcppKPL._SX325_BO1,204,203,200_.jpg",
+"language": "Spanish",
+"summary": "The seventeen pieces in Ficciones demonstrate the whirlwind of Borges's genius and mirror the precision and potency of his intellect and inventiveness, his piercing irony, his skepticism, and his obsession with fantasy.",
+"ISBN": 224,
+"title": "Ficciones",
+"year": 1965
+},
+{
+"author": "Emily Brontë",
+"country": "United Kingdom",
+"img_url": "https://images-na.ssl-images-amazon.com/images/I/81Wpb2d1C%2BL.jpg",
+"language": "English",
+"summary": "Wuthering Heights is a wild, passionate story of the intense and almost demonic love between Catherine Earnshaw and Heathcliff, a foundling adopted by Catherine's father.",
+"ISBN": 342,
+"title": "Wuthering Heights",
+"year": 1847
+},
+{
+"author": "Albert Camus",
+"country": "Algeria, French Empire",
+"img_url": "https://images-na.ssl-images-amazon.com/images/I/5186RLIXsLL._SX321_BO1,204,203,200_.jpg",
+"language": "French",
+"summary": "Through the story of an ordinary man unwittingly drawn into a senseless murder on an Algerian beach, Camus explored what he termed 'the nakedness of man faced with the absurd.'",
+"ISBN": 185,
+"title": "The Stranger",
+"year": 1942
 }
 ]
