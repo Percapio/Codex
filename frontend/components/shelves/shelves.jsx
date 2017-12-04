@@ -29,15 +29,13 @@ class Shelves extends React.Component {
 			<div className= 'main-component'>
 				<h2>{ this.props.match.params.bookshelf_title }</h2>
 
-				<div className= 'index index-container'>
+				<div className= 'index'>
 					<div className= 'index-2'>
-						<div className= 'shelves-index'>
-							<SideBook />
+						<SideBook />
 
-							<ul className= 'books-index'>
-								{ shelves }
-							</ul>
-						</div>
+						<ul className= 'shelves-index'>
+							{ shelves }
+						</ul>
 					</div>
 
 					<div className= 'index-1'>
