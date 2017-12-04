@@ -6,7 +6,7 @@ export default () => {
 		<div className= 'side-book-wrap'>
 			<div className= 'side-book-container'>
 				<NavLink 
-					to= { `/api/books/5` }
+					to= { `/api/books/15` }
 					className= 'side-splash'>
 					
 					<img 

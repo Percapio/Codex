@@ -3,93 +3,120 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import './main_scss';
 
-.book-container {
-	display: flex;
-	align-items: center;
-	justify-direction: column;
-	width: 700px;
-
-	.img-container {
-		width: 30%;
-
-		img {
-			object-fit: contain;
-			flex: 1;
-		}		
-	}
-
-	.show-top {
-		flex: 1;
-		display: flex;
-		align-items: center;
-	}
-
-	.show-bottom {
-		flex: 2;
-	}
-
-	.book-info {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		flex: 2;
-
-		.book-title {
-			display: flex;
-			flex-direction: column;
-		}
-
-		.book-summary {
-		}
-	}
-
-	.show-review {
-		display: flex;
-		justify-direction: column;
-		width: 600px;
-	}
-
-	.book-reviews {
-		display: flex;
-		align-items: center;
-
-		.book-review {
-			padding: 10px;
-			background-color: white;
-			resize: none;
-			height: 20vh;
-			width: 500px;
-		}
-	}
-}
-
-.review-container {
-	background-color: white;
-	border-radius: 4px;
-	height: 150px;
-	width: 300px;
-	margin-bottom: 20px;
+.show-review {
+	margin: 0 auto;
+	width: 600px;
+	margin-right: 40px;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	align-content: center;
 
-		.review-header {
-			padding: 10px;
-			width: 80%;
-			border: 1px solid $font-color;
+	.book-container {
+		display: flex;
+
+		.show-top {
+			flex: 6;
+			margin: 30px;
+
+			img {
+				object-fit: contain;
+			}
+		}
+
+		.show-bottom {
+			flex: 5;
+
+			.book-title {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				margin-top: 30px;
+
+				p {
+					align-self: flex-end;
+				}
+			}
+			.book-summary {
+				margin-top: 30px;
+				text-indent: 20px;
+			}
+		}
+	}
+
+	.review-form-container {
+		margin: 0 auto;
+		width: 90%;
+		margin-bottom: 30px;
+
+		.review-form {
+			background-color: white;
+			padding: 30px;
 			border-radius: 4px;
-			margin-bottom: 10px;
-			margin-top: 10px;
+			height: 35vh;
 
-			.review-title {
+			input, textarea {
+				margin-bottom: 8px;
+				border-radius: 4px;
+				border: 1px solid rgba(10, 10, 10, 0.3);
+				padding: 8px;
 			}
 
+			input {
+				padding-top: 4px;
+				padding-bottom: 4px;	
+				width: 45%;
+			}
+
+			textarea {
+				width: 96%;
+				height: 15vh;
+				resize: none;
+			}
+
+			.submit-button {
+				width: 30%;
+				padding: 0;
+				color: white;
+				background-color: $logo-color;
+				text-align: center;
+			}
+
+			.submit-button:hover {
+				background-color: $hover-color;
+			}
 		}
 
-		.review-description {
-			width: 80%;
-			height: 60%;
-			border: 1px solid $font-color;
+	}
+
+	.reviews {
+		width: 90%;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-evenly;
+
+		.review-container {
+			padding: 20px;
+			background-color: white;
 			border-radius: 4px;
+			margin-bottom: 30px;
+
+			.review-header {
+				display: flex;
+				flex-direction: column;
+
+				.review-author {
+					align-self: flex-end;
+				}
+			}
 		}
+
+		hr {
+			width: 70%;
+			border-style: inset;
+			margin: 0 auto;
+			margin-top: 5px;
+			margin-bottom: 5px;
+		}
+	}
 }

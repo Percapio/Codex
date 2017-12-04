@@ -77,25 +77,29 @@ class Reviews extends React.Component {
 					<div className= 'show-review'>
 						{ this.handleBookShow() }
 
-						<form className= 'review-form' onSubmit= { this.handleSubmit }>
-							<label>Title
-								<input
-									input= 'text'
-									value= { this.state.title }
-									onChange= { this.handleChange('title') }
-									/>
-							</label>
+						<div className= 'review-form-container'>
+							<form className= 'review-form' onSubmit= { this.handleSubmit }>
+								<label>Title
+									<input
+										input= 'text'
+										value= { this.state.title }
+										onChange= { this.handleChange('title') }
+										className= 'review-title' 
+										/>
+								</label>
 
-							<label>Review
-								<textarea
-									value= { this.state.description }
-									onChange= { this.handleChange('description') }> </textarea>
-							</label>
+								<label>Review
+									<textarea
+										value= { this.state.description }
+										onChange= { this.handleChange('description') }
+										className= 'review-body'></textarea>
+								</label>
 
-							<input type='submit' value='Submit' className= 'submit-button'/>
-						</form>
+								<input type='submit' value='Submit' className= 'submit-button'/>
+							</form>
+						</div>
 
-						<ul>
+						<ul className= 'reviews'>
 							{ reviews }
 						</ul>
 					</div>
