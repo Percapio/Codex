@@ -35,7 +35,6 @@ class User < ApplicationRecord
   end
 
   def self.make_shelves(user)
-    debugger
     Bookshelf.create(
       title: 'Currently Reading', 
       description: 'Basic bookshelf to hold "Currently Reading"',

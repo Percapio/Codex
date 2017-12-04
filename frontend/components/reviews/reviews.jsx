@@ -9,8 +9,8 @@ class Reviews extends React.Component {
 		super(props);
 
 		this.state = {
-			book_id: '',
-			author_id: '',
+			book_id: this.props.book.id,
+			author_id: this.props.userId,
 			title: '',
 			description: ''
 		};
@@ -26,10 +26,6 @@ class Reviews extends React.Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-		this.setState({
-			book_id: this.props.book.id,
-			author_id: this.props.userId
-		})
 		this.props.createReview(this.state);
 	}
 
@@ -47,7 +43,10 @@ class Reviews extends React.Component {
 
 	chooseAuthor(review) {
 		if (this.props.users.length > 0) {
-			return this.props.users[review.author_id].username;
+			for (let i=0; i < this.props.users.length; i++) {
+				if (this.props.users[i].id === review.author_id)
+					return this.props.users[i].username;
+			}
 		}
 	}
 
