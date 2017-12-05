@@ -1,14 +1,14 @@
 # CODEX
 
-##CODEX
+## CODEX
 [Live Demo](https://codex-.herokuapp.com/#/)
 
 
-###Summary
+### Summary
 Codex is a re-imagined GoodReads website, presented with a clear design closely tied to today's current trend of single app designs.  It is a simple, yet effective design intended to not detract the readers, but instead help them quickly browse for what they are looking for, discover what was waiting for them, and move on with their busy lives.
 
 
-###React
+### React
 The site uses a mixture of the most recent trends of technologies, specifically React, Redux, Rails, JSX, and JBuilder.  Each one of these technologies, is challenging in its own right, but the most difficult challenge was understanding the higher level concept of implementing renders through asynchronous state changes.  To overcome one of these, it was necessary to create a function outside the rendering component to wait for the appropriate trigger element in order to return a component which relied on the state to finish with all of its changes.
 
 ```
@@ -36,13 +36,13 @@ Another challenge was the passing of data from one component to the next.  Norma
 ```
 
 
-###Additional Resources
+### Additional Resources
 [Proposal Wireframes](https://github.com/Percapio/Codex/wiki/Wireframes)
 [Database Schema](https://github.com/Percapio/Codex/wiki/Database-Schema)
 [Sample State](https://github.com/Percapio/Codex/wiki/Sample-State)
 
 
-###Features to be added:
+### Features to be added:
 * User functionality on links shown
 * Search bar and function
 * Tags
