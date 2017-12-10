@@ -38,13 +38,15 @@ Another challenge was the passing of data from one component to the next.  Norma
 
 ### Additional Resources
 [Proposal Wireframes](https://github.com/Percapio/Codex/wiki/Wireframes)
+
 [Database Schema](https://github.com/Percapio/Codex/wiki/Database-Schema)
+
 [Sample State](https://github.com/Percapio/Codex/wiki/Sample-State)
 
 
 ### Features to be added:
-* User functionality on links shown
-* Search bar and function
-* Tags
-* Improved UI/UX layout
-* User profiles
+  * User functionality on links shown
+  * Search bar and function
+  * Tags
+  * Improved UI/UX layout
+  * User profiles
