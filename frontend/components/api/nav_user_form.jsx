@@ -14,6 +14,12 @@ class NavUserForm extends React.Component {
 		this.props.logout();
 	}
 
+	// To incorporate into navbar
+	// <i className= "fa fa-bell fa-lg" aria-hidden="true"></i>
+	// <i className= "fa fa-weixin fa-lg" aria-hidden="true"></i>
+	// <i className= "fa fa-envelope-open fa-lg" aria-hidden="true"></i>
+	// <i className= "fa fa-user-plus fa-lg" aria-hidden="true"></i>
+
 	render() {
 		if ((this.props.sessionType === '/') || (this.props.sessionType === '/login')) {
 			return (
@@ -38,10 +44,6 @@ class NavUserForm extends React.Component {
 
 					<div className= 'user-form-container'>
 						<div className= 'nav-links'>
-							<i className= "fa fa-bell fa-lg" aria-hidden="true"></i>
-							<i className= "fa fa-weixin fa-lg" aria-hidden="true"></i>
-							<i className= "fa fa-envelope-open fa-lg" aria-hidden="true"></i>
-							<i className= "fa fa-user-plus fa-lg" aria-hidden="true"></i>
 							<i className= "fa fa-user-circle-o fa-lg" aria-hidden="true">
 								<ul className= "signout-dropdown">
 									<li onClick= {this.handleClick}>Sign Out</li>

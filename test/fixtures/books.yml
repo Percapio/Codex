@@ -8,12 +8,8 @@
 #  summary      :text             not null
 #  bookshelf_id :integer
 #  img_url      :string
-#  ISBN         :integer          not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
-#  country      :string
-#  language     :string
-#  year         :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
