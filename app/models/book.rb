@@ -10,6 +10,7 @@
 #  img_url      :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  ISBN         :integer          not null
 #
 
 class Book < ApplicationRecord
@@ -22,6 +23,8 @@ class Book < ApplicationRecord
 		class_name: :Review
 
 	def self.find_first_five
-		Book.all[0..4]
+		param = '%' + query_params.downcase + '%'
+		Book.where('lower(title) LIKE ?', param).limit(5)
 	end
+
 end

@@ -56,7 +56,7 @@ class Bookshelf extends React.Component {
 					<div className= "want-to-read">
 						<h3>Want to Read</h3>
 
-						<NavLink to= { `/user/${ this.props.user.id }/Want to Read${ this.props.wantToRead.id }` } >
+						<NavLink to= { `/user/${ this.props.user.id }/Want to Read/${ this.props.wantToRead.id }` } >
 							<img 
 								src= { this.props.wantToRead.img_url }
 								alt= 'some random book'
