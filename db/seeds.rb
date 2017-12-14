@@ -38,7 +38,23 @@ client = Goodreads::Client.new(api_key: "n5WG5yVYDeWcA5udKbMA")
 
 	shelf.books.each do |id|
 		author = id.book.authors.author.name
+		id.book.description.gsub!('<i>An alternative cover edition for this ISBN can be found <a href="https://www.goodreads.com/book/show/32147746-invitation-to-a-beheading" rel="nofollow">here</a></i>', '')
+		id.book.description.gsub!('This book was mistakenly published under <a href="https://www.goodreads.com/book/show/2184419.Masculino_Que_Ninguno" rel="nofollow">ISBN13: 9780965017763</a>', '')
+		id.book.description.gsub!('Alternate covers can be found <a href="https://www.goodreads.com/book/show/13418380-a-feast-for-crows" rel="nofollow">here</a>', '')
+		id.book.description.gsub!('<i>There is an alternate cover edition <a href="https://www.goodreads.com/book/show/32334208-blood-of-the-fold" rel="nofollow">here</a>.</i>', '')
+		id.book.description.gsub!('<i>There is an alternate cover edition <a href="https://www.goodreads.com/book/show/32492176-faith-of-the-fallen" rel="nofollow">here</a>.</i>', '')
+		id.book.description.gsub!('<i>Librarian note: an alternate cover for this edition can be found <a href="https://www.goodreads.com/book/show/25550470-the-black-company" rel="nofollow">here</a>.</i>', '')
+		id.book.description.gsub!('An alternate cover edition of this ISBN can be found <a href="https://www.goodreads.com/book/show/7935521-magician" rel="nofollow">here</a>.', '')
+		id.book.description.gsub!('Alternate cover edition can be found <a href="https://www.goodreads.com/book/show/6041689-a-clash-of-kings" rel="nofollow">here</a>. ', '')
 		description = id.book.description.gsub('<br />', '')
+		description.gsub!('<p>', '')
+		description.gsub!('</p>', '')
+		description.gsub!('<i>', '')
+		description.gsub!('</i>', '')
+		description.gsub!('<em>', '')
+		description.gsub!('</em>', '')
+		description.gsub!('</b>', '')
+		description.gsub!('<b>', '')
 
 		make_book = { ISBN: id.book.isbn, 
 									title: id.book.title, 
@@ -52,12 +68,12 @@ end
 
 #Demo User
 @user = User.create(username: 'Guest', password: 'Password', email: 'aa@school.com')
-	Bookshelf.create(
-	  title: 'Currently Reading', 
-	  description: 'Basic bookshelf to hold "Currently Reading"',
-	  img_url: 'http://andrewcmaxwell.com/wp-content/themes/acm_2014/images/book_not_found.png',
-	  owner_id: @user.id
-	)
+				Bookshelf.create(
+				  title: 'Currently Reading', 
+				  description: 'Basic bookshelf to hold "Currently Reading"',
+				  img_url: 'http://andrewcmaxwell.com/wp-content/themes/acm_2014/images/book_not_found.png',
+				  owner_id: @user.id
+				)
 
 @bookshelf1 =	Bookshelf.create(
 							  title: 'Want to Read', 
@@ -73,7 +89,11 @@ end
 						)
 
 Book.all[160..-1].each do |book|
-	Shelf.create(book_id: book.id, bookshelf_id: @bookshelf1.id)
+	Shelf.create(book_id: book.id, bookshelf_id: @bookshelf1.id + 1)
+end
+
+Book.all[145..159].each do |book|
+	Shelf.create(book_id: book.id, bookshelf_id: @bookshelf2.id + 1)
 end
 
 #User seeds
