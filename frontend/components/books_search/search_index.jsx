@@ -1,12 +1,33 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import SearchItem from './search_item';
 
-export default ({ book, searchParams }) => {
+export default ({ searchParams, searchResults, clearState }) => {
 	if (searchParams === '') return null;
 
+	let booksUl;
+
+	if (searchResults.length > 0) {
+		let id;
+		let book;
+		booksUl = 
+			<ul className= 'search-results'>
+				{ searchResults.map( pair =>
+					{	
+						[id, book] = pair;
+						return(
+							<SearchItem
+								key= { book.ISBN }
+								book= { book }
+								bookId= { parseInt(id) }
+								clearState= { clearState } /> )
+					})
+				}
+			</ul>
+	}
+
 	return (
-		<li className= 'search-item'>
-			<NavLink to= { `/api/books/${ book.id }`}><p>{ book.title }</p></NavLink>
-		</li>
+		<div className= 'search-box'>
+			{ booksUl }
+		</div>
 	)
 }

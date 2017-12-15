@@ -3,7 +3,7 @@ class Api::BooksSearchesController < ApplicationController
   	@books = Book.find_first_fifteen(search_params[:query])
   	render :index
   end
-
+  
   def random_book
   	@book = Book.all.sample
   	render 'api/books/show'

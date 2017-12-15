@@ -18,7 +18,8 @@ class BooksIndex extends React.Component {
 			<div className='main-component'>
 				<div className= 'index'>
 					<div className= 'index-2'>
-						<SideBook />
+						<SideBook 
+							book= { this.props.book } />
 
 						<ul className= 'books-index'>
 							{ books }

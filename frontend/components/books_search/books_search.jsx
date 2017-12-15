@@ -10,10 +10,9 @@ class BooksSearch extends React.Component {
 			searchParams: ''
 		};
 
-		this.results;
-
 		this.clearState = this.clearState.bind(this);
 		this.handleChange = this.handleChange.bind(this);
+		this.handleClickOutside = this.handleClickOutside.bind(this);
 	}
 
 	handleChange(e) {
@@ -33,35 +32,18 @@ class BooksSearch extends React.Component {
 		this.setState({ searchParams: '' });
 	}
 
-	componentWillReceiveProps(nextProps) {
-		let results = Object.values(nextProps.searchResults);
-		let searchBox;
-		if(results.length > 0) {
-			searchBox = results.map (
-				book => <SearchIndex
-									key= { book.ISBN }
-									book= { book }
-									searchParams= { this.state.searchParams } />
-			)
-
-		this.results =
-			<div className= 'search-box'>
-				<ul className= 'search-results'>
-					{ searchBox }
-				</ul>
-			</div>
-		}
-	}
-
 	render() {
 		return (
 			<div className= 'books-search-mid'>
 				<input 
 					onChange= { this.handleChange }
 					type= 'text'
-					placeholder= 'Search book by title, author, or ISBN'
+					placeholder= 'Search book by title or author'
 					value= { this.state.searchParams } />
-				{ this.results }
+				<SearchIndex 
+					searchParams= { this.state.searchParams }
+					searchResults= { Object.entries(this.props.searchResults) }
+					clearState= { this.clearState } />
 			</div>
 		)
 	}

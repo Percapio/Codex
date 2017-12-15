@@ -12,16 +12,17 @@
 	justify-content: center;
 
 	.index-2 {
-		flex: 2;
+		flex: 6;
 		display: flex;
 
 		.side-book-wrap {
 			width: 140px;
 			height: 175px;
 			padding: 20px;
-			margin-right: 50px;
-			margin-top: 50px;
+			margin-right: 100px;
 			background-color: white;
+			position: fixed;
+			align-self: flex-start;
 
 			.side-book-container {
 				width: 100px;
@@ -48,9 +49,9 @@
 }
 
 .books-index {
-	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
+	align-items: flex-end;
 
 	.book-info {
 		border-radius: 3px;
@@ -63,8 +64,8 @@
 			margin-right: 20px;
 
 			img {
-				height: 120px;
-				width: 70px;
+				height: 160px;
+				width: 100px;
 			}
 		}
 
@@ -119,13 +120,16 @@
 			.book-summary {
 				display: block;
 				box-sizing: border-box;
-				width: 400px;
+				width: 500px;
 				flex: 3;
 				background-color: white;
 				border-radius: 3px;
 				padding: 10px;
 				cursor: default;
-				text-indent: 20px;
+
+				.summary {
+					text-indent: 20px;
+				}
 			}
 
 			.book-stars {

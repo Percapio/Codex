@@ -24,7 +24,7 @@ class Book < ApplicationRecord
 
 	def self.find_first_fifteen(query)
 		param = '%' + query.downcase + '%'
-		Book.where('lower(title) LIKE ?', '%ark%').or(Book.where('lower(author) LIKE ?', '%ark%')).limit(15)
+		Book.where('lower(title) LIKE ?', param).or(Book.where('lower(author) LIKE ?', param)).limit(15)
 	end
 
 end

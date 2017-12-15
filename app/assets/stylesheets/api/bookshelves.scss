@@ -7,10 +7,12 @@
 	display: flex;
 	flex-direction: column;
 	width: 82px;
+	position: fixed;
 
 	.mini-shelves {
 		display: flex;
 		flex-direction: column;
+		justify-content: center;
 		margin-bottom: 15px;
 
 		img {

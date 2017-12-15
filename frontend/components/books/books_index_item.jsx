@@ -17,8 +17,9 @@ export default ({ book }) => (
 				</div>
 			</NavLink>
 
-			<div>
-				<div className= 'book-summary'>{ book.summary }</div>
+			<div className= 'book-summary'>Description:
+				<br/>
+				<div className= 'summary'>{ book.summary }</div>
 			</div>
 
 			<div className= 'book-stars'>
