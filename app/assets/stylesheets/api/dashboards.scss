@@ -1,0 +1,45 @@
+// Place all the styles related to the Api/Dashboards controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import './main_scss';
+
+.dashboard {
+	display: flex;
+	justify-content: space-around;
+
+	.suggested-book-container {
+
+		.side-book-wrap {
+			padding: 5px;
+			margin-right: 100px;
+			background-color: white;
+			position: fixed;
+			align-self: flex-start;
+
+			.side-book-container {
+				width: 100px;
+				margin: 0 auto;
+
+				.side-book {
+					object-fit: contain;
+				}
+
+				.side-book:hover {
+					box-shadow: 2px 1px 1px black;
+				  -webkit-transform: scale(1.1);
+				  -moz-transform: scale(1.1);
+				  -ms-transform: scale(1.1);
+				  -o-transform: scale(1.1);	
+				}
+			}
+		}
+	}
+
+	.render-container {
+
+	}
+
+	.bookshelves-container {
+
+	}
+}

@@ -1,7 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+
 import Bookshelf from '../bookshelf/bookshelf';
 import SuggestedBook from './suggested_book';
+import BooksIndex from '../books/books_index.jsx';
 
 class Dashboard extends React.Component {
 	componentDidMount() {
@@ -10,7 +12,7 @@ class Dashboard extends React.Component {
 	}
 
 	render() {
-		let suggestedBook, bookshelves;
+		let suggestedBook, bookshelves, main;
 
 		if (typeof this.props.random != 'undefined') {
 			suggestedBook = <SuggestedBook 
@@ -28,6 +30,12 @@ class Dashboard extends React.Component {
 											createShelf= { this.props.createShelf } />
 		}
 
+		if (this.props.location.pathname === `/${ user.username }`) {
+			main = <BooksIndex
+									books= { Object.entries(this.props.books) }
+									user= { this.props.user } />
+		}
+
 		return (
 			<div className= 'dashboard'>
 				<div className= 'suggested-book-container'>
@@ -35,7 +43,7 @@ class Dashboard extends React.Component {
 				</div>
 
 				<div className= 'render-container'>
-
+					{ main }
 				</div>
 
 				<div className= 'bookshelves-container'>

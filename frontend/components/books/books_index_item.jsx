@@ -1,16 +1,16 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-export default ({ book }) => (
+export default ({ book, bookId, user }) => (
 	<li className= 'book-info' >
-		<NavLink to= { `/api/books/${ book.id }` } className= 'book-splash'>
+		<NavLink to= { `/${ user.username }/${ book.title }` } className= 'book-splash'>
 			<img 
 				src= { book.img_url }
 				alt= 'some random book'/>
 		</NavLink>
 
 		<div className= 'book-review'>
-			<NavLink to= { `/api/books/${ book.id }` } className= 'book-nav'>
+			<NavLink to= { `/${ user.username }/${ book.title }` } className= 'book-nav'>
 				<div className= 'book-label'>
 					<h4>{ book.title }</h4>
 					<p>by { book.author }</p>
@@ -32,7 +32,7 @@ export default ({ book }) => (
 				</div>
 
 				<div>
-					<NavLink to= { `/api/books/${ book.id }` }>
+					<NavLink to= { `/${ user.username }/${ book.title }` }>
 						Click to leave a review
 					</NavLink>
 				</div>

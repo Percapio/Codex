@@ -7,8 +7,8 @@ export default ({ searchParams, searchResults, clearState }) => {
 	let booksUl;
 
 	if (searchResults.length > 0) {
-		let id;
-		let book;
+		let id, book;
+		
 		booksUl = 
 			<ul className= 'search-results'>
 				{ searchResults.map( pair =>

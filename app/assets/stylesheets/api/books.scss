@@ -14,31 +14,6 @@
 	.index-2 {
 		flex: 6;
 		display: flex;
-
-		.side-book-wrap {
-			padding: 5px;
-			margin-right: 100px;
-			background-color: white;
-			position: fixed;
-			align-self: flex-start;
-
-			.side-book-container {
-				width: 100px;
-				margin: 0 auto;
-
-				.side-book {
-					object-fit: contain;
-				}
-
-				.side-book:hover {
-					box-shadow: 2px 1px 1px black;
-				  -webkit-transform: scale(1.1);
-				  -moz-transform: scale(1.1);
-				  -ms-transform: scale(1.1);
-				  -o-transform: scale(1.1);	
-				}
-			}
-		}
 	}
 
 	.index-1 {

@@ -17,7 +17,6 @@ export default ({ errors }) => {
 		<div>
 			<NavUserFormContainer />
 			<Switch>
-
 				<AuthRoute exact path= '/login' component= { SessionFormContainer } />
 				<AuthRoute exact path= '/' component= { SessionFormContainer } />
 				<ProtectedRoute path= '/:username' component= { DashboardContainer } />
