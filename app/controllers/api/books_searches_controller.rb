@@ -21,6 +21,6 @@ class Api::BooksSearchesController < ApplicationController
 
   private
   def search_params
-  	params.require(:search).permit(:query, :author, :ISBN)
+  	params.require(:search).permit(:query)
   end
 end

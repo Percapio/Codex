@@ -14,7 +14,7 @@
 #
 
 class Book < ApplicationRecord
-	validates :title, :author, :summary, presence: true
+	validates :title, :author, :summary, presence: true, :case_sensitive => false
 	
 	has_many :shelves,
 		class_name: :Shelf
@@ -22,8 +22,9 @@ class Book < ApplicationRecord
 	has_many :reviews,
 		class_name: :Review
 
-	def self.find_first_fifteen(query_params)
-		param = '%' + query_params.downcase + '%'
-		Book.where('lower(title) LIKE ?', param).limit(15)
+	def self.find_first_fifteen(query)
+		param = '%' + query.downcase + '%'
+		Book.where('lower(title) LIKE ?', '%ark%').or(Book.where('lower(author) LIKE ?', '%ark%')).limit(15)
 	end
+
 end
