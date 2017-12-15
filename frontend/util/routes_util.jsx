@@ -8,16 +8,19 @@ const mapStateToProps = (state) => ({
 	user: state.session.user
 });
 
-const Auth = ({ user, loggedIn, path, component: Component }) => (
-	<Route
-		path= { path }
-		render= { props => (
-			loggedIn ? <Redirect to= {`/user/${user.id}`} /> : <Component {...props} />
-		)}
-	/>
-);
+const Auth = ({ user, loggedIn, path, component: Component }) => {
+	// debugger;
+	return(
+		<Route
+			path= { path }
+			render= { props => 
+				loggedIn ? <Redirect to= { `/${user.username}` } /> : <Component {...props} /> }
+		/>
+	)
+};
 
 const Protected = ({ loggedIn, path, component: Component }) => {
+	// debugger;
 	if (loggedIn) {
 		return (
 			<Route
@@ -27,10 +30,10 @@ const Protected = ({ loggedIn, path, component: Component }) => {
 				)}
 			/>
 		)
-	} else {
-		return (
-			<Redirect to= '/' />
-		)
+	}	else {
+			return (
+				<Redirect to= '/login' />
+			)
 	}
 };
 

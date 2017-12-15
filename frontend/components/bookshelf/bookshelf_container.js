@@ -1,32 +1,46 @@
 import { connect } from 'react-redux';
-import { selectAllBooks, selectBookshelves } from '../../selectors/selectors';
 import { withRouter } from 'react-router-dom';
+
+import Bookshelf from './bookshelf';
+import { 
+	selectAllBooks, 
+	selectBookshelves 
+} from '../../selectors/selectors';
 import { 
 	getBookshelves,
 	createBookshelf,
 	deleteBookshelf,
 } from '../../actions/bookshelves_actions';
+import { 
+	deleteShelf, 
+	createShelf 
+} from '../../actions/shelves_actions';
 import { getAllBooks } from '../../actions/books_actions';
-import { deleteShelf, createShelf } from '../../actions/shelves_actions';
 
-import Bookshelf from './bookshelf';
 
 const mapStateToProps = state => {
 	let currentReading, wantToRead;
+	let books = selectAllBooks(state);
+	let bookId = Math.floor(Math.random() * books.length);
+	let userId = state.session.id;
 
 	for (let i=0; i < state.entities.bookshelves.length; i++) {
-		if (state.entities.bookshelves[i].title === 'Currently Reading') {
-			currentReading = state.entities.bookshelves[i];
-		} else if (state.entities.bookshelves[i].title === 'Want to Read') {
-			wantToRead = state.entities.bookshelves[i]; 
+		let bookshelf = state.entities.bookshelves[i];
+		
+		if (bookshelf.title === 'Currently Reading') && (bookshelf.owner_id == userId) {
+			currentReading = bookshelf;
+		} else if (bookshelf.title === 'Want to Read') && (bookshelf.owner_id == userId) {
+			wantToRead = bookshelf; 
 		} 
 	}
-	
+
 	return({
 		currentReading: currentReading,
 		wantToRead: wantToRead,
 		user: state.session.user,
 		bookshelves: selectBookshelves(state),
+		books: books,
+		random: books[bookId]
 	});
 };
 

@@ -4,22 +4,34 @@ import BookshelfContainer from '../bookshelf/bookshelf_container';
 import SideBook from '../show_books/side_book';
 
 class BooksIndex extends React.Component {
+	constructor(props) {
+		super(props);
+		debugger;
+	}
+
 	render() {
-		const books = this.props.books.map(
-			book => {
-				return (
-					<BooksIndexItem
-						key= { book.id }
-						book= { book } />
-				);
-			});
+		let sideBook;
+		let books;
+
+		if (this.props.books.length > 0) {
+			books = this.props.books.map(
+				book => {
+					return (
+						<BooksIndexItem
+							key= { book.id }
+							book= { book } />
+					);
+				});
+
+			sideBook = 	<SideBook book= { this.props.random } />
+		}
+		
 
 		return (
 			<div className='main-component'>
 				<div className= 'index'>
 					<div className= 'index-2'>
-						<SideBook 
-							book= { this.props.book } />
+						{ sideBook }
 
 						<ul className= 'books-index'>
 							{ books }
