@@ -1,7 +1,10 @@
 import React from 'react';
-import SessionFormContainer from '../components/session/session_form_container';
 import { connect } from 'react-redux';
-import { Redirect, Route, withRouter } from 'react-router-dom';
+import { 
+	Redirect, 
+	Route, 
+	withRouter 
+} from 'react-router-dom';
 
 const mapStateToProps = (state) => ({
 	loggedIn: Boolean(state.session.user),
@@ -9,7 +12,6 @@ const mapStateToProps = (state) => ({
 });
 
 const Auth = ({ user, loggedIn, path, component: Component }) => {
-	// debugger;
 	return(
 		<Route
 			path= { path }
@@ -20,7 +22,6 @@ const Auth = ({ user, loggedIn, path, component: Component }) => {
 };
 
 const Protected = ({ loggedIn, path, component: Component }) => {
-	// debugger;
 	if (loggedIn) {
 		return (
 			<Route
@@ -36,7 +37,6 @@ const Protected = ({ loggedIn, path, component: Component }) => {
 			)
 	}
 };
-
 
 export const AuthRoute = withRouter(
 	connect(mapStateToProps, null)(Auth));

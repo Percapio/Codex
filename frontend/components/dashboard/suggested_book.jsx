@@ -2,8 +2,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 export default ({ book }) => {
-	// debugger;
-
 	return(
 		<div className= 'side-book-wrap'>
 			<div className= 'side-book-container'>

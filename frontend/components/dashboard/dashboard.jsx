@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import Bookshelf from './bookshelf';
+import Bookshelf from '../bookshelf/bookshelf';
 import SuggestedBook from './suggested_book';
 
 class Dashboard extends React.Component {
@@ -15,13 +15,17 @@ class Dashboard extends React.Component {
 		if (typeof this.props.random != 'undefined') {
 			suggestedBook = <SuggestedBook 
 												book= { this.props.random } 
-												userId= { this.props.userId } />
+												user= { this.props.user } />
 		}
 
 		if (typeof this.props.bookshelves != 'undefined') {
 			bookshelves = <Bookshelf 
 											bookshelves= { this.props.bookshelves } 
-											userId = { this.props.userId } />
+											user = { this.props.user } 
+											createBookshelf= { this.props.createBookshelf }
+											deleteBookshelf= { this.props.deleteBookshelf }
+											deleteShelf= { this.props.deleteShelf }
+											createShelf= { this.props.createShelf } />
 		}
 
 		return (
