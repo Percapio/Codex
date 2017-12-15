@@ -1,6 +1,8 @@
 import React from 'react';
 import { NavLink, Route } from 'react-router-dom';
 import SessionFormContainer from '../session/session_form_container';
+import BooksSearchContainer from '../books_search/books_search_container';
+
 
 class NavUserForm extends React.Component {
 	constructor(props) {
@@ -40,7 +42,10 @@ class NavUserForm extends React.Component {
 				<div className= 'nav-bar'>
 					<NavLink to= { `/login` }>Codex</NavLink>
 
-					<h1>WELCOME, { name }!</h1>
+					<div className= 'nav-bar-mid'>
+						<h1>WELCOME, { name }!</h1>
+						<BooksSearchContainer />
+					</div>
 
 					<div className= 'user-form-container'>
 						<div className= 'nav-links'>

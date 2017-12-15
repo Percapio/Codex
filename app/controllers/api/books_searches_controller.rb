@@ -1,6 +1,6 @@
-class BooksSearchesController < ApplicationController
+class Api::BooksSearchesController < ApplicationController
   def index
-  	@books = Book.find_first_five(search_params[:query])
+  	@books = Book.find_first_fifteen(search_params[:query])
   	render :index
   end
 

@@ -4,7 +4,7 @@ import {
 	RECEIVE_BOOK
 } from '../actions/searches_actions';
 
-export const BooksReducer = ( state = {}, action ) => {
+export const bookSearches = ( state = {}, action ) => {
 	Object.freeze(state);
 
 	switch (action.type) {
@@ -18,7 +18,7 @@ export const BooksReducer = ( state = {}, action ) => {
 };
 
 
-export const SearchReducer = ( state = {}, action ) => {
+export const searches = ( state = {}, action ) => {
 	Object.freeze(state);
 
 	switch (action.type) {

@@ -38,6 +38,7 @@ gem 'rails_12factor'
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 
 gem 'font-awesome-sass', '4.7.0'
+gem 'goodreads'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -47,9 +48,8 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'pry-rails'
   gem 'annotate'
-  gem 'httparty'
-  gem 'oauth'
-  gem 'goodreads'
+  # gem 'httparty'
+  # gem 'oauth'
 end
 
 group :development do

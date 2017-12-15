@@ -22,9 +22,8 @@ class Book < ApplicationRecord
 	has_many :reviews,
 		class_name: :Review
 
-	def self.find_first_five
+	def self.find_first_fifteen(query_params)
 		param = '%' + query_params.downcase + '%'
-		Book.where('lower(title) LIKE ?', param).limit(5)
+		Book.where('lower(title) LIKE ?', param).limit(15)
 	end
-
 end

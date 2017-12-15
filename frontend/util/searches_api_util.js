@@ -5,7 +5,7 @@ export const getBookByAuthor = author => (
 		data: {
 			search: { author: author }
 		}
-	});
+	})
 )
 
 export const getBookByISBN = ISBN => (
@@ -15,14 +15,14 @@ export const getBookByISBN = ISBN => (
 		data: {
 			search: { ISBN: ISBN }
 		}
-	});
+	})
 )
 
 export const getRandomBook = () => (
 	$.ajax({
 		method: 'GET',
 		url: 'api/books_searches/random_book'
-	});
+	})
 )
 
 export const searchBooksDatabase = query => (
@@ -32,12 +32,12 @@ export const searchBooksDatabase = query => (
 		data: {
 			search: { query }
 		}
-	});
+	})
 )
 
 export const getBooks = () => (
 	$.ajax({
 		method: 'GET',
 		url: 'api/books'
-	});
+	})
 )
