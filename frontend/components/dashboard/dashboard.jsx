@@ -39,7 +39,8 @@ class Dashboard extends React.Component {
 		if (location === `${ this.props.user.username }`) {
 			main = <BooksIndex
 									books= { Object.entries(this.props.books) }
-									user= { this.props.user } />
+									user= { this.props.user }
+									shelf= { false } />
 		} else if (booksUrl.test(location)) {
 			main = <Book 
 									user= { this.props.user } 

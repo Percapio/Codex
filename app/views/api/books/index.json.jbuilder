@@ -1,6 +1,6 @@
 @books.each do |book|
 	json.set! book.id do
-		json.partial! 'book', book: book
+		json.partial! 'api/books/book', book: book
 	end
 end
  

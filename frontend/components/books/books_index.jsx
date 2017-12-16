@@ -5,27 +5,38 @@ export default class BooksIndex extends React.Component {
 	render() {
 		let books = this.props.books;
 		let user = this.props.user;
+		let index;
 
 		if (books.length > 0) {
 			let id, book;
 
-			books = books.map(
-								pair => {
-									[id, book] = pair
+			if (this.props.shelf) {
+				index = books.map( book => 
+														<BooksIndexItem
+															key= { book.ISBN }
+															bookId= { id }
+															book= { book }
+															user= { user } />	)
+			} else {
+					index = books.map(
+										pair => {
+											[id, book] = pair
 
-									return (
-										<BooksIndexItem
-											key= { book.ISBN }
-											bookId= { id }
-											book= { book }
-											user= { user } />
-									);
-								});
+											return (
+												<BooksIndexItem
+													key= { book.ISBN }
+													bookId= { id }
+													book= { book }
+													user= { user } />
+											);
+										});
+				
+			}
 		}
 
 		return (
 			<ul className= 'books-index'>
-				{ books }
+				{ index }
 			</ul>
 		)
 	}

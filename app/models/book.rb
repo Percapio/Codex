@@ -27,4 +27,8 @@ class Book < ApplicationRecord
 		Book.where('lower(title) LIKE ?', param).or(Book.where('lower(author) LIKE ?', param)).limit(15)
 	end
 
+	def self.find_by_book_ids(shelves)
+		books = shelves.map { |shelf| shelf.book_id }
+		Book.where(id: books)
+	end
 end

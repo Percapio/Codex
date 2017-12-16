@@ -1,7 +1,9 @@
 class Api::ShelvesController < ApplicationController
   def index
-    @shelves = Shelf.find_by_bookshelf_id(params[:bookshelf_id].to_i)
-    render :index
+    shelves = Shelf.find_by_bookshelf_id(params[:bookshelf_id].to_i)
+
+    @books = Book.find_by_book_ids(shelves)
+    render 'api/books/index'
   end
 
   def show

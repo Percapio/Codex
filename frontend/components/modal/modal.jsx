@@ -2,6 +2,7 @@ import React from 'react';
 import Modal from 'react-modal';
 
 import Book from '../reviews/book';
+import ShelfContainer from '../shelves/shelf_container';
 
 const customStyles = {
   overlay : {
@@ -54,13 +55,16 @@ class ModalComponent extends React.Component {
 			container = <Book 
 										book= { this.state.item } 
 										user= { this.props.user } />
+		} else if (this.state.type === 'bookshelf') {
+			container = <ShelfContainer
+										bookshelf= { this.state.item }
+										user= { this.props.user } />
 		}
 
 		return(
 			<div>
 				<Modal
 					isOpen= { this.state.modalIsOpen }
-					onRequest= { this.toggleModal }
 					style= { customStyles }
 					contentLabel= "Base Modal"
 					ariaHideApp= { false } >
