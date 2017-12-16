@@ -12,7 +12,7 @@ import { selectAllReviews } from '../../selectors/selectors';
 import Reviews from './reviews';
 
 const mapStateToProps = (state, ownProps) => {
-	let bookId = parseInt(ownProps.location.pathname.slice(7));
+	let book = ownProps.book;
 	let reviews = selectAllReviews(state);
 	let reviewId;
 
@@ -21,7 +21,8 @@ const mapStateToProps = (state, ownProps) => {
 	}
 
 	return({
-		bookId: bookId,
+		user: ownProps.user,
+		book: book,
 		reviews: reviews,
 		reviewId: reviewId
 	})

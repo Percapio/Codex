@@ -1,45 +1,78 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import Modal from '../modal/modal';
+import onClickOutside from 'react-onclickoutside';
 
-export default ({ book, bookId, user }) => (
-	<li className= 'book-info' >
-		<NavLink to= { `/books/${ bookId }` } className= 'book-splash'>
-			<img 
-				src= { book.img_url }
-				alt= 'some random book'/>
-		</NavLink>
+class BooksIndexItem extends React.Component {
+	constructor(props) {
+		super(props);
 
-		<div className= 'book-review'>
-			<NavLink to= { `/books/${ bookId }` } className= 'book-nav'>
-				<div className= 'book-label'>
-					<h4>{ book.title }</h4>
-					<p>by { book.author }</p>
+		this.state = {
+			showModal: false
+		}
+
+		this.handleClickOutside = this.handleClickOutside.bind(this);
+		this.handleClick = this.handleClick.bind(this);
+	}
+
+	handleClick(e) {
+		e.preventDefault();
+		this.setState({ showModal: true });
+	}
+
+	handleClickOutside() {
+		this.setState({ showModal: false });
+	}
+
+	render() {
+		let book = this.props.book;
+		let user = this.props.user;
+
+		return(
+			<li className= 'book-info' >
+				<img 
+					src= { book.img_url }
+					alt= 'some random book'
+					className= 'book-splash'
+					onClick= { this.handleClick } />
+
+				<div className= 'book-review'>
+					<div className= 'book-label'>
+						<h4 
+							className= 'book-nav'
+							onClick= { this.handleClick } >{ book.title }</h4>
+						<p>by { book.author }</p>
+					</div>
+
+					<div className= 'book-summary'>Description:
+						<br/>
+						<div className= 'summary'>{ book.summary }</div>
+					</div>
+
+					<div className= 'book-stars'>
+						<div className= 'stars'>
+							<i className= "fa fa-star-o fa-lg" aria-hidden="true"></i>
+							<i className= "fa fa-star-o fa-lg" aria-hidden="true"></i>
+							<i className= "fa fa-star-o fa-lg" aria-hidden="true"></i>
+							<i className= "fa fa-star-o fa-lg" aria-hidden="true"></i>
+							<i className= "fa fa-star-o fa-lg" aria-hidden="true"></i>
+						</div>
+
+						<div onClick= { this.handleClick }>
+							Click to leave a review
+						</div>
+					</div>
+							
+							{ this.state.showModal ? <Modal 
+																				item= { book }
+																				open= { true }
+																				type= { 'book' }
+																				user= { user } /> : null }	
+					<hr />
 				</div>
-			</NavLink>
 
-			<div className= 'book-summary'>Description:
-				<br/>
-				<div className= 'summary'>{ book.summary }</div>
-			</div>
+			</li>
+		)
+	}
+}
 
-			<div className= 'book-stars'>
-				<div className= 'stars'>
-					<i className= "fa fa-star-o fa-lg" aria-hidden="true"></i>
-					<i className= "fa fa-star-o fa-lg" aria-hidden="true"></i>
-					<i className= "fa fa-star-o fa-lg" aria-hidden="true"></i>
-					<i className= "fa fa-star-o fa-lg" aria-hidden="true"></i>
-					<i className= "fa fa-star-o fa-lg" aria-hidden="true"></i>
-				</div>
-
-				<div>
-					<NavLink to= { `/books/${ bookId }` }>
-						Click to leave a review
-					</NavLink>
-				</div>
-			</div>
-					
-			<hr />
-		</div>
-
-	</li>
-);
+export default onClickOutside(BooksIndexItem);

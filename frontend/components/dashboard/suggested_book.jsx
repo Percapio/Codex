@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import Modal from '../modal/modal';
 import onClickOutside from 'react-onclickoutside';
 
@@ -39,7 +38,9 @@ class SuggestedBook extends React.Component {
 						{ this.state.showModal ? <Modal 
 																				item= { this.book }
 																				open= { true }
-																				type= { 'book' } /> : null }	
+																				type= { 'book' }
+																				user= { this.props.user } />
+																			: null }	
 				</div>
 			</div>
 		)

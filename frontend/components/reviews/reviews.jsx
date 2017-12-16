@@ -6,7 +6,7 @@ export default class Reviews extends React.Component {
 		super(props);
 
 		this.state = {
-			book_id: '',
+			book_id: props.book.id,
 			author_id: props.user.id,
 			title: '',
 			description: '',
@@ -16,12 +16,8 @@ export default class Reviews extends React.Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
-	componentWillReceiveProps(nextProps) {
-		debugger;
-		if (this.props.reviewId === nextProps.bookId) {
-		} else {
-			this.props.getReviews(this.props.bookId);
-		}
+	componentDidMount() {
+		this.props.getReviews(this.state.book_id)
 	}
 
 	handleSubmit(e) {

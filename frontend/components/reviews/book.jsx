@@ -1,6 +1,7 @@
 import React from 'react';
+import ReviewsContainer from './reviews_container';
 
-export default ({ book }) => {
+export default ({ book, user }) => {
 	return(
 		<div className= 'show-review'>
 			<div className= 'book-info'>
@@ -26,6 +27,8 @@ export default ({ book }) => {
 					</div>
 				</div>
 			</div>
+
+			<ReviewsContainer book= { book } user= { user } />
 		</div>
 	)
 }
