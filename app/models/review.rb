@@ -12,7 +12,7 @@
 #
 
 class Review < ApplicationRecord
-	validates :author_id, :book_id, :title, :description, presence: :true
+	validates :author_id, :book_id, :title, :description, :author_name, presence: :true
 
 	belongs_to :author,
 		class_name: :User,

@@ -1,6 +1,6 @@
 class Api::BooksController < ApplicationController
   def show
-    @book = Book.find(params[:id])
+    @book = Book.find(params[:id].to_i)
 
     if @book
       render json: @book

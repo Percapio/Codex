@@ -11,34 +11,36 @@
 	flex-direction: column;
 	align-content: center;
 
-	.book-container {
-		display: flex;
+	.book-info {
+		.book-container {
+			display: flex;
 
-		.show-top {
-			flex: 6;
-			margin: 30px;
+			.show-top {
+				flex: 6;
+				margin: 30px;
 
-			img {
-				object-fit: contain;
-			}
-		}
-
-		.show-bottom {
-			flex: 5;
-
-			.book-title {
-				display: flex;
-				flex-direction: column;
-				justify-content: space-between;
-				margin-top: 30px;
-
-				p {
-					align-self: flex-end;
+				img {
+					object-fit: contain;
 				}
 			}
-			.book-summary {
-				margin-top: 30px;
-				text-indent: 20px;
+
+			.show-bottom {
+				flex: 5;
+
+				.book-title {
+					display: flex;
+					flex-direction: column;
+					justify-content: space-between;
+					margin-top: 30px;
+
+					p {
+						align-self: flex-end;
+					}
+				}
+				.book-summary {
+					margin-top: 30px;
+					text-indent: 20px;
+				}
 			}
 		}
 	}

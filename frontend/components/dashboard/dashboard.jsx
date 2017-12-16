@@ -10,6 +10,7 @@ class Dashboard extends React.Component {
 	componentDidMount() {
 		this.props.getBookshelves(this.props.user.id);
 		this.props.getAllBooks();
+		this.props.getSingleBook(Math.floor(Math.random() * 178));
 	}
 
 	render() {
@@ -35,7 +36,7 @@ class Dashboard extends React.Component {
 											createShelf= { this.props.createShelf } />
 		}
 
-		if (location === `${ user.username }`) {
+		if (location === `${ this.props.user.username }`) {
 			main = <BooksIndex
 									books= { Object.entries(this.props.books) }
 									user= { this.props.user } />

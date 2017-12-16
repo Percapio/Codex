@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171214034104) do
+ActiveRecord::Schema.define(version: 20171216035125) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,9 +21,10 @@ ActiveRecord::Schema.define(version: 20171214034104) do
     t.text "summary", null: false
     t.integer "bookshelf_id"
     t.string "img_url"
+    t.integer "ISBN", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "ISBN", null: false
+    t.index ["ISBN"], name: "index_books_on_ISBN"
     t.index ["id"], name: "index_books_on_id"
   end
 
@@ -43,6 +44,7 @@ ActiveRecord::Schema.define(version: 20171214034104) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "description", null: false
+    t.string "author_name", null: false
   end
 
   create_table "shelves", force: :cascade do |t|

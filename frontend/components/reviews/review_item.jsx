@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default ({ review, destroyReview, updateReview, author }) => (
+export default ({ review, destroyReview, updateReview }) => (
 	<li>
 		<div className= 'review-container'>
 			<div className= 'review-header'>
@@ -8,7 +8,7 @@ export default ({ review, destroyReview, updateReview, author }) => (
 					{ review.title }
 				</div>
 				<div className= 'review-author'>
-					--{ author }
+					--{ review.author_name }
 				</div>
 			</div>
 

@@ -103,12 +103,13 @@ end
 @user5 = User.create(username: Faker::Dune.character, password: 'password1234', email: 'homer@school.com')
 @user6 = User.create(username: Faker::Dune.character, password: 'password1234', email: 'bob@school.com')
 
+@users = [@user2, @user3, @user4, @user5, @user6]
 
 #Reviews Seed
 Book.all.each do |book|
 	3.times do |num|
-		userId = (rand() * 5).ceil
-		Review.create(author_id: userId, book_id: book.id, description: Faker::Dune.quote, title: Faker::Dune.saying)
+		reviewer = @users.sample
+		Review.create(author_id: reviewer.id, book_id: book.id, description: Faker::Dune.quote, title: Faker::Dune.saying, author_name: reviewer.username)
 	end
 end
 

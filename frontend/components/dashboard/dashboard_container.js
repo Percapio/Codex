@@ -7,7 +7,10 @@ import {
 	selectBookshelves 
 } from '../../selectors/selectors';
 import { getBookshelves } from '../../actions/bookshelves_actions';
-import { getAllBooks } from '../../actions/books_actions';
+import { 
+	getAllBooks,
+	getSingleBook
+} from '../../actions/books_actions';
 
 import {
 	createBookshelf,
@@ -20,19 +23,19 @@ import {
 
 const mapStateToProps = (state, ownProps) => {
 	let books = selectAllBooks(state);
-	let bookId = Math.floor(Math.random() * books.length);
 
 	return({
 		user: state.session.user,
 		bookshelves: selectBookshelves(state),
 		books: books,
-		random: books[bookId]
+		random: Object.values(state.entities.suggested)[0]
 	});
 };
 
 const mapDispatchToProps = dispatch => ({
 	getAllBooks: () => dispatch(getAllBooks()),
 	getBookshelves: (userId) => dispatch(getBookshelves(userId)),
+	getSingleBook: (bookId) => dispatch(getSingleBook(bookId)),
 
 	createBookshelf: (shelf, userId) => dispatch(createBookshelf(shelf, userId)),
 	deleteBookshelf: (shelfId, userId) => dispatch(deleteBookshelf(shelfId, userId)),

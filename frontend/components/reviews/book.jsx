@@ -7,8 +7,15 @@ export default class Book extends React.Component {
 		let bookId, book, bookInfo, bookReviews;
 
 		if (this.props.books.length > 0) {
+			let books = this.props.books;
+
 			bookId = parseInt(this.props.location.slice(6));
-			book = this.props.books[bookId];
+			for (let i=1; i <= books.length; i++) {
+				if(books[i].id === bookId) {
+					book = books[i];
+					break;
+				}
+			}
 
 			bookInfo = <BookInfo book= { book } />
 			bookReviews = <ReviewsContainer
@@ -17,7 +24,7 @@ export default class Book extends React.Component {
 		}
 
 		return (
-			<div>
+			<div className= 'show-review'>
 				{ bookInfo }
 				{ bookReviews }
 			</div>

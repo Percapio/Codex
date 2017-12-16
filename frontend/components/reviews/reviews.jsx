@@ -6,23 +6,30 @@ export default class Reviews extends React.Component {
 		super(props);
 
 		this.state = {
-			book_id: props.book.id,
+			book_id: '',
 			author_id: props.user.id,
 			title: '',
-			description: ''
+			description: '',
+			author_name: props.user.username
 		};
 
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
-	componentDidMount() {
-		this.props.getReviews(this.props.book.id);
-		this.props.grabUsers();		
+	componentWillReceiveProps(nextProps) {
+		debugger;
+		if (this.props.reviewId === nextProps.bookId) {
+		} else {
+			this.props.getReviews(this.props.bookId);
+		}
 	}
 
 	handleSubmit(e) {
 		e.preventDefault();
-		this.props.createReview(this.state);
+
+		this.setState({ book_id: this.props.bookId }, () => (
+			this.props.createReview(this.state)
+		));
 	}
 
 	handleChange(field) {
@@ -31,30 +38,18 @@ export default class Reviews extends React.Component {
 		});
 	}
 
-	chooseAuthor(review) {
-		let users = this.props.users;
-
-		for (let i=0; i < users.length; i++) {
-			if (users[i].id === review.author_id)
-				return users[i].username;
-		}
-	}
-
 	render() {
 		let reviews;
 
-		if ((this.props.reviews.length > 0) && (this.props.users.length > 0)) {
+		if (this.props.reviews.length > 0) {
 			reviews = this.props.reviews.map(
 				(review, index) => {
-					let author = this.chooseAuthor(review);
-
 					return (
 						<ReviewItem
 							key= { index }
 							review= { review }
 							destroyReview= { this.props.destroyReview }
-							updateReview= { this.props.updateReview }
-							author= { author } />
+							updateReview= { this.props.updateReview } />
 					)
 				}
 			)
