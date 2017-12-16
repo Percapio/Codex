@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import Bookshelf from '../bookshelf/bookshelf';
 import SuggestedBook from './suggested_book';
 import BooksIndex from '../books/books_index.jsx';
+import Book from '../reviews/book';
 
 class Dashboard extends React.Component {
 	componentDidMount() {
@@ -13,6 +14,10 @@ class Dashboard extends React.Component {
 
 	render() {
 		let suggestedBook, bookshelves, main;
+		let location = this.props.location.pathname.slice(1);
+
+		//regex
+		const booksUrl = /books\/\d*/;
 
 		if (typeof this.props.random != 'undefined') {
 			suggestedBook = <SuggestedBook 
@@ -30,10 +35,20 @@ class Dashboard extends React.Component {
 											createShelf= { this.props.createShelf } />
 		}
 
-		if (this.props.location.pathname === `/${ user.username }`) {
+		if (location === `${ user.username }`) {
 			main = <BooksIndex
 									books= { Object.entries(this.props.books) }
 									user= { this.props.user } />
+		} else if (booksUrl.test(location)) {
+			main = <Book 
+									user= { this.props.user } 
+									books= { Object.values(this.props.books) }
+									getReviews= { this.props.getReviews }
+									createReview= { this.props.createReview }
+									destroyReview= { this.props.destroyReview }
+									updateReview= { this.props.updateReview }
+									grabUsers= { this.props.grabUsers }
+									location= { location } />
 		}
 
 		return (

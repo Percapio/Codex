@@ -3,14 +3,14 @@ import { NavLink } from 'react-router-dom';
 
 export default ({ book, bookId, user }) => (
 	<li className= 'book-info' >
-		<NavLink to= { `/${ user.username }/${ book.title }` } className= 'book-splash'>
+		<NavLink to= { `/books/${ bookId }` } className= 'book-splash'>
 			<img 
 				src= { book.img_url }
 				alt= 'some random book'/>
 		</NavLink>
 
 		<div className= 'book-review'>
-			<NavLink to= { `/${ user.username }/${ book.title }` } className= 'book-nav'>
+			<NavLink to= { `/books/${ bookId }` } className= 'book-nav'>
 				<div className= 'book-label'>
 					<h4>{ book.title }</h4>
 					<p>by { book.author }</p>
@@ -32,7 +32,7 @@ export default ({ book, bookId, user }) => (
 				</div>
 
 				<div>
-					<NavLink to= { `/${ user.username }/${ book.title }` }>
+					<NavLink to= { `/books/${ bookId }` }>
 						Click to leave a review
 					</NavLink>
 				</div>

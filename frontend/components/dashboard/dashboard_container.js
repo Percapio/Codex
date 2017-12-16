@@ -18,7 +18,7 @@ import {
 	createShelf
 } from '../../actions/shelves_actions';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
 	let books = selectAllBooks(state);
 	let bookId = Math.floor(Math.random() * books.length);
 
@@ -37,7 +37,7 @@ const mapDispatchToProps = dispatch => ({
 	createBookshelf: (shelf, userId) => dispatch(createBookshelf(shelf, userId)),
 	deleteBookshelf: (shelfId, userId) => dispatch(deleteBookshelf(shelfId, userId)),
 	deleteShelf: (shelfId) => dispatch(deleteShelf(shelfId)),
-	createShelf: () => dispatch(createShelf())
+	createShelf: () => dispatch(createShelf()),
 });
 
 export default withRouter(connect(

@@ -1,16 +1,13 @@
 import React from 'react';
 import ReviewItem from './review_item';
-import BookShow from './book_show';
-import BookShelfContainer from '../bookshelf/bookshelf_container';
-import SideBook from '../show_books/side_book';
 
-class Reviews extends React.Component {
+export default class Reviews extends React.Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			book_id: this.props.book.id,
-			author_id: this.props.userId,
+			book_id: props.book.id,
+			author_id: props.user.id,
 			title: '',
 			description: ''
 		};
@@ -19,9 +16,8 @@ class Reviews extends React.Component {
 	}
 
 	componentDidMount() {
-		this.props.getAllBooks();
-		this.props.getReviews(this.props.bookId);
-		this.props.grabUsers();
+		this.props.getReviews(this.props.book.id);
+		this.props.grabUsers();		
 	}
 
 	handleSubmit(e) {
@@ -35,81 +31,61 @@ class Reviews extends React.Component {
 		});
 	}
 
-	handleBookShow() {
-		if (this.props.book) {
-			return <BookShow book= { this.props.book } />
-		}
-	}
-
 	chooseAuthor(review) {
-		if (this.props.users.length > 0) {
-			for (let i=0; i < this.props.users.length; i++) {
-				if (this.props.users[i].id === review.author_id)
-					return this.props.users[i].username;
-			}
+		let users = this.props.users;
+
+		for (let i=0; i < users.length; i++) {
+			if (users[i].id === review.author_id)
+				return users[i].username;
 		}
 	}
 
 	render() {
-		const reviews = this.props.reviews.map(
-			(review, index) => {
-				let author = this.chooseAuthor(review);
+		let reviews;
 
-				return (
-					<ReviewItem
-						key= { index }
-						review= { review }
-						destroyReview= { this.props.destroyReview }
-						updateReview= { this.props.updateReview }
-						author= { author } />
-				)
-			}
-		)
+		if ((this.props.reviews.length > 0) && (this.props.users.length > 0)) {
+			reviews = this.props.reviews.map(
+				(review, index) => {
+					let author = this.chooseAuthor(review);
+
+					return (
+						<ReviewItem
+							key= { index }
+							review= { review }
+							destroyReview= { this.props.destroyReview }
+							updateReview= { this.props.updateReview }
+							author= { author } />
+					)
+				}
+			)
+		}
 
 	return(
-		<div className= 'main-component'>
-			<div className= 'index'>
+		<div className= 'review-form-container'>
+			<form className= 'review-form' onSubmit= { this.handleSubmit }>
+				<label>Title
+					<input
+						input= 'text'
+						value= { this.state.title }
+						onChange= { this.handleChange('title') }
+						className= 'review-title' 
+						/>
+				</label>
 
-				<div className= 'index-2'>
-					<SideBook />
+				<label>Review
+					<textarea
+						value= { this.state.description }
+						onChange= { this.handleChange('description') }
+						className= 'review-body'></textarea>
+				</label>
 
-					<div className= 'show-review'>
-						{ this.handleBookShow() }
+				<input type='submit' value='Submit' className= 'submit-button'/>
+			</form>
 
-						<div className= 'review-form-container'>
-							<form className= 'review-form' onSubmit= { this.handleSubmit }>
-								<label>Title
-									<input
-										input= 'text'
-										value= { this.state.title }
-										onChange= { this.handleChange('title') }
-										className= 'review-title' 
-										/>
-								</label>
-
-								<label>Review
-									<textarea
-										value= { this.state.description }
-										onChange= { this.handleChange('description') }
-										className= 'review-body'></textarea>
-								</label>
-
-								<input type='submit' value='Submit' className= 'submit-button'/>
-							</form>
-						</div>
-
-						<ul className= 'reviews'>
-							{ reviews }
-						</ul>
-					</div>
-				</div>
-
-				<div className= 'index-1'>
-					<BookShelfContainer />
-				</div>
-			</div>
+			<ul className= 'reviews'>
+				{ reviews }
+			</ul>
 		</div>
-	)
-}};
-
-export default Reviews;
+		)
+	};
+}

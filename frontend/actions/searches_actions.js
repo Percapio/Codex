@@ -1,13 +1,7 @@
 import * as APIUtil from '../util/searches_api_util';
 
 export const RECEIVE_SEARCH_RESULTS = 'RECEIVE_SEARCH_RESULTS';
-export const RECEIVE_BOOKS = 'RECEIVE_BOOKS';
 export const RECEIVE_BOOK = 'RECEIVE_BOOK';
-
-const receiveBooks = books => ({
-	type: RECEIVE_BOOKS,
-	books
-});
 
 const receiveBook = book => ({
 	type: RECEIVE_BOOK,
@@ -40,11 +34,5 @@ export const getBookByISBN = ISBN => dispatch => (
 export const getRandomBook = () => dispatch => (
 	APIUtil.getRandomBook().then(
 		payload => dispatch(receiveBook(payload))
-	)
-);
-
-export const getBooks = () => dispatch => (
-	APIUtil.getBooks().then(
-		payload => dispatch(receiveBooks(payload))
 	)
 );
