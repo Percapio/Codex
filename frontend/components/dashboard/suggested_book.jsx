@@ -1,22 +1,49 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import Modal from '../modal/modal';
+import onClickOutside from 'react-onclickoutside';
 
-export default ({ book }) => {
+class SuggestedBook extends React.Component {
+	constructor(props) {
+		super(props);
 
-	return(
-		<div className= 'side-book-wrap'>
-			<div className= 'side-book-container'>
-				<NavLink 
-					to= { `/books/${ book.id }` }
-					className= 'side-splash'>
-					
+		this.state = {
+			showModal: false
+		}
+
+		this.book = props.book;
+		this.handleClickOutside = this.handleClickOutside.bind(this);
+		this.handleClick = this.handleClick.bind(this);
+	}
+
+	handleClick(e) {
+		e.preventDefault();
+		this.setState({ showModal: true });
+	}
+
+	handleClickOutside() {
+		this.setState({ showModal: false });
+	}
+
+	render() {
+		return(
+			<div className= 'side-book-wrap'>
+				<div className= 'side-book-container'>
 					<img 
-						src= { book.img_url }
+						src= { this.book.img_url }
 						alt= 'some random book'
 						className= 'side-book'
+						onClick= { this.handleClick }
 						/>
-				</NavLink>
+
+						{ this.state.showModal ? <Modal 
+																				item= { this.book }
+																				open= { true }
+																				type= { 'book' } /> : null }	
+				</div>
 			</div>
-		</div>
-	)
+		)
+	}
 }
+
+export default onClickOutside(SuggestedBook);

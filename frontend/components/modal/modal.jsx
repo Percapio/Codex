@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 
-import BookContainer from '../reviews/book_container';
+import Book from '../reviews/book';
 
 const customStyles = {
   overlay : {
@@ -34,29 +34,36 @@ class ModalComponent extends React.Component {
 		super(props);
 
 		this.state = {
-			modalIsOpen = false;
+			modalIsOpen: props.open,
+			type: props.type,
+			item: props.item
 		}
 	}
 
-	openModal() {
-		this.setState({ modalIsOpen = true });
-	}
-
-	closeModal() {
-		this.setState({ modalIsOpen = false });
+	toggleModal() {
+		this.setState({ 
+			modalIsOpen: !this.state.modalIsOpen,
+			type: '',
+			item: '' })
 	}
 
 	render() {
+		let container;
+
+		if (this.state.type === 'book') {
+			container = <Book book= { this.state.item } />
+		}
+
 		return(
 			<div>
-				<div onClick= { this.openModal } />
-
 				<Modal
 					isOpen= { this.state.modalIsOpen }
-					onRequest= { this.closeModal }
+					onRequest= { this.toggleModal }
 					style= { customStyles }
-					contentLabel= "Base Modal" >
-					<BookContainer />
+					contentLabel= "Base Modal"
+					ariaHideApp= { false } >
+					
+					{ container }
 				</Modal>
 			</div>
 		)
