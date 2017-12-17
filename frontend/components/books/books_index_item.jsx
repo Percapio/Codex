@@ -1,6 +1,5 @@
 import React from 'react';
 import Modal from '../modal/modal';
-import onClickOutside from 'react-onclickoutside';
 
 class BooksIndexItem extends React.Component {
 	constructor(props) {
@@ -10,17 +9,13 @@ class BooksIndexItem extends React.Component {
 			showModal: false
 		}
 
-		this.handleClickOutside = this.handleClickOutside.bind(this);
 		this.handleClick = this.handleClick.bind(this);
 	}
 
 	handleClick(e) {
 		e.preventDefault();
-		this.setState({ showModal: true });
-	}
 
-	handleClickOutside() {
-		this.setState({ showModal: false });
+		this.setState({ showModal: true });
 	}
 
 	render() {
@@ -75,4 +70,4 @@ class BooksIndexItem extends React.Component {
 	}
 }
 
-export default onClickOutside(BooksIndexItem);
+export default BooksIndexItem;

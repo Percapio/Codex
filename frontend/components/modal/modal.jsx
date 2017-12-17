@@ -39,6 +39,8 @@ class ModalComponent extends React.Component {
 			type: props.type,
 			item: props.item
 		}
+
+		this.toggleModal = this.toggleModal.bind(this);
 	}
 
 	toggleModal() {
@@ -65,10 +67,15 @@ class ModalComponent extends React.Component {
 			<div>
 				<Modal
 					isOpen= { this.state.modalIsOpen }
+					onRequestClose= { this.toggleModal }
 					style= { customStyles }
 					contentLabel= "Base Modal"
 					ariaHideApp= { false } >
 					
+					<button 
+						className= 'modal-close'
+						onClick= { this.toggleModal }>CLOSE</button>
+						
 					{ container }
 				</Modal>
 			</div>

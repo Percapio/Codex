@@ -11,12 +11,15 @@ export default class BooksIndex extends React.Component {
 			let id, book;
 
 			if (this.props.shelf) {
-				index = books.map( book => 
-														<BooksIndexItem
-															key= { book.ISBN }
-															bookId= { id }
-															book= { book }
-															user= { user } />	)
+				index = books.map( book => {
+
+														return(
+															<BooksIndexItem
+																key= { book.ISBN }
+																bookId= { id }
+																book= { book }
+																user= { user } />	)
+													});
 			} else {
 					index = books.map(
 										pair => {
