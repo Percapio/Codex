@@ -9,6 +9,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  description :text             not null
+#  author_name :string           not null
 #
 
 require 'test_helper'

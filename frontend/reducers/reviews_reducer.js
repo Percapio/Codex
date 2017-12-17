@@ -1,7 +1,8 @@
 import { 
 	FETCH_REVIEWS,
 	FETCH_REVIEW,
-	DESTROY_REVIEW } from '../actions/reviews_actions';
+	REMOVE_REVIEW
+} from '../actions/reviews_actions';
 import merge from 'lodash/merge';
 
 export default (state = {}, action) => {
@@ -14,11 +15,10 @@ export default (state = {}, action) => {
 		case FETCH_REVIEW:
 			return merge({}, state, {[action.review.id]: action.review});
 
-		case DESTROY_REVIEW:
+		case REMOVE_REVIEW:
 			let oldState = merge({}, state);
 			delete oldState[action.review.id];
 			return oldState;
-
 		default:
 			return state;
 	}

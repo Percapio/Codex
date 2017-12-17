@@ -1,6 +1,5 @@
 import React from 'react';
 import Modal from '../modal/modal';
-import onClickOutside from 'react-onclickoutside';
 
 class SuggestedBook extends React.Component {
 	constructor(props) {
@@ -11,7 +10,6 @@ class SuggestedBook extends React.Component {
 		}
 
 		this.book = props.book;
-		this.handleClickOutside = this.handleClickOutside.bind(this);
 		this.handleClick = this.handleClick.bind(this);
 	}
 
@@ -20,9 +18,6 @@ class SuggestedBook extends React.Component {
 		this.setState({ showModal: true });
 	}
 
-	handleClickOutside() {
-		this.setState({ showModal: false });
-	}
 
 	render() {
 		return(
@@ -47,4 +42,4 @@ class SuggestedBook extends React.Component {
 	}
 }
 
-export default onClickOutside(SuggestedBook);
+export default SuggestedBook;

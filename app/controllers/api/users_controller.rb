@@ -11,7 +11,7 @@ class Api::UsersController < ApplicationController
     if @user.save
       User.make_shelves(@user)
       login(@user)
-      render json: @user
+      render :show
     else
       render json: @user.errors.full_messages, status: 422
     end

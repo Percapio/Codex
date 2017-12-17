@@ -32,7 +32,7 @@ const mapDispatchToProps = dispatch => ({
 	getReviews: reviews => dispatch(getReviews(reviews)),
 	createReview: review => dispatch(createReview(review)),
 	destroyReview: review => dispatch(destroyReview(review)),
-	updateReview: review => dispatch(destroyReview(review)),
+	updateReview: review => dispatch(updateReview(review)),
 });
 
 export default withRouter(connect(

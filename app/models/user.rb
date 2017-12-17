@@ -24,7 +24,8 @@ class User < ApplicationRecord
 
   has_many :reviews,
     class_name: :Review,
-    foreign_key: :author_id
+    foreign_key: :author_id,
+    dependent: :delete_all
 
   after_initialize :ensure_session_token
 

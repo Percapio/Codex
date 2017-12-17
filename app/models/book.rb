@@ -20,7 +20,9 @@ class Book < ApplicationRecord
 		class_name: :Shelf
 
 	has_many :reviews,
-		class_name: :Review
+		class_name: :Review,
+		foreign_key: :book_id,
+		dependent: :delete_all
 
 	def self.find_first_fifteen(query)
 		param = '%' + query.downcase + '%'
