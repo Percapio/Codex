@@ -7,18 +7,19 @@ class Api::ShelvesController < ApplicationController
   end
 
   def show
-    shelves = current_user.bookshelves.find_by(id: params[:bookshelf_id].to_i).shelves
+    shelves = current_user.bookshelves.find(params[:bookshelf_id].to_i).shelves
     @books = Shelf.select_books(shelves)
-    render json: @books
+    render 'api/books/index'
   end
 
   def create
-    @shelf = Shelf.new( book_id: params[:book_id].to_i, bookshelf_id: params[:bookshelf_id].to_i )
+    @shelf = Shelf.new( book_id: params[:book_id], bookshelf_id: params[:bookshelf_id] )
     @shelf.status = 'Not Yet Read'
 
     if @shelf.save
-      @shelves = Shelf.find_by_bookshelf_id(params[:bookshelf_id])
-      render 'api/shelves/index'
+      shelves = current_user.bookshelves.find(params[:bookshelf_id]).shelves
+      @books = Shelf.select_books(shelves)
+      render 'api/books/index'
     else
       render json: @shelf.errors.full_messages, status: 422
     end

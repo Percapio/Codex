@@ -8,7 +8,6 @@ import {
 	updateReview,
 } from '../../actions/reviews_actions';
 import { selectAllReviews } from '../../selectors/selectors';
-
 import Reviews from './reviews';
 
 const mapStateToProps = (state, ownProps) => {
@@ -32,7 +31,7 @@ const mapDispatchToProps = dispatch => ({
 	getReviews: reviews => dispatch(getReviews(reviews)),
 	createReview: review => dispatch(createReview(review)),
 	destroyReview: review => dispatch(destroyReview(review)),
-	updateReview: review => dispatch(updateReview(review)),
+	updateReview: review => dispatch(updateReview(review))
 });
 
 export default withRouter(connect(

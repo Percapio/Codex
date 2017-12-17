@@ -1,5 +1,5 @@
 import React from 'react';
-import Modal from '../modal/modal';
+import ModalContainer from '../modal/modal_container';
 
 class BooksIndexItem extends React.Component {
 	constructor(props) {
@@ -21,6 +21,7 @@ class BooksIndexItem extends React.Component {
 	render() {
 		let book = this.props.book;
 		let user = this.props.user;
+		let options = this.props.bookshelves;
 
 		return(
 			<li className= 'book-info' >
@@ -57,10 +58,11 @@ class BooksIndexItem extends React.Component {
 						</div>
 					</div>
 							
-							{ this.state.showModal ? <Modal 
+							{ this.state.showModal ? <ModalContainer 
 																				item= { book }
 																				open= { true }
 																				type= { 'book' }
+																				options= { options }
 																				user= { user } /> : null }	
 					<hr />
 				</div>

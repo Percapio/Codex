@@ -1,47 +1,36 @@
 import React from 'react';
-import BookshelfItem from './bookshelf_item';
+import BookshelfContainer from './bookshelf_container';
 import BookshelfCreate from './bookshelf_create';
 
-export default 
-	({ bookshelves, user, createBookshelf, deleteBookshelf, deleteShelf, createShelf }) => {
-	let currentReading, wantToRead, sideShelves, shelvesList, shelfCreate;
+export default ({ bookshelves, user, books, createBookshelf }) => {
+	let currentReading, wantToRead, sideShelves, shelfCreate;
+	let shelvesList = [];
 
 	if (bookshelves.length > 0) {
 		for (let i=0; i < bookshelves.length; i++) {
 			let bookshelf = bookshelves[i];
 			
 			if ((bookshelf.title === 'Currently Reading') && (bookshelf.owner_id == user.id)) {
-				currentReading = <BookshelfItem
+				currentReading = <BookshelfContainer
 														key= { bookshelf.id } 
-														item= { bookshelf }
+														books= { books }
+														bookshelf= { bookshelf }
 														user= { user } 
-														deleteShelf= { deleteShelf }
 														sideShelves= { true } />;
 			} else if ((bookshelf.title === 'Want to Read') && (bookshelf.owner_id == user.id)) {
-				wantToRead = <BookshelfItem
+				wantToRead = <BookshelfContainer
 														key= { bookshelf.id } 
-														item= { bookshelf }
+														books= { books }
+														bookshelf= { bookshelf }
 														user= { user } 
-														deleteShelf= { deleteShelf }
 														sideShelves= { true } />; 
-			} 
+			} else {
+				shelvesList.push(<BookshelfContainer
+														key= { bookshelf.id }
+														bookshelf= { bookshelf }
+														sideShelves= { false } />)
+			}
 		}
-
-		shelvesList = bookshelves.map(
-								(bookshelf, index) => {
-									
-									if (index > 1){
-										return (
-											<BookshelfItem
-												key= { bookshelf.id }
-												item= { bookshelf }
-												user = { user }
-												deleteShelf= { deleteBookshelf }
-												sideShelves= { false } />
-										)
-									}
-								}
-							)
 
 		shelfCreate = <BookshelfCreate
 										createBookshelf= { createBookshelf }

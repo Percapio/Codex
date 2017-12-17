@@ -18,13 +18,13 @@ export const getShelf = shelfId => (
 	})
 );
 
-export const createShelf = ({ bookshelfId, bookId }) => (
+export const createShelf = (shelf) => (
 	$.ajax({
 		method: 'POST',
 		url: 'api/shelves',
 		data: {
-			book_id: bookId,
-			bookshelf_id: bookshelfId
+			book_id: shelf.book_id,
+			bookshelf_id: shelf.bookshelf_id
 		}
 	})
 );

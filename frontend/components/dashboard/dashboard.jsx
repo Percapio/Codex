@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom';
 import Bookshelf from '../bookshelf/bookshelf';
 import SuggestedBook from './suggested_book';
 import BooksIndex from '../books/books_index.jsx';
-import Book from '../reviews/book';
 
 class Dashboard extends React.Component {
 	componentDidMount() {
@@ -14,43 +13,21 @@ class Dashboard extends React.Component {
 	}
 
 	render() {
-		let suggestedBook, bookshelves, main;
-		let location = this.props.location.pathname.slice(1);
-
-		//regex
-		const booksUrl = /books\/\d*/;
+		let suggestedBook, bookshelves;
 
 		if (typeof this.props.random != 'undefined') {
 			suggestedBook = <SuggestedBook 
 												book= { this.props.random } 
-												user= { this.props.user } />
+												user= { this.props.user }
+												bookshelves= { this.props.bookshelves } />
 		}
 
-		if (typeof this.props.bookshelves != 'undefined') {
+		if ((typeof this.props.bookshelves != 'undefined') && (this.props.books.length > 0)) {
 			bookshelves = <Bookshelf 
+											books = { this.props.books }
 											bookshelves= { this.props.bookshelves } 
 											user = { this.props.user } 
-											createBookshelf= { this.props.createBookshelf }
-											deleteBookshelf= { this.props.deleteBookshelf }
-											deleteShelf= { this.props.deleteShelf }
-											createShelf= { this.props.createShelf } />
-		}
-
-		if (location === `${ this.props.user.username }`) {
-			main = <BooksIndex
-									books= { Object.entries(this.props.books) }
-									user= { this.props.user }
-									shelf= { false } />
-		} else if (booksUrl.test(location)) {
-			main = <Book 
-									user= { this.props.user } 
-									books= { Object.values(this.props.books) }
-									getReviews= { this.props.getReviews }
-									createReview= { this.props.createReview }
-									destroyReview= { this.props.destroyReview }
-									updateReview= { this.props.updateReview }
-									grabUsers= { this.props.grabUsers }
-									location= { location } />
+											createBookshelf= { this.props.createBookshelf } />
 		}
 
 		return (
@@ -60,7 +37,11 @@ class Dashboard extends React.Component {
 				</div>
 
 				<div className= 'render-container'>
-					{ main }
+					<BooksIndex
+						books= { this.props.books }
+						user= { this.props.user }
+						bookshelves= { this.props.bookshelves }
+						shelf= { false } />
 				</div>
 
 				<div className= 'bookshelves-container'>

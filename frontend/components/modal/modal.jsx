@@ -56,11 +56,15 @@ class ModalComponent extends React.Component {
 		if (this.state.type === 'book') {
 			container = <Book 
 										book= { this.state.item } 
-										user= { this.props.user } />
+										user= { this.props.user }
+										bookshelves= { this.props.options }
+										createShelf= { this.props.createShelf }
+										deleteShelf= { this.props.deleteShelf } />
 		} else if (this.state.type === 'bookshelf') {
 			container = <ShelfContainer
 										bookshelf= { this.state.item }
-										user= { this.props.user } />
+										user= { this.props.user }
+										bookshelves= { this.props.options } />
 		}
 
 		return(

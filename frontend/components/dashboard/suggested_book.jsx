@@ -1,5 +1,5 @@
 import React from 'react';
-import Modal from '../modal/modal';
+import ModalContainer from '../modal/modal_container';
 
 class SuggestedBook extends React.Component {
 	constructor(props) {
@@ -18,7 +18,6 @@ class SuggestedBook extends React.Component {
 		this.setState({ showModal: true });
 	}
 
-
 	render() {
 		return(
 			<div className= 'side-book-wrap'>
@@ -30,11 +29,12 @@ class SuggestedBook extends React.Component {
 						onClick= { this.handleClick }
 						/>
 
-						{ this.state.showModal ? <Modal 
+						{ this.state.showModal ? <ModalContainer
 																				item= { this.book }
 																				open= { true }
 																				type= { 'book' }
-																				user= { this.props.user } />
+																				user= { this.props.user }
+																				options= { this.props.bookshelves } />
 																			: null }	
 				</div>
 			</div>

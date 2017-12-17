@@ -14,29 +14,13 @@ class Shelf < ApplicationRecord
 	validates :book_id, :bookshelf_id, presence: true
 
 	belongs_to :book,
-		class_name: :Book,
-		dependent: :destroy
+		class_name: :Book
 
 	belongs_to :bookshelf,
-		class_name: :Bookshelf,
-		dependent: :destroy
+		class_name: :Bookshelf
 
-	def self.find_by_bookshelf_id(bookshelf_id)
-		Shelf.all.select { |s| s.bookshelf_id == bookshelf_id }
-	end
-
-	def self.find_book_in_shelf(book_id, bookshelf_id)
-		current_user.bookshelves[bookshelf_id].find_by(id: book_id)
-	end
-
-	def self.find_by_ids(book_id, bookshelf_id)
-		Shelf.all.select { |s| s.bookshelf_id == bookshelf_id }
-	end
-
-	def self.select_books(shelf)
-		shelves = shelf.select(:book_id).distinct
-		results = []
-		shelves.each { |shelf| results << Book.find_by(id: shelf.book_id) }
-		results
+	def self.select_books(shelves)
+		books = shelves.map { |shelf| shelf.book_id }
+		Book.where(id: books)
 	end
 end

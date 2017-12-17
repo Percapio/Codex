@@ -1,7 +1,7 @@
 import React from 'react';
-import Modal from '../modal/modal';
+import ModalContainer from '../modal/modal_container';
 
-class BookshelfItem extends React.Component {
+export default class BookshelfItem extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -10,38 +10,49 @@ class BookshelfItem extends React.Component {
 		}
 
 		this.handleClick = this.handleClick.bind(this);
+		this.handleDelete = this.handleDelete.bind(this);
 	}
 
 	handleClick(e) {
 		e.preventDefault();
-
 		this.setState({ showModal: true });
 	}
 
+	handleDelete(e) {
+		e.preventDefault();
+		this.props.deleteShelf(this.props.book.id);
+		this.setState({ showModal: false });
+	}
+
+	handleDeleteBookshelf(e) {
+		e.preventDefault();
+		this.props.deleteBookshelf(this.props.bookshelf.id, this.props.user.id);
+		this.setState({ showModal: false });
+	}
+
 	render() {
-		let bookshelf = this.props.item;
-		let user = this.props.user;
 		let shelfType;
 
 		if (this.props.sideShelves) {
 			shelfType = 
 				<div>
 					<img 
-						src= { bookshelf.img_url }
+						src= { this.props.book.img_url }
 						alt= 'some random book'
 						className= 'side-bar-books'
 						onClick= { this.handleClick } />
 							
 					<div className= 'mini-edits'>
-						<i className="fa fa-minus-circle" aria-hidden="true"></i>
-						<i className="fa fa-plus-circle" aria-hidden="true"></i>
+						<i className="fa fa-arrow-left" aria-hidden="true" />
+						<i className="fa fa-minus-circle" aria-hidden="true" onClick= { this.handleDelete } />
+						<i className="fa fa-arrow-right" aria-hidden="true" />
 					</div>
 				</div>
 		} else {
 			shelfType = 
 				<li className= 'mini-shelf' onClick= { this.handleClick }>
-					<p className= 'bookshelf-title'>{ bookshelf.title }</p>
-					<i className= "fa fa-times" aria-hidden= "true"></i>
+					<p className= 'bookshelf-title'>{ this.props.bookshelf.title }</p>
+					<i className= "fa fa-times" aria-hidden= "true" onClick= { this.handleDeleteBookshelf } />
 				</li>
 		}
 
@@ -49,14 +60,12 @@ class BookshelfItem extends React.Component {
 			<div className= 'side-book-wrap'>
 				{ shelfType }
 
-				{ this.state.showModal ? <Modal 
+				{ this.state.showModal ? <ModalContainer 
 																		item= { bookshelf }
 																		open= { true }
 																		type= { 'bookshelf' }
-																		user= { user } /> : null }	
+																		user= { this.props.user } /> : null }	
 			</div>
 		)
 	}
 }
-
-export default BookshelfItem;

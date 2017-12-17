@@ -16,12 +16,12 @@ class Bookshelf < ApplicationRecord
 	validates :owner_id, presence: true
 
 	has_many :shelves,
-		class_name: :Shelf
+		class_name: :Shelf,
+		dependent: :delete_all
 
 	belongs_to :user,
 		class_name: :User,
-		foreign_key: :owner_id,
-		dependent: :destroy
+		foreign_key: :owner_id
 	
 	def self.find_by_credentials(bookshelf_id, user_id)
 		user = User.find_by(id: user_id)

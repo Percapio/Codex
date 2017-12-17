@@ -33,10 +33,12 @@ export const getAllShelves = (shelfId) => dispatch => (
 		payload => dispatch(receiveAllShelves(payload)) )
 );
 
-export const createShelf = shelf => dispatch => (
-	APIUtil.createShelf(shelf).then(
-		payload => dispatch(makeShelf(payload)) )
-);
+export const createShelf = (shelf) => dispatch => {
+	return(
+		APIUtil.createShelf(shelf).then(
+			payload => dispatch(makeShelf(payload)) )
+	)
+};
 
 export const deleteShelf = (shelfId) => dispatch => (
 	APIUtil.deleteShelf(shelfId).then(
