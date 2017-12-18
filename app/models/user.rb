@@ -27,6 +27,9 @@ class User < ApplicationRecord
     foreign_key: :author_id,
     dependent: :delete_all
 
+  has_many :thumbs,
+    class_name: :Thumb
+
   after_initialize :ensure_session_token
 
 

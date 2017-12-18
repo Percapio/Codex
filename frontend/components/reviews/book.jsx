@@ -16,6 +16,7 @@ export default class Book extends React.Component {
 		this.handleSelect = this.handleSelect.bind(this);
 		this.handleSelectors = this.handleSelectors.bind(this);
 		this.handleDeleteShelf = this.handleDeleteShelf.bind(this);
+		this.handleDeleting = this.handleDeleting.bind(this);
 	}
 
 	handleSelect(e) {
@@ -51,7 +52,7 @@ export default class Book extends React.Component {
 
 	handleDeleteShelf(e) {
 		e.preventDefault();
-		this.props.deleteShelf( this.state.bookshelf_id ).then(
+		this.props.deleteShelf( this.state ).then(
 			this.notification('delete'),
 				this.errorNotification('delete') );
 	}
@@ -119,7 +120,7 @@ export default class Book extends React.Component {
 							<input type='submit' value='Select' />
 						</form>
 
-						<form onSubmit= { this.handleDelete } className= 'select-bookshelf' >
+						<form onSubmit= { this.handleDeleteShelf } className= 'select-bookshelf' >
 							<select value= { this.state.value } onChange= { this.handleDeleting } >
 								<option key= { 0 } >Choose Bookshelf to Remove from</option>
 								{ deleteShelf }

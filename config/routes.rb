@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   root to: 'static_pages#root'
 
   namespace :api, defaults: { format: :json } do
@@ -16,6 +15,7 @@ Rails.application.routes.draw do
       get 'random_book', on: :collection
     end
 
+    resources :thumbs, only: [:create, :destroy, :index, :show]
     #testing nesting of create
     resources :books, only: [:show, :index]
     resources :reviews, only: [:index]

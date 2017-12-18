@@ -24,6 +24,9 @@ class Book < ApplicationRecord
 		foreign_key: :book_id,
 		dependent: :delete_all
 
+	has_many :thumbs,
+		class_name: :Thumb
+
 	def self.find_first_fifteen(query)
 		param = '%' + query.downcase + '%'
 		Book.where('lower(title) LIKE ?', param).or(Book.where('lower(author) LIKE ?', param)).limit(15)

@@ -26,9 +26,9 @@ class Api::ShelvesController < ApplicationController
   end
 
   def destroy
-    shelf = Shelf.find(params[:id])
+    shelf = current_user.bookshelves.find(params[:bookshelf_id]).shelves.find_by(book_id: params[:book_id])
     shelf.destroy!
-    render json: { userId: current_user.id }, status: 200
+    render :show
   end
 
   def update
