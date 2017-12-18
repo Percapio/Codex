@@ -4,6 +4,7 @@ import { AllBooks, SingleBook } from './books_reducer';
 import bookshelves from './bookshelves_reducer';
 import shelves from './shelves_reducer';
 import reviews from './reviews_reducer';
+import thumbs from './thumbs_reducer';
 import { searches } from './searches_reducer';
 
 export default combineReducers({
@@ -12,5 +13,6 @@ export default combineReducers({
 	bookshelves,
 	shelves,
 	reviews,
+	thumbs,
 	searches
 });

@@ -1,1 +1,1 @@
-json.extract! @thumbs, :id, :title, :description, :book_id, :author_id
+json.extract! @thumbs, :id, :book_id, :up

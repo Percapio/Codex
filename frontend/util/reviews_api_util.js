@@ -38,10 +38,3 @@ export const updateReview = review => (
 		}
 	})
 );
-
-export const grabUsers = () => (
-  $.ajax({
-    method: 'GET',
-    url: 'api/users',
-  })
-);

@@ -41,6 +41,10 @@ class Dashboard extends React.Component {
 						books= { this.props.books }
 						user= { this.props.user }
 						bookshelves= { this.props.bookshelves }
+						thumbs= { this.props.thumbs }
+						createThumb= { this.props.createThumb }
+						deleteThumb= { this.props.deleteThumb }
+						getThumb= { this.props.getThumb }
 						shelf= { false } />
 				</div>
 

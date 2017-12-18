@@ -10,12 +10,28 @@ class BooksIndexItem extends React.Component {
 		}
 
 		this.handleClick = this.handleClick.bind(this);
+		this.handleUp = this.handleUp.bind(this);
+		this.handleDown = this.handleDown.bind(this);
 		this.callbackToParent = this.callbackToParent.bind(this);
+	}
+
+	componentDidMount() {
+		this.props.getThumb(this.props.book.id);
 	}
 
 	handleClick(e) {
 		e.preventDefault();
 		this.handleModal();
+	}	
+
+	handleUp(e) {
+		e.preventDefault();
+		this.props.createThumb({ up: 'true', book_id: parseInt(this.props.book.id) });
+	}	
+
+	handleDown(e) {
+		e.preventDefault();
+		this.props.createThumb({ up: 'false', book_id: parseInt(this.props.book.id) });
 	}
 
 	handleModal() {
@@ -53,13 +69,14 @@ class BooksIndexItem extends React.Component {
 					</div>
 
 					<div className= 'book-stars'>
-						<div className= 'stars'>
-							<i className= "fa fa-star-o fa-lg" aria-hidden="true"></i>
-							<i className= "fa fa-star-o fa-lg" aria-hidden="true"></i>
-							<i className= "fa fa-star-o fa-lg" aria-hidden="true"></i>
-							<i className= "fa fa-star-o fa-lg" aria-hidden="true"></i>
-							<i className= "fa fa-star-o fa-lg" aria-hidden="true"></i>
-						</div>
+						<ul className= 'stars'>
+							<li onClick= { this.handleUp }>
+								<i className="fa fa-thumbs-o-up" aria-hidden="true" />
+							</li>
+							<li onClick= { this.handleDown } >
+								<i className="fa fa-thumbs-o-down" aria-hidden="true" />
+							</li>
+						</ul>
 
 						<div onClick= { this.handleClick }>
 							Click to leave a review

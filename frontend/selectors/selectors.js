@@ -12,7 +12,7 @@ export const selectShelves = state => (
 	values(state.entities.shelves)
 );
 
-export const selectBooksInBookshelf = (state) => (
+export const selectBooksInBookshelf = state => (
 	values(state.entities.books)
 );
 
@@ -26,4 +26,8 @@ export const selectAllReviews = state => (
 
 export const selectAllUsers = state => (
 	values(state.entities.users)
+);
+
+export const selectAllThumbs = state => (
+	values(state.entities.thumbs)
 );

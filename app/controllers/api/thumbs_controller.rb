@@ -1,6 +1,6 @@
 class Api::ThumbsController < ApplicationController
   def create
-  	@thumb = Thumb.new(user: current_user.id, book_id: params[:book_id], up: params[:up])
+  	@thumb = Thumb.new(user_id: current_user.id, book_id: params[:book_id], up: params[:up])
 
   	if @thumb.save
   		@book = @thumb.book
@@ -23,7 +23,11 @@ class Api::ThumbsController < ApplicationController
   end
 
   def show
-  	@thumbs = Thumb.find_by(book_id: params[:id])
-  	render :show
+  	@thumbs = Thumb.find_by(book_id: params[:book_id])
+    if @thumbs
+    	render :show
+    else
+      head :ok
+    end
   end
 end
