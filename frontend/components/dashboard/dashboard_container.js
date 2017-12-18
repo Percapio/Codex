@@ -19,6 +19,7 @@ import {
 	removeThumb,
 	getThumb	
 } from '../../actions/thumbs_actions';
+
 import { createBookshelf } from '../../actions/bookshelves_actions';
 
 const mapStateToProps = state => ({
@@ -37,7 +38,7 @@ const mapDispatchToProps = dispatch => ({
 
 	createThumb: thumb => dispatch(createThumb(thumb)),
 	removeThumb: thumb => dispatch(removeThumb(thumb)),
-	getThumb: (book_id) => dispatch(getThumb(book_id))
+	getThumb: (book_id) => dispatch(getThumb(book_id)),
 });
 
 export default withRouter(connect(

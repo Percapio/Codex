@@ -68,7 +68,7 @@ export default class Book extends React.Component {
 		let bookshelvesList = [];
 		let book = this.props.book;
 
-		this.props.bookshelves.map( shelf => {
+		this.props.options.bookshelves.map( shelf => {
 					deleteShelf.push(
 						<option
 							key= { shelf.id }
@@ -110,6 +110,15 @@ export default class Book extends React.Component {
 							</div>
 						</div>
 					</div>
+
+					<ul className= 'thumbs'>
+						<li onClick= { this.handleUp }>
+							<i className="fa fa-thumbs-o-up" aria-hidden="true" />
+						</li>
+						<li onClick= { this.handleDown } >
+							<i className="fa fa-thumbs-o-down" aria-hidden="true" />
+						</li>
+					</ul>
 
 					<div className= 'bookshelves-buttons'>
 						<form onSubmit= { this.handleSelect } className= 'select-bookshelf' >

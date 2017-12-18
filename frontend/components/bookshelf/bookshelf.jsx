@@ -2,7 +2,7 @@ import React from 'react';
 import BookshelfContainer from './bookshelf_container';
 import BookshelfCreate from './bookshelf_create';
 
-export default ({ bookshelves, user, books, createBookshelf }) => {
+export default ({ bookshelves, user, createBookshelf }) => {
 	let currentReading, wantToRead, sideShelves, shelfCreate;
 	let shelvesList = [];
 
@@ -13,14 +13,12 @@ export default ({ bookshelves, user, books, createBookshelf }) => {
 			if ((bookshelf.title === 'Currently Reading') && (bookshelf.owner_id == user.id)) {
 				currentReading = <BookshelfContainer
 														key= { bookshelf.id } 
-														books= { books }
 														bookshelf= { bookshelf }
-														user= { user } 
+														user= { user }
 														sideShelves= { true } />;
 			} else if ((bookshelf.title === 'Want to Read') && (bookshelf.owner_id == user.id)) {
 				wantToRead = <BookshelfContainer
 														key= { bookshelf.id } 
-														books= { books }
 														bookshelf= { bookshelf }
 														user= { user } 
 														sideShelves= { true } />; 

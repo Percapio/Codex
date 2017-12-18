@@ -12,7 +12,7 @@ export default (state = {}, action) => {
 			return action.shelves;
 
 		case RECEIVE_SHELF:
-	 		return merge({}, state, {[action.shelf.id]: action.shelf});
+	 		return action.shelf;
 
 		default:
 			return state;

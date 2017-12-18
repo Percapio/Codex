@@ -7,7 +7,7 @@ class Api::ShelvesController < ApplicationController
   end
 
   def show
-    shelves = current_user.bookshelves.find(params[:bookshelf_id].to_i).shelves
+    shelves = current_user.bookshelves.find(params[:bookshelf_id]).shelves
     @books = Shelf.select_books(shelves)
     render 'api/books/index'
   end

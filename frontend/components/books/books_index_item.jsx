@@ -45,7 +45,12 @@ class BooksIndexItem extends React.Component {
 	render() {
 		let book = this.props.book;
 		let user = this.props.user;
-		let options = this.props.bookshelves;
+		let options = { 
+			bookshelves: this.props.bookshelves,
+			thumbs: this.props.thumbs,
+			handleUp: this.handleUp,
+			handleDown: this.handleDown
+		};
 
 		return(
 			<li className= 'book-info' >
@@ -69,7 +74,7 @@ class BooksIndexItem extends React.Component {
 					</div>
 
 					<div className= 'book-stars'>
-						<ul className= 'stars'>
+						<ul className= 'thumbs'>
 							<li onClick= { this.handleUp }>
 								<i className="fa fa-thumbs-o-up" aria-hidden="true" />
 							</li>

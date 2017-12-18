@@ -14,6 +14,10 @@ export default class BookshelfItem extends React.Component {
 		this.callbackToParent = this.callbackToParent.bind(this);
 	}
 
+	componentDidMount() {
+		this.props.getShelf( this.props.bookshelf.id )
+	}
+
 	handleClick(e) {
 		e.preventDefault();
 		this.handleModal();
@@ -43,20 +47,23 @@ export default class BookshelfItem extends React.Component {
 		let shelfType;
 
 		if (this.props.sideShelves) {
-			shelfType = 
-				<div>
-					<img 
-						src= { this.props.book.img_url }
-						alt= 'some random book'
-						className= 'side-bar-books'
-						onClick= { this.handleClick } />
-							
-					<div className= 'mini-edits'>
-						<i className="fa fa-arrow-left" aria-hidden="true" />
-						<i className="fa fa-minus-circle" aria-hidden="true" onClick= { this.handleDelete } />
-						<i className="fa fa-arrow-right" aria-hidden="true" />
+			if (this.props.books.length > 0) {
+				shelfType = 
+					<div>
+						<img 
+							src= { this.props.book.img_url }
+							alt= 'some random book'
+							className= 'side-bar-books'
+							onClick= { this.handleClick } />
+								
+						<div className= 'mini-edits'>
+							<i className="fa fa-arrow-left" aria-hidden="true" />
+							<i className="fa fa-minus-circle" aria-hidden="true" onClick= { this.handleDelete } />
+							<i className="fa fa-arrow-right" aria-hidden="true" />
+						</div>
 					</div>
-				</div>
+				debugger;
+			}
 		} else {
 			shelfType = 
 				<li className= 'mini-shelf' onClick= { this.handleClick }>
