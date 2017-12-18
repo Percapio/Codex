@@ -12,7 +12,7 @@ import BookshelfItem from './bookshelf_item';
 
 const mapStateToProps = (state, ownProps) => {
 	return({
-		book: selectShelves(state),
+		books: selectShelves(state),
 		bookshelf: ownProps.bookshelf,
 		user: ownProps.user,
 		sideShelves: ownProps.sideShelves,

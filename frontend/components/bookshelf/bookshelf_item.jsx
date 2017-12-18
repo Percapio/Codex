@@ -9,13 +9,16 @@ export default class BookshelfItem extends React.Component {
 			showModal: false
 		}
 
+		this.number = 0;
+
 		this.handleClick = this.handleClick.bind(this);
 		this.handleDelete = this.handleDelete.bind(this);
 		this.callbackToParent = this.callbackToParent.bind(this);
+		this.renderBookImage = this.renderBookImage.bind(this);
 	}
 
 	componentDidMount() {
-		this.props.getShelf( this.props.bookshelf.id )
+		this.props.getShelf( this.props.bookshelf.id );
 	}
 
 	handleClick(e) {
@@ -25,7 +28,7 @@ export default class BookshelfItem extends React.Component {
 
 	handleDelete(e) {
 		e.preventDefault();
-		this.props.deleteShelf(this.props.book.id);
+		this.props.deleteShelf(this.props.books[ this.number ]);
 		this.forceUpdate();
 	}
 
@@ -43,27 +46,58 @@ export default class BookshelfItem extends React.Component {
 		this.handleModal();
 	}
 
+	renderBookImage(direction) {
+		if (direction === 'left') {
+			this.number += 1;
+			this.image(this.number);
+			this.forceUpdate();
+		} else if (direction === 'right') {
+			this.number -= 1;
+			this.image(this.number);
+			this.forceUpdate();
+		}
+	}
+
+	image(number) {
+		let length = this.props.books.length;
+
+		if (length > 0) {
+			if (number < 0) {
+				this.number += length;
+			} else if (number >= length) {
+				this.number -= length;
+			} 
+			return this.props.books[this.number].img_url;
+		}
+	}
+
 	render() {
-		let shelfType;
+		let shelfType, image;
+
+		if (typeof this.props.books === 'undefined') {
+			image = this.props.bookshelf.img_url;
+		} else {
+			image = this.image( this.number );
+			if (typeof image === 'undefined') {
+				image = this.props.bookshelf.img_url;
+			}
+		}
 
 		if (this.props.sideShelves) {
-			if (this.props.books.length > 0) {
-				shelfType = 
-					<div>
-						<img 
-							src= { this.props.book.img_url }
-							alt= 'some random book'
-							className= 'side-bar-books'
-							onClick= { this.handleClick } />
-								
-						<div className= 'mini-edits'>
-							<i className="fa fa-arrow-left" aria-hidden="true" />
-							<i className="fa fa-minus-circle" aria-hidden="true" onClick= { this.handleDelete } />
-							<i className="fa fa-arrow-right" aria-hidden="true" />
-						</div>
+			shelfType = 
+				<div>
+					<img 
+						src= { image }
+						alt= 'some random book'
+						className= 'side-bar-books'
+						onClick= { this.handleClick } />
+							
+					<div className= 'mini-edits'>
+						<i className="fa fa-arrow-left" aria-hidden="true" onClick= { () => this.renderBookImage('left') } />
+						<i className="fa fa-minus-circle" aria-hidden="true" onClick= { this.handleDelete } />
+						<i className="fa fa-arrow-right" aria-hidden="true" onClick= { () => this.renderBookImage('right') } />
 					</div>
-				debugger;
-			}
+				</div>
 		} else {
 			shelfType = 
 				<li className= 'mini-shelf' onClick= { this.handleClick }>
