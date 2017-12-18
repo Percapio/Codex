@@ -11,23 +11,32 @@ export default class BookshelfItem extends React.Component {
 
 		this.handleClick = this.handleClick.bind(this);
 		this.handleDelete = this.handleDelete.bind(this);
+		this.callbackToParent = this.callbackToParent.bind(this);
 	}
 
 	handleClick(e) {
 		e.preventDefault();
-		this.setState({ showModal: true });
+		this.handleModal();
 	}
 
 	handleDelete(e) {
 		e.preventDefault();
 		this.props.deleteShelf(this.props.book.id);
-		this.setState({ showModal: false });
+		this.forceUpdate();
 	}
 
 	handleDeleteBookshelf(e) {
 		e.preventDefault();
 		this.props.deleteBookshelf(this.props.bookshelf.id, this.props.user.id);
-		this.setState({ showModal: false });
+		this.forceUpdate();
+	}
+
+	handleModal() {
+		this.setState({ showModal: !this.state.showModal });
+	}
+
+	callbackToParent() {
+		this.handleModal();
 	}
 
 	render() {
@@ -64,7 +73,8 @@ export default class BookshelfItem extends React.Component {
 																		item= { bookshelf }
 																		open= { true }
 																		type= { 'bookshelf' }
-																		user= { this.props.user } /> : null }	
+																		user= { this.props.user }
+																		callback= { this.callbackToParent } /> : null }	
 			</div>
 		)
 	}

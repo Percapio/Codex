@@ -8,32 +8,82 @@ export default class Book extends React.Component {
 		this.state = { 
 			bookshelf_id: '',
 			book_id: props.book.id 
-		}
+		};
 
 		this.notify = false;
-		this.handleSubmit = this.handleSubmit.bind(this);
-		this.handleChange = this.handleChange.bind(this);
+		this.type = '';
+
+		this.handleSelect = this.handleSelect.bind(this);
+		this.handleSelectors = this.handleSelectors.bind(this);
+		this.handleDeleteShelf = this.handleDeleteShelf.bind(this);
 	}
 
-	handleSubmit(e) {
+	handleSelect(e) {
 		e.preventDefault(); 
-		this.props.createShelf( this.state );
-		this.notify = true;
+		this.props.createShelf( this.state ).then(
+			this.notification('add'),
+				this.errorNotification('add') );
 	}
 
-	handleChange(e) {
+	notification(type) {
+		this.notify = true;
+		this.type = type;
+		setTimeout(() => this.removeNotification(), 3000 );
+	}
+
+	removeNotification() {
+		this.errorNotify = false;
+		this.notify = false;
+		this.type = '';
+		this.forceUpdate();
+	}
+
+	errorNotification(type) {
+		this.errorNotify = true;
+		this.type = type;
+		setTimeout(() => this.removeNotification(), 3000 );
+	}
+
+	handleSelectors(e) {
+		e.preventDefault();
+		this.setState({ bookshelf_id: e.target.value });
+	}
+
+	handleDeleteShelf(e) {
+		e.preventDefault();
+		this.props.deleteShelf( this.state.bookshelf_id ).then(
+			this.notification('delete'),
+				this.errorNotification('delete') );
+	}
+
+	handleDeleting(e) {
 		e.preventDefault();
 		this.setState({ bookshelf_id: e.target.value });
 	}
 
 	render() {
+		let message;
+		let deleteShelf = [];
+		let bookshelvesList = [];
 		let book = this.props.book;
-		let bookshelvesList = this.props.bookshelves.map( shelf => 
-														<option 
-															key= { shelf.id }
-															value= { parseInt(shelf.id) } >{ shelf.title }</option> );
 
-		let message = this.notify ? <h3>Book added to bookshelf</h3> : null
+		this.props.bookshelves.map( shelf => {
+					deleteShelf.push(
+						<option
+							key= { shelf.id }
+							value= { parseInt(shelf.id) }>{ shelf.title }</option> );
+					bookshelvesList.push(
+						<option 
+							key= { shelf.id }
+							value= { parseInt(shelf.id) } >{ shelf.title }</option> );
+				}
+			);
+
+		if (this.notify) {
+			message = this.type === 'add' ? <h3>Book added to bookshelf</h3> : <h3>Book removed from bookshelf</h3> 
+		} else if (this.errorNotify) {
+			message = this.type === 'add' ? <h3>Already in bookshelf</h3> : <h3>Not in bookshelf</h3> 
+		}
 
 		return(
 			<div className= 'show-review'>
@@ -61,14 +111,23 @@ export default class Book extends React.Component {
 					</div>
 
 					<div className= 'bookshelves-buttons'>
-						<form onSubmit= { this.handleSubmit } className= 'select-bookshelf' >
-							<select value= { this.state.value } onChange= { this.handleChange } >
+						<form onSubmit= { this.handleSelect } className= 'select-bookshelf' >
+							<select value= { this.state.value } onChange= { this.handleSelectors } >
 								<option key= { 0 } >Choose Bookshelf to Add to</option>
 								{ bookshelvesList }
 							</select>
-							{ message }
 							<input type='submit' value='Select' />
 						</form>
+
+						<form onSubmit= { this.handleDelete } className= 'select-bookshelf' >
+							<select value= { this.state.value } onChange= { this.handleDeleting } >
+								<option key= { 0 } >Choose Bookshelf to Remove from</option>
+								{ deleteShelf }
+							</select>
+							<input type='submit' value='DeleteShelf' />
+						</form>
+
+						{ message }
 					</div>
 				</div>
 

@@ -10,12 +10,20 @@ class BooksIndexItem extends React.Component {
 		}
 
 		this.handleClick = this.handleClick.bind(this);
+		this.callbackToParent = this.callbackToParent.bind(this);
 	}
 
 	handleClick(e) {
 		e.preventDefault();
+		this.handleModal();
+	}
 
-		this.setState({ showModal: true });
+	handleModal() {
+		this.setState({ showModal: !this.state.showModal });
+	}
+
+	callbackToParent() {
+		this.handleModal();
 	}
 
 	render() {
@@ -63,7 +71,8 @@ class BooksIndexItem extends React.Component {
 																				open= { true }
 																				type= { 'book' }
 																				options= { options }
-																				user= { user } /> : null }	
+																				user= { user }
+																				callback= { this.callbackToParent } /> : null }	
 					<hr />
 				</div>
 

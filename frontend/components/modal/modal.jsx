@@ -11,7 +11,7 @@ const customStyles = {
     left              : 0,
     right             : 0,
     bottom            : 0,
-    backgroundColor   : 'rgba(255, 255, 255, 0.75)'
+    backgroundColor   : 'rgba(0, 0, 0, 0.5)'
   },
   content : {
     position                   : 'absolute',
@@ -41,13 +41,21 @@ class ModalComponent extends React.Component {
 		}
 
 		this.toggleModal = this.toggleModal.bind(this);
+		this.handleKeyDown = this.handleKeyDown.bind(this);
 	}
 
 	toggleModal() {
 		this.setState({ 
 			modalIsOpen: !this.state.modalIsOpen,
 			type: '',
-			item: '' })
+			item: '' }, () => {
+				this.closeTimer = setTimeout()
+			})
+		this.props.callback();
+	}
+
+	handleKeyDown(e) {
+		if (e.keyCode == 27) this.toggleModal();
 	}
 
 	render() {
@@ -74,7 +82,8 @@ class ModalComponent extends React.Component {
 					onRequestClose= { this.toggleModal }
 					style= { customStyles }
 					contentLabel= "Base Modal"
-					ariaHideApp= { false } >
+					ariaHideApp= { false }
+					onKeyDown= { this.handleKeyDown } >
 					
 					<button 
 						className= 'modal-close'

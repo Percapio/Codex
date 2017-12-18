@@ -11,11 +11,20 @@ class SuggestedBook extends React.Component {
 
 		this.book = props.book;
 		this.handleClick = this.handleClick.bind(this);
+		this.callbackToParent = this.callbackToParent.bind(this);
 	}
 
 	handleClick(e) {
 		e.preventDefault();
-		this.setState({ showModal: true });
+		this.handleModal();
+	}
+
+	handleModal() {
+		this.setState({ showModal: !this.state.showModal });
+	}
+
+	callbackToParent() {
+		this.handleModal();
 	}
 
 	render() {
@@ -34,8 +43,8 @@ class SuggestedBook extends React.Component {
 																				open= { true }
 																				type= { 'book' }
 																				user= { this.props.user }
-																				options= { this.props.bookshelves } />
-																			: null }	
+																				options= { this.props.bookshelves }
+																				callback= { this.callbackToParent } /> : null }	
 				</div>
 			</div>
 		)
