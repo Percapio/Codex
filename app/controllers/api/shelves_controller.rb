@@ -26,7 +26,8 @@ class Api::ShelvesController < ApplicationController
   end
 
   def destroy
-    shelf = current_user.bookshelves.find(params[:bookshelf_id]).shelves.find_by(book_id: params[:book_id])
+    debugger
+    shelf = current_user.bookshelves.find(params[:bookshelf_id]).shelves.find_by(book_id: params[:book_id] - 1)
     shelf.destroy!
     render :show
   end

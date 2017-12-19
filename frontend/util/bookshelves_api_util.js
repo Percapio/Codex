@@ -25,27 +25,19 @@ export const createBookshelf = (shelf) => (
 export const deleteBookshelf = (shelfId, userId) => (
 	$.ajax({
 		method: 'DELETE',
-		url: `api/users/${userId}/bookshelves/${ shelfId }`
+		url: `api/users/${userId}/bookshelves/${ shelfId }`,
+		data: {
+			id: shelfId
+		}
 	})
 );
 
 export const editBookshelf = (shelf, userId) => (
 	$.ajax({
 		method: 'PATCH',
-		url: `api/users/${userId}/bookshelves/${ shelf.id }`,
+		url: `api/users/${userId}/bookshelves/${ shelf }`,
 		data: { 
-			bookshelf: shelf 
+			id: shelfId 
 		}
 	})
 );
-
-//tester
-export const testCreate = (shelf, userId) => (
-	$.ajax({
-		method: 'POST',
-		url: `api/bookshelves`,
-		data: { 
-			bookshelf: shelf 
-		}
-	})
-)

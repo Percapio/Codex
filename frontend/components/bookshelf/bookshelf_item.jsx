@@ -15,6 +15,7 @@ export default class BookshelfItem extends React.Component {
 		this.handleDelete = this.handleDelete.bind(this);
 		this.callbackToParent = this.callbackToParent.bind(this);
 		this.renderBookImage = this.renderBookImage.bind(this);
+		this.handleDeleteBookshelf = this.handleDeleteBookshelf.bind(this);
 	}
 
 	componentDidMount() {
@@ -28,7 +29,9 @@ export default class BookshelfItem extends React.Component {
 
 	handleDelete(e) {
 		e.preventDefault();
-		this.props.deleteShelf(this.props.books[ this.number ]);
+		this.props.deleteShelf({ 
+			book_id: this.props.books[ this.number ].id,
+			bookshelf_id: this.props.bookshelf.id });
 		this.forceUpdate();
 	}
 
@@ -73,6 +76,7 @@ export default class BookshelfItem extends React.Component {
 
 	render() {
 		let shelfType, image;
+		let options = { handleDeleteBookshelf: this.handleDeleteBookshelf }
 
 		if (typeof this.props.books === 'undefined') {
 			image = this.props.bookshelf.img_url;
@@ -111,10 +115,11 @@ export default class BookshelfItem extends React.Component {
 				{ shelfType }
 
 				{ this.state.showModal ? <ModalContainer 
-																		item= { bookshelf }
+																		item= { this.props.bookshelf }
 																		open= { true }
 																		type= { 'bookshelf' }
 																		user= { this.props.user }
+																		options= { options }
 																		callback= { this.callbackToParent } /> : null }	
 			</div>
 		)

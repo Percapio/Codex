@@ -3,16 +3,21 @@ import BooksIndex from '../books/books_index';
 
 export default class Shelf extends React.Component {
 	componentDidMount() {
-		this.props.getAllShelves( this.props.bookshelf.id );
+		this.props.getShelf( this.props.bookshelf.id );
 	}
 
 	render() {
 		return(
 			<div className= 'shelf-index'>
 				<BooksIndex 
-					books= { this.props.books }
-					user= { this.props.user }
-					shelf= { true } />
+						books= { this.props.books }
+						user= { this.props.user }
+						bookshelves= { this.props.bookshelves }
+						thumbs= { this.props.thumbs }
+						createThumb= { this.props.createThumb }
+						deleteThumb= { this.props.deleteThumb }
+						getThumb= { this.props.getThumb }
+						shelf= { true } />
 			</div>
 		)
 	}

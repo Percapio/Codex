@@ -27,7 +27,7 @@ class Api::BookshelvesController < ApplicationController
   end
 
   def destroy
-    @bookshelf = Bookshelf.find_by_credentials(params[:id], params[:user_id])
+    @bookshelf = current_user.bookshelves.find(params[:id])
     @bookshelf.destroy!
     render 'api/bookshelves/index'
   end

@@ -24,6 +24,7 @@ export default ({ bookshelves, user, createBookshelf }) => {
 														sideShelves= { true } />; 
 			} else {
 				shelvesList.push(<BookshelfContainer
+														user= { user }
 														key= { bookshelf.id }
 														bookshelf= { bookshelf }
 														sideShelves= { false } />)

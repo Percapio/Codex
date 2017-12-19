@@ -1,6 +1,5 @@
 import { 
 	RECEIVE_BOOKSHELVES,
-	DELETE_BOOKSHELF,
 	CREATE_BOOKSHELF
 } from '../actions/bookshelves_actions';
 
@@ -15,11 +14,6 @@ export default (state = {}, action) => {
 
 		case CREATE_BOOKSHELF:
 			return merge({}, state, { [action.bookshelf.id]: action.bookshelf });
-
-		case DELETE_BOOKSHELF:
-			let newState = merge({}, state);
-			delete newState[action.bookshelf.id];
-			return newState;
 
 		default:
 			return state;

@@ -107,7 +107,7 @@ end
 
 #Reviews Seed
 Book.all.each do |book|
-	3.times do |num|
+	10.times do |num|
 		reviewer = @users.sample
 		Review.create(author_id: reviewer.id, book_id: book.id, description: Faker::Dune.quote, title: Faker::Dune.saying, author_name: reviewer.username)
 	end
