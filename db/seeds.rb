@@ -103,7 +103,7 @@ end
 #User seeds
 up = ['true', 'false']
 
-100.times do |num|
+20.times do |num|
 	next if num < 3
 	user = User.create(username: Faker::Name.unique.name, password: 'password', email: "#{num}@school.com")
 	Book.all.each do |book|

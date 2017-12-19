@@ -9,7 +9,7 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      User.make_shelves(@user)
+      User.make_shelf(@user)
       login(@user)
       render :show
     else
