@@ -1,6 +1,6 @@
 import { 
 	RECEIVE_BOOKSHELVES,
-	CREATE_BOOKSHELF
+	DELETE_BOOKSHELF
 } from '../actions/bookshelves_actions';
 
 import merge from 'lodash/merge';
@@ -12,8 +12,10 @@ export default (state = {}, action) => {
 		case RECEIVE_BOOKSHELVES:
 			return action.bookshelves;
 
-		case CREATE_BOOKSHELF:
-			return merge({}, state, { [action.bookshelf.id]: action.bookshelf });
+		case DELETE_BOOKSHELF:
+			let oldState = merge({}, state);
+			delete oldState[action.bookshelf.id];
+			return oldState;
 
 		default:
 			return state;

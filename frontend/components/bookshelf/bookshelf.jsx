@@ -3,21 +3,14 @@ import BookshelfContainer from './bookshelf_container';
 import BookshelfCreate from './bookshelf_create';
 
 export default ({ bookshelves, user, createBookshelf }) => {
-	let currentReading, wantToRead, sideShelves, shelfCreate;
+	let wantToRead, sideShelves, shelfCreate;
 	let shelvesList = [];
 
-	if (bookshelves.length > 0) {
+	if ((bookshelves.length > 0) && (typeof bookshelves != 'undefined')) {
 		for (let i=0; i < bookshelves.length; i++) {
 			let bookshelf = bookshelves[i];
-			
-			if ((bookshelf.title === 'Currently Reading') && (bookshelf.owner_id == user.id)) {
-				currentReading = <BookshelfContainer
-														key= { bookshelf.id } 
-														bookshelf= { bookshelf }
-														bookshelves= { bookshelves }
-														user= { user }
-														sideShelves= { true } />;
-			} else if ((bookshelf.title === 'Want to Read') && (bookshelf.owner_id == user.id)) {
+
+			if (bookshelf.title === 'Want to Read') {
 				wantToRead = <BookshelfContainer
 														key= { bookshelf.id } 
 														bookshelf= { bookshelf }
@@ -52,11 +45,6 @@ export default ({ bookshelves, user, createBookshelf }) => {
 					{ shelfCreate }
 			</div>
 
-			<hr />
-				<div className= "sideShelves">
-					<h3>Current Reading</h3>
-					{ currentReading }
-				</div>
 			<hr />
 				<div className= 'sideShelves'>
 					<h3>Want To Read</h3>

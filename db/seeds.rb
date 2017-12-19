@@ -68,16 +68,17 @@ end
 
 #Demo User
 @user = User.create(username: 'Guest', password: 'Password', email: 'aa@school.com')
-				Bookshelf.create(
-				  title: 'Currently Reading', 
-				  description: 'Basic bookshelf to hold "Currently Reading"',
-				  img_url: 'http://andrewcmaxwell.com/wp-content/themes/acm_2014/images/book_not_found.png',
-				  owner_id: @user.id
-				)
 
-@bookshelf1 =	Bookshelf.create(
+@bookshelf0 = Bookshelf.create(
 							  title: 'Want to Read', 
 							  description: 'Basic bookshelf to hold "Want to Read"',
+							  img_url: 'http://andrewcmaxwell.com/wp-content/themes/acm_2014/images/book_not_found.png',
+							  owner_id: @user.id
+							)
+
+@bookshelf1 =	Bookshelf.create(
+							  title: 'Currently Reading', 
+							  description: 'Basic bookshelf to hold "Currently Reading"',
 							  img_url: 'http://andrewcmaxwell.com/wp-content/themes/acm_2014/images/book_not_found.png',
 							  owner_id: @user.id
 							)
@@ -88,18 +89,21 @@ end
 							owner_id: @user.id 
 						)
 
-Book.all[160..-1].each do |book|
-	Shelf.create(book_id: book.id, bookshelf_id: @bookshelf1.id + 1)
-end
+@books = Book.all
 
-Book.all[145..159].each do |book|
-	Shelf.create(book_id: book.id, bookshelf_id: @bookshelf2.id + 1)
+10.times do
+	book = @books.sample
+	Shelf.create(book_id: book.id, bookshelf_id: @bookshelf0.id)
+	book = @books.sample
+	Shelf.create(book_id: book.id, bookshelf_id: @bookshelf1.id)
+	book = @books.sample
+	Shelf.create(book_id: book.id, bookshelf_id: @bookshelf2.id)
 end
 
 #User seeds
 up = ['true', 'false']
 
-200.times do |num|
+100.times do |num|
 	next if num < 3
 	user = User.create(username: Faker::Name.unique.name, password: 'password', email: "#{num}@school.com")
 	Book.all.each do |book|

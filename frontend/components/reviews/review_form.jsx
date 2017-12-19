@@ -17,7 +17,6 @@ export default class ReviewForm extends React.Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-
 		this.props.createReview(this.state);
 	}
 

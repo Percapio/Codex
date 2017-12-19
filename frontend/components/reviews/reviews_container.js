@@ -7,7 +7,18 @@ import {
 	destroyReview,
 	updateReview,
 } from '../../actions/reviews_actions';
-import { selectAllReviews } from '../../selectors/selectors';
+
+import {
+	createThumb,
+	removeThumb,
+	getThumb	
+} from '../../actions/thumbs_actions';
+
+import { 
+	selectAllReviews,
+	selectAllThumbs
+} from '../../selectors/selectors';
+
 import Reviews from './reviews';
 
 const mapStateToProps = (state, ownProps) => {
@@ -23,7 +34,8 @@ const mapStateToProps = (state, ownProps) => {
 		user: ownProps.user,
 		book: book,
 		reviews: reviews,
-		reviewId: reviewId
+		reviewId: reviewId,
+		thumbs: selectAllThumbs(state),
 	})
 };
 
@@ -31,7 +43,11 @@ const mapDispatchToProps = dispatch => ({
 	getReviews: reviews => dispatch(getReviews(reviews)),
 	createReview: review => dispatch(createReview(review)),
 	destroyReview: review => dispatch(destroyReview(review)),
-	updateReview: review => dispatch(updateReview(review))
+	updateReview: review => dispatch(updateReview(review)),
+
+	createThumb: thumb => dispatch(createThumb(thumb)),
+	removeThumb: thumb => dispatch(removeThumb(thumb)),
+	getThumb: book_id => dispatch(getThumb(book_id))
 });
 
 export default withRouter(connect(

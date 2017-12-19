@@ -1,5 +1,1 @@
-@bookshelf.each do |shelf|
-	json.set! shelf.title do
-		json.partial! 'api/bookshelves/bookshelf', bookshelf: @bookshelf
-	end
-end
+json.extract! @bookshelf, :title, :id, :owner_id, :img_url

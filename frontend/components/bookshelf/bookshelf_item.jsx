@@ -11,7 +11,7 @@ export default class BookshelfItem extends React.Component {
 
 		this.number = 0;
 
-		this.handleClick = this.handleClick.bind(this);
+		this.handleBookshelfClick = this.handleBookshelfClick.bind(this);
 		this.handleDelete = this.handleDelete.bind(this);
 		this.callbackToParent = this.callbackToParent.bind(this);
 		this.renderBookImage = this.renderBookImage.bind(this);
@@ -19,13 +19,16 @@ export default class BookshelfItem extends React.Component {
 	}
 
 	componentDidMount() {
-		this.props.getShelf( this.props.bookshelf.id );
+		if (this.props.bookshelf.title === 'Want to Read') {
+			this.props.getShelf( this.props.bookshelf.id );
+			this.forceUpdate();
+		}	
 	}
 
-	handleClick(e) {
+	handleBookshelfClick(e) {
 		e.preventDefault();
 		this.handleModal();
-	}
+	}	
 
 	handleDelete(e) {
 		e.preventDefault();
@@ -37,7 +40,9 @@ export default class BookshelfItem extends React.Component {
 
 	handleDeleteBookshelf(e) {
 		e.preventDefault();
-		this.props.deleteBookshelf(this.props.bookshelf.id, this.props.user.id);
+		this.props.deleteBookshelf({ 
+			shelfId: this.props.bookshelf.id, 
+			userId: this.props.user.id });
 		this.forceUpdate();
 	}
 
@@ -97,7 +102,7 @@ export default class BookshelfItem extends React.Component {
 						src= { image }
 						alt= 'some random book'
 						className= 'side-bar-books'
-						onClick= { this.handleClick } />
+						onClick= { this.handleBookshelfClick } />
 							
 					<div className= 'mini-edits'>
 						<i className="fa fa-arrow-left" aria-hidden="true" onClick= { () => this.renderBookImage('left') } />
@@ -107,9 +112,9 @@ export default class BookshelfItem extends React.Component {
 				</div>
 		} else {
 			shelfType = 
-				<li className= 'mini-shelf' onClick= { this.handleClick }>
-					<p className= 'bookshelf-title'>{ this.props.bookshelf.title }</p>
-					<i className= "fa fa-times" aria-hidden= "true" onClick= { this.handleDeleteBookshelf } />
+				<li className= 'mini-shelf'>
+					<p className= 'bookshelf-title' onClick= { this.handleBookshelfClick }>{ this.props.bookshelf.title }</p>
+						<i className= "fa fa-times" aria-hidden= "true" onClick= { this.handleDeleteBookshelf } />
 				</li>
 		}
 

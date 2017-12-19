@@ -22,12 +22,12 @@ export const createBookshelf = (shelf) => (
 	})
 );
 
-export const deleteBookshelf = (shelfId, userId) => (
+export const deleteBookshelf = (shelf) => (
 	$.ajax({
 		method: 'DELETE',
-		url: `api/users/${userId}/bookshelves/${ shelfId }`,
+		url: `api/users/${ shelf.userId }/bookshelves/${ shelf.shelfId }`,
 		data: {
-			id: shelfId
+			id: shelf.shelfId
 		}
 	})
 );
@@ -37,7 +37,8 @@ export const editBookshelf = (shelf, userId) => (
 		method: 'PATCH',
 		url: `api/users/${userId}/bookshelves/${ shelf }`,
 		data: { 
-			id: shelfId 
+			id: shelfId,
+			user_id: userId
 		}
 	})
 );

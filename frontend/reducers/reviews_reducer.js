@@ -19,6 +19,7 @@ export default (state = {}, action) => {
 			let oldState = merge({}, state);
 			delete oldState[action.review.id];
 			return oldState;
+			
 		default:
 			return state;
 	}

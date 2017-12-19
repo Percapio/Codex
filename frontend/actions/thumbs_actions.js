@@ -4,9 +4,9 @@ export const FETCH_THUMBS = 'FETCH_THUMBS';
 export const FETCH_THUMB = 'FETCH_THUMB';
 export const DELETE_THUMB = 'DELETE_THUMB';
 
-const fetchThumbs = thumb => ({
+const fetchThumbs = thumbs => ({
 	type: FETCH_THUMBS,
-	thumb
+	thumbs
 });
 
 const fetchThumb = thumb => ({
@@ -27,7 +27,7 @@ export const getThumbs = () => dispatch => (
 
 export const getThumb = (book_id) => dispatch => (
 	APIUtil.getThumb(book_id).then(
-		payload => dispatch(fetchThumb(payload))
+		payload => dispatch(fetchThumbs(payload))
 	)
 );
 

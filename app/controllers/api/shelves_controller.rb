@@ -26,10 +26,12 @@ class Api::ShelvesController < ApplicationController
   end
 
   def destroy
-    debugger
-    shelf = current_user.bookshelves.find(params[:bookshelf_id]).shelves.find_by(book_id: params[:book_id] - 1)
-    shelf.destroy!
-    render :show
+    @shelf = current_user.bookshelves.find(params[:bookshelf_id]).shelves.find_by(book_id: params[:book_id])
+    @shelf.destroy!
+    
+    shelves = current_user.bookshelves.find(params[:bookshelf_id]).shelves
+    @books = Shelf.select_books(shelves)
+    render 'api/books/index'
   end
 
   def update

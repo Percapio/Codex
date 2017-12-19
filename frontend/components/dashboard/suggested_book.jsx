@@ -28,6 +28,7 @@ class SuggestedBook extends React.Component {
 	}
 
 	render() {
+		let options = { bookshelves: this.props.bookshelves }
 		return(
 			<div className= 'side-book-wrap'>
 				<div className= 'side-book-container'>
@@ -43,7 +44,7 @@ class SuggestedBook extends React.Component {
 																				open= { true }
 																				type= { 'book' }
 																				user= { this.props.user }
-																				options= { this.props.bookshelves }
+																				options= { options }
 																				callback= { this.callbackToParent } /> : null }	
 				</div>
 			</div>

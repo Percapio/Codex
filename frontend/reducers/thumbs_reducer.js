@@ -10,7 +10,7 @@ export default (state = {}, action) => {
 
 	switch(action.type) {
 		case FETCH_THUMBS:
-			return action.reviews;
+			return action.thumbs;
 
 		case FETCH_THUMB:
 			return merge({}, state, {[action.thumb.id]: action.thumb});
