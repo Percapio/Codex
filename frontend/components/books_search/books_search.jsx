@@ -7,12 +7,11 @@ class BooksSearch extends React.Component {
 		super(props);
 
 		this.state = {
-			searchParams: ''
+			searchParams: '',
 		};
 
-		this.clearState = this.clearState.bind(this);
 		this.handleChange = this.handleChange.bind(this);
-		this.handleClickOutside = this.handleClickOutside.bind(this);
+		this.clearState = this.clearState.bind(this);
 	}
 
 	handleChange(e) {
@@ -29,10 +28,14 @@ class BooksSearch extends React.Component {
 	}
 
 	clearState() {
-		this.setState({ searchParams: '' });
+		this.setState({
+			searchParams: '',
+		});
 	}
 
 	render() {
+		let options = { bookshelves: this.props.bookshelves }
+
 		return (
 			<div className= 'books-search-mid'>
 				<input 
@@ -41,9 +44,12 @@ class BooksSearch extends React.Component {
 					placeholder= 'Search book by title or author'
 					value= { this.state.searchParams } />
 				<SearchIndex 
+					user= { this.props.user }
 					searchParams= { this.state.searchParams }
-					searchResults= { Object.entries(this.props.searchResults) }
-					clearState= { this.clearState } />
+					searchResults= { Object.values(this.props.searchResults) }
+					bookshelves= { this.props.bookshelves }
+					handleSearch= { this.props.handleSearch }
+					options= { options } />
 			</div>
 		)
 	}

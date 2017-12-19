@@ -48,10 +48,9 @@ class ModalComponent extends React.Component {
 		this.setState({ 
 			modalIsOpen: !this.state.modalIsOpen,
 			type: '',
-			item: '' }, () => {
-				this.closeTimer = setTimeout()
-			})
-		this.props.callback();
+			item: '' 
+		})
+		this.props.callbackToParent();
 	}
 
 	handleKeyDown(e) {

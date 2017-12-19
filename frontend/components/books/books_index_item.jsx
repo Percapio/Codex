@@ -61,12 +61,13 @@ export default class BooksIndexItem extends React.Component {
 					</div>
 							
 							{ this.state.showModal ? <ModalContainer 
-																				item= { book }
-																				open= { true }
-																				type= { 'book' }
-																				options= { options }
-																				user= { user }
-																				callback= { this.callbackToParent } /> : null }	
+																					item= { book }
+																					open= { true }
+																					type= { 'book' }
+																					options= { options }
+																					user= { user }
+																					callbackToParent= { this.callbackToParent } /> : 
+																				null }	
 					<hr />
 				</div>
 

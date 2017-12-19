@@ -27,3 +27,15 @@ export const deleteBookshelf = (shelf) => dispatch => (
 	APIUtil.deleteBookshelf(shelf).then(
 		(payload) => dispatch(receiveBookshelves(payload)) )
 );
+
+export const createShelf = (shelf) => dispatch => {
+	return(
+		APIUtil.createShelf(shelf).then(
+			payload => dispatch(receiveBookshelves(payload)) )
+	)
+};
+
+export const deleteShelf = (shelfId) => dispatch => (
+	APIUtil.deleteShelf(shelfId).then(
+		(payload) => dispatch(receiveBookshelves(payload)) )
+);

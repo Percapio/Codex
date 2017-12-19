@@ -8,9 +8,8 @@ const mapStateToProps = (state, ownProps) => {
 	return ({
 		bookshelf: ownProps.bookshelf,
 		bookshelves: ownProps.options.bookshelves,
-		user: ownProps.user,
 		books: ownProps.options.books,
-		handleDelete: ownProps.options.handleDelete,
+		user: ownProps.user,
 	})
 };
 

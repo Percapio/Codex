@@ -1,7 +1,7 @@
 import React from 'react';
 import ModalContainer from '../modal/modal_container';
 
-class SuggestedBook extends React.Component {
+export default class SuggestedBook extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -45,11 +45,9 @@ class SuggestedBook extends React.Component {
 																				type= { 'book' }
 																				user= { this.props.user }
 																				options= { options }
-																				callback= { this.callbackToParent } /> : null }	
+																				callbackToParent= { this.callbackToParent } /> : null }	
 				</div>
 			</div>
 		)
 	}
 }
-
-export default SuggestedBook;

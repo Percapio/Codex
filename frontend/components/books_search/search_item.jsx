@@ -1,10 +1,15 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 
-export default ({ book, bookId, clearState }) => (
-	<li onClick= { clearState } className= 'search-item'>
-		<NavLink to= { `/api/books/${ bookId }` }>
-			<p>{ book.title }</p>
-		</NavLink>
-	</li>
-)
+export default class SearchItem extends React.Component {
+	render() {
+		let book = this.props.book;
+		let user = this.props.user;
+		let handleSearch = this.props.handleSearch;
+
+		return(
+			<li onClick= { () => handleSearch(book) } className= 'search-item'>
+				<p>{ book.title }</p>
+			</li>
+		)
+	}
+}

@@ -1,14 +1,16 @@
 import { connect } from 'react-redux';
-import { login, logout } from '../../actions/session_actions';
 import { withRouter } from 'react-router-dom';
+import { login, logout } from '../../actions/session_actions';
+import { selectBookshelves } from '../../selectors/selectors';
+
 import NavUserForm from './nav_user_form';
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
 	return({
 			user: state.session.user,
 			errors: state.errors.errors,
-			ownProps: ownProps,
-			state: state
+			state: state,
+			bookshelves: selectBookshelves(state),
 		});
 };
 

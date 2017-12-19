@@ -18,8 +18,8 @@ class Api::ShelvesController < ApplicationController
 
     if @shelf.save
       shelves = current_user.bookshelves.find(params[:bookshelf_id]).shelves
-      @books = Shelf.select_books(shelves)
-      render 'api/books/index'
+      @bookshelves = current_user.bookshelves
+      render 'api/bookshelves/index'
     else
       render json: @shelf.errors.full_messages, status: 422
     end
@@ -30,8 +30,8 @@ class Api::ShelvesController < ApplicationController
     @shelf.destroy!
     
     shelves = current_user.bookshelves.find(params[:bookshelf_id]).shelves
-    @books = Shelf.select_books(shelves)
-    render 'api/books/index'
+    @bookshelves = current_user.bookshelves
+    render 'api/bookshelves/index'
   end
 
   def update

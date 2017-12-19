@@ -95,7 +95,7 @@ export default class BookshelfItem extends React.Component {
 			}
 		}
 
-		if (this.props.sideShelves) {
+		if (this.props.sideShelf) {
 			shelfType = 
 				<div>
 					<img 
@@ -128,7 +128,7 @@ export default class BookshelfItem extends React.Component {
 																		type= { 'bookshelf' }
 																		user= { this.props.user }
 																		options= { options }
-																		callback= { this.callbackToParent } /> : null }	
+																		callbackToParent= { this.callbackToParent } /> : null }	
 			</div>
 		)
 	}

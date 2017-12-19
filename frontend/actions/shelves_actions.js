@@ -11,24 +11,13 @@ const receiveAllShelves = shelves => ({
 const receiveShelf = shelf => ({
 	type: RECEIVE_SHELF,
 	shelf
-})
+});
 
 export const getAllShelves = (shelfId) => dispatch => (
 	APIUtil.getAllShelves(shelfId).then(
 		payload => dispatch(receiveAllShelves(payload)) )
 );
 
-export const createShelf = (shelf) => dispatch => {
-	return(
-		APIUtil.createShelf(shelf).then(
-			payload => dispatch(receiveShelf(payload)) )
-	)
-};
-
-export const deleteShelf = (shelfId) => dispatch => (
-	APIUtil.deleteShelf(shelfId).then(
-		(payload) => dispatch(receiveShelf(payload)) )
-);
 
 export const getShelf = shelfId => dispatch => (
 	APIUtil.getShelf(shelfId).then(

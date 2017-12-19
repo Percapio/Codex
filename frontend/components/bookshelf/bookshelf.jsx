@@ -3,7 +3,7 @@ import BookshelfContainer from './bookshelf_container';
 import BookshelfCreate from './bookshelf_create';
 
 export default ({ bookshelves, user, createBookshelf }) => {
-	let wantToRead, sideShelves, shelfCreate;
+	let wantToRead, sideShelf, shelfCreate;
 	let shelvesList = [];
 
 	if ((bookshelves.length > 0) && (typeof bookshelves != 'undefined')) {
@@ -13,17 +13,17 @@ export default ({ bookshelves, user, createBookshelf }) => {
 			if (bookshelf.title === 'Want to Read') {
 				wantToRead = <BookshelfContainer
 														key= { bookshelf.id } 
+														user= { user } 
 														bookshelf= { bookshelf }
 														bookshelves= { bookshelves }
-														user= { user } 
-														sideShelves= { true } />; 
+														sideShelf= { true } />; 
 			} else {
 				shelvesList.push(<BookshelfContainer
-														user= { user }
 														key= { bookshelf.id }
+														user= { user }
 														bookshelf= { bookshelf }
 														bookshelves= { bookshelves }
-														sideShelves= { false } />)
+														sideShelf= { false } />)
 			}
 		}
 
