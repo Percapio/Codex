@@ -14,12 +14,14 @@ export default ({ bookshelves, user, createBookshelf }) => {
 				currentReading = <BookshelfContainer
 														key= { bookshelf.id } 
 														bookshelf= { bookshelf }
+														bookshelves= { bookshelves }
 														user= { user }
 														sideShelves= { true } />;
 			} else if ((bookshelf.title === 'Want to Read') && (bookshelf.owner_id == user.id)) {
 				wantToRead = <BookshelfContainer
 														key= { bookshelf.id } 
 														bookshelf= { bookshelf }
+														bookshelves= { bookshelves }
 														user= { user } 
 														sideShelves= { true } />; 
 			} else {
@@ -27,6 +29,7 @@ export default ({ bookshelves, user, createBookshelf }) => {
 														user= { user }
 														key= { bookshelf.id }
 														bookshelf= { bookshelf }
+														bookshelves= { bookshelves }
 														sideShelves= { false } />)
 			}
 		}

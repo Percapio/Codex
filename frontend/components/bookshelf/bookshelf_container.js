@@ -14,6 +14,7 @@ const mapStateToProps = (state, ownProps) => {
 	return({
 		books: selectShelves(state),
 		bookshelf: ownProps.bookshelf,
+		bookshelves: ownProps.bookshelves,
 		user: ownProps.user,
 		sideShelves: ownProps.sideShelves,
 	})

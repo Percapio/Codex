@@ -1,10 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-import { 
-	selectShelves,
-	selectAllThumbs
-} from '../../selectors/selectors';
+import { selectAllThumbs } from '../../selectors/selectors';
 
 import { getShelf } from '../../actions/shelves_actions';
 import Shelf from './shelf';
@@ -18,8 +15,10 @@ import {
 const mapStateToProps = (state, ownProps) => {
 	return ({
 		bookshelf: ownProps.bookshelf,
+		bookshelves: ownProps.options.bookshelves,
 		user: ownProps.user,
-		books: selectShelves(state),
+		books: ownProps.options.books,
+		handleDelete: ownProps.options.handleDelete,
 		thumbs: selectAllThumbs(state)
 	})
 }

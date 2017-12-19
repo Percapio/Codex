@@ -76,7 +76,10 @@ export default class BookshelfItem extends React.Component {
 
 	render() {
 		let shelfType, image;
-		let options = { handleDeleteBookshelf: this.handleDeleteBookshelf }
+		let options = { 
+			handleDeleteBookshelf: this.handleDeleteBookshelf,
+			books: this.props.books,
+			bookshelves: this.props.bookshelves }
 
 		if (typeof this.props.books === 'undefined') {
 			image = this.props.bookshelf.img_url;

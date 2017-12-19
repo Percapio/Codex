@@ -23,7 +23,7 @@ class Dashboard extends React.Component {
 		}
 
 		if ((typeof this.props.bookshelves != 'undefined') && (this.props.books.length > 0)) {
-			bookshelves = <Bookshelf 
+			bookshelves = <Bookshelf
 											bookshelves= { this.props.bookshelves } 
 											user= { this.props.user }
 											createBookshelf= { this.props.createBookshelf } />
