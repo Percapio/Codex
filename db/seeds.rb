@@ -102,7 +102,7 @@ up = ['true', 'false']
 200.times do |num|
 	user = User.create(username: Faker::Name.unique.name, password: 'password', email: '#{num}@school.com')
 	Book.all.each do |book|
-		Review.create(author_id: user.id, book_id: book.id, description: Faker::StarWars.quote, title: Faker::StarWars.call_sign, author_name: user.username)
+		Review.create(author_id: user.id, book_id: book.id, description: Faker::StarWars.quote, title: Faker::StarWars.wookie_sentence, author_name: user.username)
 		Thumb.create(user_id: user.id, book_id: book.id, up: up.sample)
 	end
 end

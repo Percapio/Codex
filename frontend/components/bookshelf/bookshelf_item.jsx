@@ -50,15 +50,15 @@ export default class BookshelfItem extends React.Component {
 	}
 
 	renderBookImage(direction) {
-		if (direction === 'left') {
+		if (direction === 'right') {
 			this.number += 1;
 			this.image(this.number);
-			this.forceUpdate();
-		} else if (direction === 'right') {
+		} else if (direction === 'left') {
 			this.number -= 1;
 			this.image(this.number);
-			this.forceUpdate();
 		}
+
+		this.forceUpdate();
 	}
 
 	image(number) {

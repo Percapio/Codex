@@ -27,5 +27,5 @@ export const getSingleBook = id => dispatch => (
 
 export const getMultipleBooks = range => dispatch => (
 	APIUtil.getMultipleBooks(range).then(
-		books => dispatch(receiveBooks(books)) )
+			books => dispatch(receiveBooks(books)) )
 );
