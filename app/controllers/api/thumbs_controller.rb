@@ -23,9 +23,10 @@ class Api::ThumbsController < ApplicationController
   end
 
   def show
-  	@thumbs = Thumb.find_by(book_id: params[:book_id])
+    @thumbs = Book.find(params[:book_id]).thumbs
+
     if @thumbs
-    	render :show
+    	render :index
     else
       head :ok
     end

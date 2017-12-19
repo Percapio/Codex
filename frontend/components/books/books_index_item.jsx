@@ -1,7 +1,7 @@
 import React from 'react';
 import ModalContainer from '../modal/modal_container';
 
-class BooksIndexItem extends React.Component {
+export default class BooksIndexItem extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -10,29 +10,13 @@ class BooksIndexItem extends React.Component {
 		}
 
 		this.handleClick = this.handleClick.bind(this);
-		this.handleUp = this.handleUp.bind(this);
-		this.handleDown = this.handleDown.bind(this);
 		this.callbackToParent = this.callbackToParent.bind(this);
-	}
-
-	componentDidMount() {
-		this.props.getThumb(this.props.book.id);
 	}
 
 	handleClick(e) {
 		e.preventDefault();
 		this.handleModal();
 	}	
-
-	handleUp(e) {
-		e.preventDefault();
-		this.props.createThumb({ up: 'true', book_id: parseInt(this.props.book.id) });
-	}	
-
-	handleDown(e) {
-		e.preventDefault();
-		this.props.createThumb({ up: 'false', book_id: parseInt(this.props.book.id) });
-	}
 
 	handleModal() {
 		this.setState({ showModal: !this.state.showModal });
@@ -47,9 +31,6 @@ class BooksIndexItem extends React.Component {
 		let user = this.props.user;
 		let options = { 
 			bookshelves: this.props.bookshelves,
-			thumbs: this.props.thumbs,
-			handleUp: this.handleUp,
-			handleDown: this.handleDown
 		};
 
 		return(
@@ -74,15 +55,6 @@ class BooksIndexItem extends React.Component {
 					</div>
 
 					<div className= 'book-stars'>
-						<ul className= 'thumbs'>
-							<li onClick= { this.handleUp }>
-								<i className="fa fa-thumbs-o-up" aria-hidden="true" />
-							</li>
-							<li onClick= { this.handleDown } >
-								<i className="fa fa-thumbs-o-down" aria-hidden="true" />
-							</li>
-						</ul>
-
 						<div onClick= { this.handleClick }>
 							Click to leave a review
 						</div>
@@ -102,5 +74,3 @@ class BooksIndexItem extends React.Component {
 		)
 	}
 }
-
-export default BooksIndexItem;

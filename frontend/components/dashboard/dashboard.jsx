@@ -5,7 +5,7 @@ import Bookshelf from '../bookshelf/bookshelf';
 import SuggestedBook from './suggested_book';
 import BooksIndex from '../books/books_index.jsx';
 
-class Dashboard extends React.Component {
+export default class Dashboard extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -66,7 +66,7 @@ class Dashboard extends React.Component {
 	}
 
 	render() {
-		let suggestedBook, bookshelves;
+		let suggestedBook, bookshelves, index;
 		let books = this.props.books;
 
 		if (typeof this.props.random != 'undefined') {
@@ -83,6 +83,14 @@ class Dashboard extends React.Component {
 											createBookshelf= { this.props.createBookshelf } />
 		}
 
+		if (typeof books != 'undefined') {
+			index = <BooksIndex
+								books= { books }
+								user= { this.props.user }
+								bookshelves= { this.props.bookshelves }
+								shelf= { false } />
+		}
+
 		return (
 			<div className= 'dashboard'>
 				<div className= 'suggested-book-container'>
@@ -91,26 +99,17 @@ class Dashboard extends React.Component {
 
 				<div className= 'render-container'>
 					<div className= 'books-range'>
-						<i className="fa fa-arrow-left" aria-hidden="true" onClick= { () => this.renderRange('left') } />
+						<i className="fa fa-arrow-left fa-2x" aria-hidden="true" onClick= { () => this.renderRange('left') } />
 						<select value= { this.state.value } onChange= { this.handleRange } >
 							<option value= { 5 }>5</option>
 							<option value= { 10 }>10</option>
 							<option value= { 20 }>20</option>
 							<option value= 'all'>ALL</option>
 						</select>
-						<i className="fa fa-arrow-right" aria-hidden="true" onClick= { () => this.renderRange('right') } />
+						<i className="fa fa-arrow-right fa-2x" aria-hidden="true" onClick= { () => this.renderRange('right') } />
 					</div>
-					<BooksIndex
-						books= { books }
-						user= { this.props.user }
-						bookshelves= { this.props.bookshelves }
-						thumbs= { this.props.thumbs }
-						createThumb= { this.props.createThumb }
-						deleteThumb= { this.props.deleteThumb }
-						getThumb= { this.props.getThumb }
-						shelf= { false } />
 				</div>
-
+				{ index }
 				<div className= 'bookshelves-container'>
 					{ bookshelves }
 				</div>
@@ -118,5 +117,3 @@ class Dashboard extends React.Component {
 		)
 	}
 }
-
-export default Dashboard;

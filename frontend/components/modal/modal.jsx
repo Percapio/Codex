@@ -44,6 +44,10 @@ class ModalComponent extends React.Component {
 		this.handleKeyDown = this.handleKeyDown.bind(this);
 	}
 
+	componentDidMount() {
+		this.state.type === 'book' ? this.props.getThumb(this.state.item.id) : null
+	}
+
 	toggleModal() {
 		this.setState({ 
 			modalIsOpen: !this.state.modalIsOpen,

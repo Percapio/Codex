@@ -15,8 +15,12 @@ export default class Book extends React.Component {
 
 		this.handleSelect = this.handleSelect.bind(this);
 		this.handleSelectors = this.handleSelectors.bind(this);
+
 		this.handleDeleteShelf = this.handleDeleteShelf.bind(this);
 		this.handleDeleting = this.handleDeleting.bind(this);
+
+		this.handleUp = this.handleUp.bind(this);
+		this.handleDown = this.handleDown.bind(this);
 	}
 
 	handleSelect(e) {
@@ -62,6 +66,16 @@ export default class Book extends React.Component {
 		this.setState({ bookshelf_id: e.target.value });
 	}
 
+	handleUp(e) {
+		e.preventDefault();
+		this.props.createThumb({ up: 'true', book_id: parseInt(this.props.book.id) });
+	}	
+
+	handleDown(e) {
+		e.preventDefault();
+		this.props.createThumb({ up: 'false', book_id: parseInt(this.props.book.id) });
+	}
+
 	render() {
 		let message;
 		let deleteShelf = [];
@@ -84,6 +98,22 @@ export default class Book extends React.Component {
 			message = this.type === 'add' ? <h3>Book added to bookshelf</h3> : <h3>Book removed from bookshelf</h3> 
 		} else if (this.errorNotify) {
 			message = this.type === 'add' ? <h3>Already in bookshelf</h3> : <h3>Not in bookshelf</h3> 
+		}
+
+		let thumbs = this.props.thumbs;
+		let up = 0;
+		let down = 0;
+
+		if (typeof thumbs != 'undefined') {
+			if (thumbs.length > 0) {
+				for (let i=0; i<thumbs.length; i++) {
+					if (thumbs[i].up === 'true') {
+						up++;
+					} else if (thumbs[i].up === 'false') {
+						down++;
+					}
+				}
+			}
 		}
 
 		return(
@@ -114,16 +144,18 @@ export default class Book extends React.Component {
 					<ul className= 'thumbs'>
 						<li onClick= { this.handleUp }>
 							<i className="fa fa-thumbs-o-up" aria-hidden="true" />
+							{ up }
 						</li>
 						<li onClick= { this.handleDown } >
 							<i className="fa fa-thumbs-o-down" aria-hidden="true" />
+							{ down }
 						</li>
 					</ul>
 
 					<div className= 'bookshelves-buttons'>
 						<form onSubmit= { this.handleSelect } className= 'select-bookshelf' >
 							<select value= { this.state.value } onChange= { this.handleSelectors } >
-								<option key= { 0 } disabled selected>Choose Bookshelf to Add to</option>
+								<option key= { 0 } disabled defaultValue>Choose Bookshelf to Add to</option>
 								{ bookshelvesList }
 							</select>
 							<input type='submit' value='Select' />
@@ -131,7 +163,7 @@ export default class Book extends React.Component {
 
 						<form onSubmit= { this.handleDeleteShelf } className= 'select-bookshelf' >
 							<select value= { this.state.value } onChange= { this.handleDeleting } >
-								<option key= { 0 } disabled selected>Choose Bookshelf to Remove from</option>
+								<option key= { 0 } disabled defaultValue>Choose Bookshelf to Remove from</option>
 								{ deleteShelf }
 							</select>
 							<input type='submit' value='DeleteShelf' />

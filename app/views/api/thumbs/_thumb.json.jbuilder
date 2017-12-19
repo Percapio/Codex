@@ -1,0 +1,1 @@
+json.extract! thumb, :id, :book_id, :user_id, :up

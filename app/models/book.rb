@@ -25,7 +25,8 @@ class Book < ApplicationRecord
 		dependent: :delete_all
 
 	has_many :thumbs,
-		class_name: :Thumb
+		class_name: :Thumb,
+		foreign_key: :book_id
 
 	def self.find_first_fifteen(query)
 		param = '%' + query.downcase + '%'
