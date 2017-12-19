@@ -24,3 +24,8 @@ export const getSingleBook = id => dispatch => (
 	APIUtil.getSingleBook(id).then(
 		(book) => dispatch(receiveBook(book)) )
 );
+
+export const getMultipleBooks = range => dispatch => (
+	APIUtil.getMultipleBooks(range).then(
+		books => dispatch(receiveBooks(books)) )
+);

@@ -11,6 +11,7 @@ import {
 import { getBookshelves } from '../../actions/bookshelves_actions';
 import { 
 	getAllBooks,
+	getMultipleBooks,
 	getSingleBook
 } from '../../actions/books_actions';
 
@@ -32,6 +33,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
 	getAllBooks: () => dispatch(getAllBooks()),
+	getMultipleBooks: range => dispatch(getMultipleBooks(range)),
 	getBookshelves: (userId) => dispatch(getBookshelves(userId)),
 	getSingleBook: (bookId) => dispatch(getSingleBook(bookId)),
 	createBookshelf: (shelf, userId) => dispatch(createBookshelf(shelf, userId)),

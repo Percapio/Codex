@@ -123,7 +123,7 @@ export default class Book extends React.Component {
 					<div className= 'bookshelves-buttons'>
 						<form onSubmit= { this.handleSelect } className= 'select-bookshelf' >
 							<select value= { this.state.value } onChange= { this.handleSelectors } >
-								<option key= { 0 } >Choose Bookshelf to Add to</option>
+								<option key= { 0 } disabled selected>Choose Bookshelf to Add to</option>
 								{ bookshelvesList }
 							</select>
 							<input type='submit' value='Select' />
@@ -131,7 +131,7 @@ export default class Book extends React.Component {
 
 						<form onSubmit= { this.handleDeleteShelf } className= 'select-bookshelf' >
 							<select value= { this.state.value } onChange= { this.handleDeleting } >
-								<option key= { 0 } >Choose Bookshelf to Remove from</option>
+								<option key= { 0 } disabled selected>Choose Bookshelf to Remove from</option>
 								{ deleteShelf }
 							</select>
 							<input type='submit' value='DeleteShelf' />

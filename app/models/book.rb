@@ -36,4 +36,9 @@ class Book < ApplicationRecord
 		books = shelves.map { |shelf| shelf.book_id }
 		Book.where(id: books)
 	end
+
+	def self.find_by_start_and_end(start_pos, end_pos)
+		debugger
+		Book.where(id: start_pos..end_pos)
+	end
 end

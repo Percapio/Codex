@@ -97,27 +97,15 @@ Book.all[145..159].each do |book|
 end
 
 #User seeds
-@user2 = User.create(username: Faker::Dune.character, password: 'password1234', email: 'larry@school.com')
-@user3 = User.create(username: Faker::Dune.character, password: 'password1234', email: 'curly@school.com')
-@user4 = User.create(username: Faker::Dune.character, password: 'password1234', email: 'moe@school.com')
-@user5 = User.create(username: Faker::Dune.character, password: 'password1234', email: 'homer@school.com')
-@user6 = User.create(username: Faker::Dune.character, password: 'password1234', email: 'bob@school.com')
+up = ['true', 'false']
 
-@users = [@user2, @user3, @user4, @user5, @user6]
-
-#Reviews Seed
-Book.all.each do |book|
-	10.times do |num|
-		reviewer = @users.sample
-		Review.create(author_id: reviewer.id, book_id: book.id, description: Faker::Dune.quote, title: Faker::Dune.saying, author_name: reviewer.username)
+200.times do |num|
+	user = User.create(username: Faker::Name.unique.name, password: 'password', email: '#{num}@school.com')
+	Book.all.each do |book|
+		Review.create(author_id: user.id, book_id: book.id, description: Faker::StarWars.quote, title: Faker::StarWars.call_sign, author_name: user.username)
+		Thumb.create(user_id: user.id, book_id: book.id, up: up.sample)
 	end
 end
-
-
-
-
-
-
 
 
 

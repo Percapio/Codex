@@ -12,3 +12,13 @@ export const getSingleBook = id => (
 	})
 );
 
+export const getMultipleBooks = range => (
+	$.ajax({
+		method: 'GET',
+		url: `api/books/range`,
+		data: {
+			start_pos: range.startPos,
+			end_pos: range.endPos
+		}
+	})
+);

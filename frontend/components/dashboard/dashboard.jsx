@@ -6,14 +6,56 @@ import SuggestedBook from './suggested_book';
 import BooksIndex from '../books/books_index.jsx';
 
 class Dashboard extends React.Component {
+	constructor(props) {
+		super(props);
+
+		this.state = { value: 5 }
+		this.page = 0;
+
+		this.renderRange = this.renderRange.bind(this);
+		this.handleRange = this.handleRange.bind(this);
+	}
 	componentDidMount() {
 		this.props.getBookshelves(this.props.user.id);
-		this.props.getAllBooks();
 		this.props.getSingleBook(Math.floor(Math.random() * 178));
+		this.props.getMultipleBooks({ startPos: parseInt(this.page), endPos: parseInt(this.state.value) });
+	}
+
+	handleRange(e) {
+		e.preventDefault();
+		this.props.getMultipleBooks({ startPos: parseInt(this.page), endPos: parseInt(this.state.value) });
+	}
+
+	renderRange(direction) {
+		if (direction === 'left') {
+			this.page += this.state.value;
+			this.range(this.page);
+			this.setState({ value: this.state.value + this.page });
+		} else if (direction === 'right') {
+			this.page -= this.state.value;
+			this.range(this.page);
+			this.setState({ value: this.state.value - this.page });
+		}
+	}
+
+	range(number) {
+		let length = this.props.books.length;
+
+		if (length > 0) {
+			if (number < 0) {
+				this.page += length;
+			} else if (number + this.state.value >= length) {
+				this.page -= length;
+			}
+
+			let endPos = this.page + this.state.value;
+			this.props.getMultipleBooks({ startPos: parseInt(this.page), endPos: parseInt(endPos) });
+		}
 	}
 
 	render() {
-		let suggestedBook, bookshelves;
+		let suggestedBook, bookshelves, pageSelect;
+		let books = this.props.books;
 
 		if (typeof this.props.random != 'undefined') {
 			suggestedBook = <SuggestedBook 
@@ -29,6 +71,10 @@ class Dashboard extends React.Component {
 											createBookshelf= { this.props.createBookshelf } />
 		}
 
+		if (typeof this.props.books != 'undefined') {
+			pageSelect = <div>{ 1 }</div>
+		}
+
 		return (
 			<div className= 'dashboard'>
 				<div className= 'suggested-book-container'>
@@ -36,8 +82,19 @@ class Dashboard extends React.Component {
 				</div>
 
 				<div className= 'render-container'>
+					<div className= 'books-range'>
+						<i className="fa fa-arrow-left" aria-hidden="true" onClick= { () => this.renderRange('left') } />
+						<select value= { this.state.value } onChange= { this.handleRange } >
+							<option value= { 5 } defaultValue>5</option>
+							<option value= { 10 }>10</option>
+							<option value= { 20 }>20</option>
+							<option value= 'all'>ALL</option>
+						</select>
+						<i className="fa fa-arrow-right" aria-hidden="true" onClick= { () => this.renderRange('right') } />
+						<h3>{ pageSelect }</h3>
+					</div>
 					<BooksIndex
-						books= { this.props.books }
+						books= { books }
 						user= { this.props.user }
 						bookshelves= { this.props.bookshelves }
 						thumbs= { this.props.thumbs }

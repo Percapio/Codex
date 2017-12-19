@@ -15,9 +15,12 @@ Rails.application.routes.draw do
       get 'random_book', on: :collection
     end
 
-    resources :thumbs, only: [:create, :destroy, :index, :show]
+    resources :books, only: [:show, :index] do 
+      get 'range', on: :collection
+    end
+    
     #testing nesting of create
-    resources :books, only: [:show, :index]
+    resources :thumbs, only: [:create, :destroy, :index, :show]
     resources :reviews, only: [:index]
     resources :shelves, except: [:edit, :new]
   end
