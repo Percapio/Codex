@@ -28,17 +28,15 @@
 
 	.book-info {
 		border-radius: 3px;
-		padding: 10px;
 		display: flex;
-		align-items: center;
 		box-sizing: border-box;
 
 		.book-splash {
-			margin-right: 20px;
+			height: 30vh;
+			object-fit: contain;
+			padding-right: 20px;
 
 			img {
-				height: 160px;
-				width: 100px;
 			}
 		}
 
@@ -55,40 +53,23 @@
 			align-content: center;
 			flex-direction: column;
 			justify-content: space-evenly;
-			overflow: auto;
-			margin-left: 8px;
-			margin-right: 50px;
-
-			.book-nav {
-				flex: 1;
 
 				.book-label {
 					display: flex;
 					flex-direction: column;
-					margin: 0 auto;
 
-					h4 {
-						margin: 0;
-						font-size: 20px;
-						box-sizing: content-box;
+					.book-title {
+						font-size: 30px;
+						font-weight: 700;
 					}
 
-					p {
+					.book-author {
 						font-size: 12px;
 						margin: 0;
 						margin-bottom: 20px;
 						align-self: flex-end;
 					}
-
-					h4:hover {
-						margin-left: 2px;
-					}
-
-					p:hover {
-						margin-right: 2px;
-					}
 				}
-			}
 
 			.book-summary {
 				display: block;

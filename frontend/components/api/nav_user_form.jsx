@@ -91,7 +91,7 @@ export default class NavUserForm extends React.Component {
 
 					<div className= 'user-form-container'>
 						<div className= 'nav-links'>
-							<i className= "fa fa-user-circle-o fa-lg" aria-hidden="true">
+							<i className= "fa fa-user-circle-o fa-2x" aria-hidden="true">
 								<ul className= "signout-dropdown">
 									<li onClick= { this.handleClick }>Sign Out</li>
 								</ul>

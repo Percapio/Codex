@@ -6,6 +6,7 @@
 
 .nav-bar {
 	display: flex;
+	width: 100%;
 	justify-content: space-between;
 	align-items: center;
 	padding-left: 40px;
@@ -15,6 +16,8 @@
 	border-bottom: $border-color;
 	background-color: $back-blue;
 	color: $logo-color;
+	position: fixed;
+	z-index: 1;
 
 		a {
 			font-size: 36px;

@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import Bookshelf from '../bookshelf/bookshelf';
 import SuggestedBook from './suggested_book';
 import BooksIndex from '../books/books_index.jsx';
+import NavUserFormContainer from '../api/nav_user_form_container';
 
 export default class Dashboard extends React.Component {
 	constructor(props) {
@@ -88,30 +89,22 @@ export default class Dashboard extends React.Component {
 								books= { books }
 								user= { this.props.user }
 								bookshelves= { this.props.bookshelves }
-								shelf= { false } />
+								shelf= { false }
+								handleRange= { this.handleRange }
+								value= { this.state.value }
+								renderRange= { this.renderRange } />
 		}
 
 		return (
-			<div className= 'dashboard'>
-				<div className= 'suggested-book-container'>
-					{ suggestedBook }
-				</div>
+			<div>
+				<NavUserFormContainer />
 
-				<div className= 'render-container'>
-					<div className= 'books-range'>
-						<i className="fa fa-arrow-left fa-2x" aria-hidden="true" onClick= { () => this.renderRange('left') } />
-						<select value= { this.state.value } onChange= { this.handleRange } >
-							<option value= { 5 }>5</option>
-							<option value= { 10 }>10</option>
-							<option value= { 20 }>20</option>
-							<option value= 'all'>ALL</option>
-						</select>
-						<i className="fa fa-arrow-right fa-2x" aria-hidden="true" onClick= { () => this.renderRange('right') } />
+				<div className= 'dashboard'>
+					<div className= 'dashboard-main'>
+						{ suggestedBook }
+						{ index }
+						{ bookshelves }
 					</div>
-				</div>
-				{ index }
-				<div className= 'bookshelves-container'>
-					{ bookshelves }
 				</div>
 			</div>
 		)

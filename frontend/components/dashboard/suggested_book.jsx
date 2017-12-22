@@ -31,22 +31,21 @@ export default class SuggestedBook extends React.Component {
 		let options = { bookshelves: this.props.bookshelves }
 		return(
 			<div className= 'side-book-wrap'>
-				<div className= 'side-book-container'>
-					<img 
-						src= { this.book.img_url }
-						alt= 'some random book'
-						className= 'side-book'
-						onClick= { this.handleClick }
-						/>
+				<img 
+					src= { this.book.img_url }
+					alt= 'some random book'
+					className= 'side-book'
+					onClick= { this.handleClick }
+					/>
 
-						{ this.state.showModal ? <ModalContainer
-																				item= { this.book }
-																				open= { true }
-																				type= { 'book' }
-																				user= { this.props.user }
-																				options= { options }
-																				callbackToParent= { this.callbackToParent } /> : null }	
-				</div>
+				{ this.state.showModal ? <ModalContainer
+																		item= { this.book }
+																		open= { true }
+																		type= { 'book' }
+																		user= { this.props.user }
+																		options= { options }
+																		callbackToParent= { this.callbackToParent } /> : 
+																	null }	
 			</div>
 		)
 	}

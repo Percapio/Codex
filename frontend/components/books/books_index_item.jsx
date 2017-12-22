@@ -43,10 +43,8 @@ export default class BooksIndexItem extends React.Component {
 
 				<div className= 'book-review'>
 					<div className= 'book-label'>
-						<h4 
-							className= 'book-nav'
-							onClick= { this.handleClick } >{ book.title }</h4>
-						<p>by { book.author }</p>
+						<p className= 'book-title'>{ book.title }</p>
+						<p className= 'book-author'>by { book.author }</p>
 					</div>
 
 					<div className= 'book-summary'>Description:
