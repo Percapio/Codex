@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Login from './login';
 import SignUp from './signup';
+import NavUserFormContainer from '../api/nav_user_form_container';
 
 export default class Session extends React.Component {
 	render() {
@@ -22,8 +23,10 @@ export default class Session extends React.Component {
 		}
 
 		return(
-			<div className= 'landing-page'>
-				<div>
+			<div>
+				<NavUserFormContainer />
+
+				<div className= 'landing-page'>
 					{ session }
 				</div>
 			</div>

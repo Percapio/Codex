@@ -7,7 +7,7 @@ import ShelfContainer from '../shelves/shelf_container';
 const customStyles = {
   overlay : {
     position          : 'fixed',
-    top               : 0,
+    top               : 50,
     left              : 0,
     right             : 0,
     bottom            : 0,
@@ -25,7 +25,7 @@ const customStyles = {
     WebkitOverflowScrolling    : 'touch',
     borderRadius               : '4px',
     outline                    : 'none',
-    padding                    : '20px'
+    padding                    : '20px',
 
   }
 }

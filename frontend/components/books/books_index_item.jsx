@@ -47,28 +47,22 @@ export default class BooksIndexItem extends React.Component {
 						<p className= 'book-author'>by { book.author }</p>
 					</div>
 
-					<div className= 'book-summary'>Description:
-						<br/>
+					<div className= 'book-summary'>Summary:
+						<br/><br/>
 						<div className= 'summary'>{ book.summary }</div>
 					</div>
-
-					<div className= 'book-stars'>
-						<div onClick= { this.handleClick }>
-							Click to leave a review
-						</div>
-					</div>
 							
-							{ this.state.showModal ? <ModalContainer 
-																					item= { book }
-																					open= { true }
-																					type= { 'book' }
-																					options= { options }
-																					user= { user }
-																					callbackToParent= { this.callbackToParent } /> : 
-																				null }	
 					<hr />
 				</div>
 
+				{ this.state.showModal ? <ModalContainer 
+																		item= { book }
+																		open= { true }
+																		type= { 'book' }
+																		options= { options }
+																		user= { user }
+																		callbackToParent= { this.callbackToParent } /> : 
+																	null }	
 			</li>
 		)
 	}

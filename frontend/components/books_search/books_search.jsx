@@ -42,7 +42,8 @@ class BooksSearch extends React.Component {
 					onChange= { this.handleChange }
 					type= 'text'
 					placeholder= 'Search book by title or author'
-					value= { this.state.searchParams } />
+					value= { this.state.searchParams }
+					className= 'search-input' />
 				<SearchIndex 
 					user= { this.props.user }
 					searchParams= { this.state.searchParams }

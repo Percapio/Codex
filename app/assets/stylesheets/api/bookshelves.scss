@@ -6,8 +6,9 @@
 .mini-container {
 	display: flex;
 	flex-direction: column;
-	width: 82px;
 	position: fixed;
+	width: 10%;
+	left: 85%;
 
 	.mini-shelves {
 		display: flex;
@@ -17,6 +18,10 @@
 
 		img {
 			margin-bottom: 15px;
+		}
+
+		h2 {
+			align-self: center;
 		}
 
 		ul > p {
@@ -43,77 +48,80 @@
 		display: flex;
 		justify-content: space-between;
 
-		.bookshelf-title {
-		}
-
-		.fa:hover {
-
-		}
-
-		.bookshelf-title:hover p, .fa:hover {
-			color: black;
+		.bookshelf-title:hover {
+			cursor: pointer;
+			color: $hover-color;
 	   -webkit-text-stroke-width: 1px;
 	   -webkit-text-stroke-color: $logo-color;
 		}
 	}
 	
-
-
-	input {
-		margin-bottom: 8px;
-		border-radius: 4px;
-		border: 1px solid rgba(10, 10, 10, 0.3);
-		padding-left: 10px;
-		color: $font-color;
-		width: 82px;
-	}
-
-	.submit-button {
-		padding: 2px;
-		color: white;
-		background-color: $logo-color;
-		text-align: center;
-	}
-
-	.submit-button:hover {
-		background-color: $hover-color;
-	}
-
-	hr {
-		width: 70%;
-		border-style: inset;
-	}
-
-	.bookshelf-index {
-		margin-bottom: 13px;
-	}
-	
-	.side-bar-books, img {
-		box-sizing: border-box;
-		height: 130px;
-		width: 80px;
-		margin-right: 50px;
-	}
-
-	.side-bar-books:hover {
-		box-shadow: 2px 1px 1px black;
-    -webkit-transform: scale(1.1);
-    -moz-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    -o-transform: scale(1.1);
-	}
-
-	.mini-edits {
+	.bookshelf-create {
+		margin-top: 40px;
 		display: flex;
-		justify-content: space-between;
-		margin-top: 10px;
+		flex-direction: column;
 
-		i {
+		input {
+			margin-bottom: 8px;
+			border-radius: 4px;
+			border: 1px solid rgba(10, 10, 10, 0.3);
+			padding-left: 5%;
 			color: $font-color;
 		}
 
-		i:hover {
-			color: $logo-color;
+		.submit-button {
+			padding: 2px;
+			color: white;
+			background-color: $logo-color;
+			text-align: center;
+			align-self: center;
+			padding-left: 5px;
+			padding-right: 5px;
+		}
+
+		.submit-button:hover {
+			background-color: $hover-color;
+		}
+		
+	}
+
+	hr {
+		width: 80%;
+		border-style: inset;
+	}
+
+	.shelf {
+		overflow: auto;
+
+		h3 {
+			font-size: 14px;
+			text-transform: uppercase;
+			text-align: center;
+		}
+
+		.side-bar-book-img {
+			margin: 20px;
+			margin-top: 0px;
+			object-fit: contain;
+			
+			.side-bar-img {
+
+			}
+
+			.side-bar-img:hover {
+				box-shadow: 2px 1px 1px black;
+		    -webkit-transform: scale(1.1);
+		    -moz-transform: scale(1.1);
+		    -ms-transform: scale(1.1);
+		    -o-transform: scale(1.1);
+			}
+		}
+
+		.mini-edits {
+			position: relative;
+			display: flex;
+			justify-content: space-around;
+
 		}
 	}
 }

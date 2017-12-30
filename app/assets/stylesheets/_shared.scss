@@ -1,15 +1,47 @@
 @import './main_scss';
 
-.main-component {
-	padding: 50px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	background-color: $non-landing-backdrop;
 
-	h2 {
-		font-size: 20px;
-		font-weight: 600;
-		margin-bottom: 2px;
-	}
+input[type='text']::-webkit-input-placeholder {
+    color: $search-color;
+}
+
+input[type='text']:-moz-placeholder {
+    /* FF 4-18 */
+    color: $search-color;
+}
+
+input[type='text']::-moz-placeholder {
+    /* FF 19+ */
+    color: $search-color;
+}
+
+input[type='text']:-ms-input-placeholder {
+    /* IE 10+ */
+    color: $search-color;
+}
+
+i {
+	color: $font-color;
+}
+
+i:hover {
+	color: $logo-color;
+}
+
+img:hover, i:hover {
+	cursor: pointer;
+}
+
+.select-opts {
+    color: white;
+    background-color: $logo-color;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.select-opts:hover {
+    background-color: $hover-color;
+    cursor: pointer;
 }

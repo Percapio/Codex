@@ -26,14 +26,15 @@ export default class Bookshelf extends React.Component {
 
 	render() {
 		return (
-			<form className= 'bookshelf-index' onSubmit= { this.handleCreate }>
+			<form className= 'bookshelf-create' onSubmit= { this.handleCreate }>
 				<input
 					type= 'text'
 					value= { this.state.title }
 					onChange= { this.handleChange('title') }
-					placeholder= 'shelf name' />
+					placeholder= 'name bookshelf' />
 
-				<input type= 'submit' value= 'Add' className= 'submit-button'/>
+				<input type= 'submit' value= 'Create Bookshelf' className= 'submit-button'/>
+				<hr />
 			</form>
 		)
 	}

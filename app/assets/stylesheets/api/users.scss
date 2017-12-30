@@ -3,14 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import './main_scss';
 
-
 .nav-bar {
 	display: flex;
 	width: 100%;
-	justify-content: space-between;
+	justify-content: space-evenly;
 	align-items: center;
-	padding-left: 40px;
-	padding-right: 40px;
 	padding-top: 12px;
 	padding-bottom: 12px;
 	border-bottom: $border-color;
@@ -23,6 +20,10 @@
 			font-size: 36px;
 			margin-left: 20px;
 		}
+}
+
+.nav-center {
+	margin: 0;
 }
 
 .user-form-container {

@@ -73,11 +73,13 @@ export default class Book extends React.Component {
 					deleteShelf.push(
 						<option
 							key= { shelf.id }
-							value= { parseInt(shelf.id) }>{ shelf.title }</option> );
+							value= { parseInt(shelf.id) }
+							>{ shelf.title }</option> );
 					bookshelvesList.push(
 						<option 
 							key= { shelf.id }
-							value= { parseInt(shelf.id) } >{ shelf.title }</option> );
+							value= { parseInt(shelf.id) }
+							>{ shelf.title }</option> );
 				}
 			);
 
@@ -90,47 +92,40 @@ export default class Book extends React.Component {
 		return(
 			<div className= 'show-review'>
 				<div className= 'book-info'>
-					<h2>{ book.title }</h2>
 
 					<div className= 'book-container'>
-						<div className= 'show-top'>
-							<div className= 'img-container'>
-								<img src= { book.img_url } alt= 'some book'/>
-							</div>
+						<div className= 'img-container'>
+							<img src= { book.img_url } alt= 'some book'/>
+						</div>
 
-							<div className= 'book-info'>
-								<div className= 'book-title'>
-									<p>by { book.author }</p>
-								</div>
-							</div>
+						<div className= 'notes'>
+							<h2>{ book.title }</h2>
+							<p className= 'author'>by { book.author }</p>
+							<p>Summary:</p>
+							<p className= 'summary'>{ book.summary }</p>
+		
+							<div className= 'bookshelves-buttons'>
+								<form onSubmit= { this.handleSelect } className= 'select-bookshelf' >
+									<select value= { this.state.value } onChange= { this.handleSelectors } className= 'select-opts'>
+										<option key= { 0 } defaultValue>Choose Bookshelf to Add to</option>
+										{ bookshelvesList }
+									</select>
+									<input type='submit' value='Add to Bookshelf' />
+								</form>
 
-							<div className= 'show-bottom'>
-								<div className= 'book-summary'>
-									<p>{ book.summary }</p>
-								</div>
+								<form onSubmit= { this.handleDeleteShelf } className= 'select-bookshelf'>
+									<select value= { this.state.value } onChange= { this.handleDeleting } className= 'select-opts' >
+										<option key= { 0 } defaultValue>Choose Bookshelf to Remove from</option>
+										{ deleteShelf }
+									</select>
+									<input type='submit' value='Delete from Bookshelf' />
+								</form>
+
+								{ message }
 							</div>
 						</div>
 					</div>
 
-					<div className= 'bookshelves-buttons'>
-						<form onSubmit= { this.handleSelect } className= 'select-bookshelf' >
-							<select value= { this.state.value } onChange= { this.handleSelectors } >
-								<option key= { 0 } defaultValue>Choose Bookshelf to Add to</option>
-								{ bookshelvesList }
-							</select>
-							<input type='submit' value='Select' />
-						</form>
-
-						<form onSubmit= { this.handleDeleteShelf } className= 'select-bookshelf' >
-							<select value= { this.state.value } onChange= { this.handleDeleting } >
-								<option key= { 0 } defaultValue>Choose Bookshelf to Remove from</option>
-								{ deleteShelf }
-							</select>
-							<input type='submit' value='DeleteShelf' />
-						</form>
-
-						{ message }
-					</div>
 				</div>
 
 				<ReviewsContainer book= { book } user= { this.props.user } />

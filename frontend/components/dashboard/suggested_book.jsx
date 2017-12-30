@@ -31,12 +31,15 @@ export default class SuggestedBook extends React.Component {
 		let options = { bookshelves: this.props.bookshelves }
 		return(
 			<div className= 'side-book-wrap'>
+				<h3>Suggested Book</h3>
 				<img 
 					src= { this.book.img_url }
 					alt= 'some random book'
 					className= 'side-book'
 					onClick= { this.handleClick }
 					/>
+				<h4>{ this.book.title }</h4>
+				<p>by { this.book.author }</p>
 
 				{ this.state.showModal ? <ModalContainer
 																		item= { this.book }

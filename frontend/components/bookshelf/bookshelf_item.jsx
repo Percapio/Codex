@@ -97,29 +97,34 @@ export default class BookshelfItem extends React.Component {
 
 		if (this.props.sideShelf) {
 			shelfType = 
-				<div>
-					<img 
-						src= { image }
-						alt= 'some random book'
-						className= 'side-bar-books'
-						onClick= { this.handleBookshelfClick } />
-							
+				<div className= 'shelf'>					
+					<h3>Want To Read</h3>
+
+					<div className= 'side-bar-book-img'>
+						<img 
+							src= { image }
+							alt= 'some random book'
+							className= 'side-bar-img'
+							onClick= { this.handleBookshelfClick } />
+					</div>							
 					<div className= 'mini-edits'>
 						<i className="fa fa-arrow-left" aria-hidden="true" onClick= { () => this.renderBookImage('left') } />
 						<i className="fa fa-minus-circle" aria-hidden="true" onClick= { this.handleDelete } />
 						<i className="fa fa-arrow-right" aria-hidden="true" onClick= { () => this.renderBookImage('right') } />
 					</div>
+					
+					<hr />
 				</div>
 		} else {
 			shelfType = 
 				<li className= 'mini-shelf'>
 					<p className= 'bookshelf-title' onClick= { this.handleBookshelfClick }>{ this.props.bookshelf.title }</p>
-						<i className= "fa fa-times" aria-hidden= "true" onClick= { this.handleDeleteBookshelf } />
+					<i className= "fa fa-times" aria-hidden= "true" onClick= { this.handleDeleteBookshelf } />
 				</li>
 		}
 
 		return(
-			<div className= 'side-book-wrap'>
+			<div className= 'bookshelves-wrap'>
 				{ shelfType }
 
 				{ this.state.showModal ? <ModalContainer 

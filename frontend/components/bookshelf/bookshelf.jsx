@@ -45,12 +45,7 @@ export default ({ bookshelves, user, createBookshelf }) => {
 					{ shelfCreate }
 			</div>
 
-			<hr />
-				<div className= 'sideShelves'>
-					<h3>Want To Read</h3>
-					{ wantToRead }
-				</div>
-			<hr />
+			{ wantToRead }
 		</div>
 	)
 }

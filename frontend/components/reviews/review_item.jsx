@@ -4,15 +4,17 @@ export default ({ review }) => (
 	<li>
 		<div className= 'review-container'>
 			<div className= 'review-header'>
-				<div className= 'review-title'>
-					{ review.title }
-				</div>
 				<div className= 'review-author'>
-					--{ review.author_name }
+					{ review.author_name }
+				</div>
+				<div className= 'review-title'>
+					Title:
+					<br/>
+					{ review.title }
+					<br/><br/>
 				</div>
 			</div>
 
-			<hr />
 
 			<div className= 'review-description'>
 				Review:
@@ -20,5 +22,6 @@ export default ({ review }) => (
 				{ review.description }
 			</div>
 		</div>
+		<hr />
 	</li>
 )

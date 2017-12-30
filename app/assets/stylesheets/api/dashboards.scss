@@ -6,15 +6,16 @@
 .dashboard {
 	display: flex;
 	padding-top: 120px;
-	justify-content: space-around;
 
 	.dashboard-main {
 		display: flex;
-		justify-content: space-evenly;
+		width: 100%;
 		
 		.side-book-wrap {
 			background-color: white;
 			position: fixed;
+			left: 5%;
+			width: 10%;
 
 			.side-book {
 				object-fit: contain;
@@ -27,7 +28,21 @@
 			  -ms-transform: scale(1.1);
 			  -o-transform: scale(1.1);	
 			}
+
+			h3 {
+				font-size: 12px;
+				text-align: center;
+			}
+
+			h4 {
+				font-size: 11px;
+				margin-bottom: 0;
+			}
+
+			p {
+				font-size: 9px;
+				text-align: end;
+			}
 		}
 	}
-
 }

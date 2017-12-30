@@ -33,12 +33,12 @@ export default class Dashboard extends React.Component {
 		}
 	}
 
-	renderRange(direction) {
+	renderRange(direction, extend = 1) {
 		let indicator;
 		if (direction === 'right') {
-			indicator = this.state.value;
+			indicator = this.state.value * extend;
 		} else if (direction === 'left') {
-			indicator = this.state.value * -1
+			indicator = this.state.value * -1 * extend;
 		}
 
 		this.page += indicator;

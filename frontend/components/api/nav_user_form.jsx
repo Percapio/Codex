@@ -51,11 +51,11 @@ export default class NavUserForm extends React.Component {
 			bookshelves: this.props.bookshelves
 		}
 
-		let user = this.props.user
+		let user = this.props.user;
 
 		if ((this.props.sessionType === '/') || (this.props.sessionType === '/login')) {
 			return (
-				<div className= 'nav-bar'>
+				<div className= 'nav-bar nav-center'>
 					<NavLink to= { `/` }>Codex</NavLink>
 					<div className= 'user-form-container' />
 				</div>
