@@ -10,8 +10,8 @@ export default class Dashboard extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.state = { value: 5 }
-		this.page = 1;
+		this.state = { value: 5 };
+		this.start = 1;
 
 		this.renderRange = this.renderRange.bind(this);
 		this.handleRange = this.handleRange.bind(this);
@@ -19,50 +19,41 @@ export default class Dashboard extends React.Component {
 	componentDidMount() {
 		this.props.getBookshelves(this.props.user.id);
 		this.props.getSingleBook(Math.floor(Math.random() * 178));
-		this.props.getMultipleBooks({ startPos: this.page, endPos: this.state.value });
+		this.props.getMultipleBooks({ startPos: this.start, endPos: this.state.value });
 	}
 
 	handleRange(e) {
 		e.preventDefault();
 		let newValue = e.target.value;
 
-		if (newValue === 'all') {
-			this.props.getAllBooks();
-		} {
-			this.setState({ value: parseInt(newValue) }, () => this.range(this.state.value));
-		}
+		this.setState({ value: parseInt(newValue) }, () => this.range(this.state.value));
 	}
 
-	renderRange(direction, extend = 1) {
-		let indicator;
+	renderRange(direction, extension = 0) {
+		let move;
 		if (direction === 'right') {
-			indicator = this.state.value * extend;
+			move = this.state.value + extension;
+			this.start += move;
+
+			if (this.start > 177) {
+				this.start -= 177;
+			}
 		} else if (direction === 'left') {
-			indicator = this.state.value * -1 * extend;
+			move = this.state.value * -1;
+			this.start += move;
+
+			if (this.start < 1) {
+				this.start += 177;
+			}
 		}
 
-		this.page += indicator;
-		if (this.page < 0) {
-			this.page += 177;
-		} else if (this.page > 177) {
-			this.page -= 177;
-		}
-
-		this.range(indicator);
+		this.range(Math.abs(move));
 	}
 
-	range(indicator = 0) {
-		let endPos = indicator + this.page;
+	range(move = 0) {
+		let endPos = move + this.start;
 
-		if (endPos < 0) {
-			endPos += 177;
-		} else if (endPos >= 177) {
-			endPos -= 177
-		}
-
-		endPos > this.page ? 
-		this.props.getMultipleBooks({ startPos: this.page, endPos: endPos }) :
-		this.props.getMultipleBooks({ startPos: endPos, endPos: this.page });
+		this.props.getMultipleBooks({ startPos: this.start, endPos: endPos });
 		this.forceUpdate();
 	}
 
@@ -92,6 +83,7 @@ export default class Dashboard extends React.Component {
 								shelf= { false }
 								handleRange= { this.handleRange }
 								value= { this.state.value }
+								start= { this.start }
 								renderRange= { this.renderRange } />
 		}
 
@@ -107,6 +99,6 @@ export default class Dashboard extends React.Component {
 					</div>
 				</div>
 			</div>
-		)
+		);
 	}
 }

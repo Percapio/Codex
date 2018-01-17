@@ -4,8 +4,7 @@ import BooksContainer from './books_container';
 export default class BooksIndex extends React.Component {
 	render() {
 		let books = this.props.books;
-		let index;
-		let page_list = [];
+		let index, page_list;
 
 		if (books.length > 0) {
 			index = books.map( book => 
@@ -15,20 +14,72 @@ export default class BooksIndex extends React.Component {
 															bookshelves= { this.props.bookshelves }
 															user= { this.props.user } />	);
 
-			let pages = Math.floor( 178 / books.length );
-			let book_pos = Math.ceil((books[books.length - 1].id) / books.length);
+			let pages = Math.ceil( 178 / this.props.value );
+			let page_pos = Math.ceil(this.props.start / this.props.value);
 
-			for (let i=0; i < 3; i++) {
-				if (i === 0) {
-					page_list.push( <p>{ book_pos }</p> );
-				} else {
-					page_list.push( <p onClick= { () => this.props.renderRange('right', i + 1) } >{ book_pos + i }</p> );
+			switch	(page_pos) {
+				case (36):
+					page_list = 
+						[ 
+							<p>{ page_pos }</p>,
+							<p onClick= { () => this.props.renderRange('right', 1) }>{ 1 }</p>,
+							<p onClick= { () => this.props.renderRange('right', 2) }>{ 2 }</p>,
+						];
+						break;
+				case (35):
+					page_list = 
+						[ 
+							<p>{ page_pos }</p>,
+							<p onClick= { () => this.props.renderRange('right', 1) }>{ page_pos + 1}</p>,
+							<p onClick= { () => this.props.renderRange('right', 2) }>{ 1 }</p>
+						];
+						break;
+				case (18):
+					if ( this.props.value === 10 ) {
+						page_list = 
+							[ 
+								<p>{ page_pos }</p>,
+								<p onClick= { () => this.props.renderRange('right', 1) }>{ 1 }</p>,
+								<p onClick= { () => this.props.renderRange('right', 2) }>{ 2 }</p>,
+							];
+						break;
+					}
+				case (17):
+					if ( this.props.value === 10 ) {
+					page_list =
+						[ 
+							<p>{ page_pos }</p>,
+							<p onClick= { () => this.props.renderRange('right', 1) }>{ page_pos + 1}</p>,
+							<p onClick= { () => this.props.renderRange('right', 2) }>{ 1 }</p>
+						];
+					break;
 				}
-
-				page_list.push( <p>..</p> );
+				case (1):
+					if ( this.props.value === 20 ) {
+						page_list =
+							[ 
+								<p>{ page_pos }</p>,
+								<p onClick= { () => this.props.renderRange('right', 1) }>{ page_pos + 1}</p>
+							];
+						break;
+					}
+				case (2):
+					if ( this.props.value === 20 ) {
+						page_list =
+							[ 
+								<p>{ page_pos }</p>,
+								<p onClick= { () => this.props.renderRange('right', 1) }>{ 1 }</p>
+							];
+						break;
+					}
+				default:
+					page_list = 
+						[ 
+							<p>{ page_pos }</p>,
+							<p onClick= { () => this.props.renderRange('right', 1) }>{ page_pos + 1 }</p>,
+							<p onClick= { () => this.props.renderRange('right', 2) }>{ page_pos + 2 }</p>,
+						];
 			}
-
-			page_list.push( <p>{ pages }</p> );
 		}
 
 		return (
@@ -39,7 +90,6 @@ export default class BooksIndex extends React.Component {
 						<option value= { 5 }>View 5 books</option>
 						<option value= { 10 }>View 10 books</option>
 						<option value= { 20 }>View 20 books</option>
-						<option value= 'all'>View all</option>
 					</select>
 
 					<div className= 'page-list'>
