@@ -1,11 +1,9 @@
 # CODEX
 
-## CODEX
 [Live Demo](https://codex-.herokuapp.com/#/)
 
-
 ### Summary
-Codex is a re-imagined GoodReads website, presented with a clear design closely tied to today's current trend of single app designs.  It is a simple, yet effective design intended to not detract the readers, but instead help them quickly browse for what they are looking for, discover what was waiting for them, and move on with their busy lives.
+Codex is a simplified GoodReads website, presented with a clear design closely tied to today's current trend of single app designs.  It is a simple, yet effective design intended to not detract the readers, but instead help them quickly browse for what they are looking for, discover what was waiting for them, and move on with their busy lives.
 
 
 ### React
@@ -45,8 +43,5 @@ Another challenge was the passing of data from one component to the next.  Norma
 
 
 ### Features to be added:
-  * User functionality on links shown
-  * Search bar and function
   * Tags
-  * Improved UI/UX layout
   * User profiles

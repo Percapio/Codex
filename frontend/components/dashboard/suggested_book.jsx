@@ -7,7 +7,7 @@ export default class SuggestedBook extends React.Component {
 
 		this.state = {
 			showModal: false
-		}
+		};
 
 		this.book = props.book;
 		this.handleClick = this.handleClick.bind(this);
@@ -41,6 +41,18 @@ export default class SuggestedBook extends React.Component {
 				<h4>{ this.book.title }</h4>
 				<p>by { this.book.author }</p>
 
+				<div className= 'links-to-me'>
+					<a href='http://thomasvu.space/#/'>
+						<img src='http://redriverunited.org/wp-content/uploads/2014/06/globe.png' alt='website logo' />
+					</a>
+					<a href='https://github.com/Percapio'>
+						<img src='https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png' alt='github logo' />
+					</a>
+					<a href='https://www.linkedin.com/in/mrthomasmvu/'>
+						<img src='https://image.flaticon.com/icons/svg/61/61109.svg' alt='linkedin logo' />
+					</a>
+				</div>
+
 				{ this.state.showModal ? <ModalContainer
 																		item= { this.book }
 																		open= { true }
@@ -50,6 +62,6 @@ export default class SuggestedBook extends React.Component {
 																		callbackToParent= { this.callbackToParent } /> : 
 																	null }	
 			</div>
-		)
+		);
 	}
 }

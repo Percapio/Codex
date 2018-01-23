@@ -43,6 +43,27 @@
 				font-size: 9px;
 				text-align: end;
 			}
+
+			.links-to-me {
+				margin-top: 30%;
+				margin-right: 0;
+
+				a {
+					width: 20%;
+					margin-top: 10%;
+
+					img {
+						object-fit: contain;
+					}
+				}
+
+				a:hover {
+					-webkit-transform: scale(1.1);
+					-moz-transform: scale(1.1);
+					-ms-transform: scale(1.1);
+					-o-transform: scale(1.1);
+				}
+			}
 		}
 	}
 }
